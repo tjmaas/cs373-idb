@@ -1,0 +1,28 @@
+People
+	-Picture
+	-Name
+	-Video
+	-Bio
+	-Graphs
+	-Small archive of tweets
+	-External links
+	-Related pages (internal)
+
+Hashtags
+	-Name
+	-Graph
+	-Orgin (date and context)
+	-Popular users that tweeted this
+	-Related pages (internal)
+	-External links
+
+Clusters
+	-members
+	-parents
+	-timeline
+	-General description
+	-Key figures
+	-External links
+	-Related Pages (internal)
+	-Graphs
+
