@@ -1,0 +1,11 @@
+# Create your views here.
+from django.html import HttpResponse
+from django.shortcuts import render
+import datetime
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    return render(request, 'current_datetime.html', {'current_date': now})
+
+def hello(request):
+    return HttpRequest("Hello World!")
