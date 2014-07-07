@@ -1,28 +1,35 @@
-People
+Handles
 	-Picture
 	-Name
 	-Video
 	-Bio
 	-Graphs
-	-Small archive of tweets
-	-External links
-	-Related pages (internal)
+	-Tweets
+	-Related pages
+		-Handles
+		-Hashtags
+		-Clusters
 
 Hashtags
 	-Name
 	-Graph
-	-Orgin (date and context)
+	-Description
 	-Popular users that tweeted this
-	-Related pages (internal)
-	-External links
+	-Related pages
+		-Handles
+		-Hashtags
+		-Clusters
 
 Clusters
-	-members
-	-parents
-	-timeline
-	-General description
+	-Name
+	-Members
+	-Parents
+	-Timeline
+	-Description
 	-Key figures
-	-External links
-	-Related Pages (internal)
+	-Related Pages
+		-Handles
+		-Hashtags
+		-Clusters
 	-Graphs
 
