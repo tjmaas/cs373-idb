@@ -1,0 +1,94 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+#### Twistory
+Twistory API gives access to real world **Twitter data** and view _trending events_ 
+
+# Group Handles
+Twitter Handle resources are people/entities that are actively engaged on twitter 
+
+## Handle Collection [/handles]
+### List all Handle [GET]
++ Response 200 (application/json)
+
+        [{
+         "id": 1, "identifier": "KingJames","name": "Lebron James"
+        }, {
+         "id": 2, "identifier": "kobebryant","name": "Kobe Bryant"
+        }]
+
+### Create/Store a new Handle [POST]
++ Request (application/json)
+
+        { "identifier": "neymarjr","name": "Neymar Jr" }
+
++ Response 201 (application/json)
+        
+        { "id": 3, "identifier": "neymarjr", "name": "Neymar Jr"}
+       
+
+
+
+# Group Hashtags
+Hashtags are markers that denote a specific tweet
+
+## HashTags Collection [/hashtags]
+### List all HashTags [GET]
++ Response 200 (application/json)
+
+        [{
+         "id": 1, "name": "HeatsVsSpurs" retweet_count:"600000" 
+        }, {
+         "id": 2, "name": "WorldCup" retweet_count:"99999999"
+        }]
+
+### Create a Hashtag [POST]
++ Request (application/json)
+
+        { "name": "LebronFreeAgency" }
+
++ Response 201 (application/json)
+
+        { "id": 3, "name": "LebronnFreeAgency" }
+       
+
+
+## HashTag [/hashtags/name/]
+Get all hashtags with a certain name
+
++ Parameters
+   + (a Phrase or Word that was tweeted `#MauryIsHeTheFather`) (required, string, `WorldCup` ) ... Need to be the name of objects
+   
+### Retrieve a Hashtag [GET]
++ Response 200 (application/json)
+
+   + Header
+
+            X-My-Header: The Value
+
+   + Body
+
+            { "id": 2, "name":"WorldCup" }
+
+
+## HashTag [/hashtags/{id}]
+A single Note object with all its details
+
++ Parameters
+   + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+
+### Retrieve a Hashtag [GET]
++ Response 200 (application/json)
+
+   + Header
+
+            X-My-Header: The Value
+
+   + Body
+
+            { "id": 2, "name":"WorldCup" }
+
+### Remove a Hashtag [DELETE]
++ Response 204
+
