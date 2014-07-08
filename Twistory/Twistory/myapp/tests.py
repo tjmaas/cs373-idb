@@ -1,16 +1,42 @@
+#!/usr/bin/env python3
+
+# -------------------------------
+# projects/collatz/TestCollatz.py
+# Copyright (C) 2014
+# Glenn P. Downing
+# -------------------------------
+
 """
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
+To test the program:
+% coverage3 run --branch tests.py
 
-Replace this with more appropriate tests for your application.
+To obtain coverage of the test:
+% coverage3 report -m
 """
 
-from django.test import TestCase
+# -------
+# imports
+# -------
 
+from unittest import main, TestCase
+from models import Handle, Hashtag, Cluster
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+# -----------
+# test
+# -----------
+
+class Test (TestCase) :
+    # ----
+    # Handle Model
+    # ----
+
+    def handle_test(self):
+    	handle = Handle(username = "@LadyGaga", name = "Stephanie", bio = "Mother monster, \
+    		popstar, popular twitter person.", tweets = "QUEEN OF THE WORLD!")
+    	self.assertEquals(str(handle), "");
+    
+# ----
+# main
+# ----
+
+main()
