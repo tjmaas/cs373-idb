@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^hello/$', hello),
     url(r'^current_datetime/$', current_datetime),
     url(r'^$', homepage),
+    
 )
