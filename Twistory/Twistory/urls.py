@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from Twistory.views import *
+from Twistory.myapp.views import *
 
 from django.contrib import admin
 admin.autodiscover()
