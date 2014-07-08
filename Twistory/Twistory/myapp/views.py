@@ -5,8 +5,8 @@ import os
 
 KingJamesBioString = open(os.path.join(os.path.dirname(os.path.dirname(__file__)), '../static/KingJamesBio.txt'), 'r').readlines()[0]
 
-GloablDict = {'img_addr' : "ChrisBosh.jpg", 'KingJames' : "KingJames.jpeg", "KingJamesName" : "LeBron James", "KingJamesBio" : KingJamesBioString}
-
+GloablDict = {'Profile' : "/handles/Erik_Spoelstra/ErikSpoelstraProfile.jpg", 'title' : "Erik Spoelstra"}
+	
 def hello(request):
 	return HttpResponse("Hello world")
 
