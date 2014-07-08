@@ -4,8 +4,9 @@ from django.db import models
 
 class Handle(models.Model) :
 	picture = models.ImageField()
+	username = models.CharField(max_length = 50)
 	name = models.CharField(max_length = 50)
-	video = video_file = models.FileField(upload_to = u'video/', max_length=200)
+	video = models.FileField(upload_to = u'video/', max_length=200)
 	bio = models.CharField(max_length = 100)
 	graph = models.ImageField()
 	tweets = models.TextField(null = True)
