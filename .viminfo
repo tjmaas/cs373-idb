@@ -8,8 +8,8 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
-:wq
 :q
+:wq
 :q!
 
 # Search String History (newest to oldest):
@@ -25,19 +25,26 @@
 	 
 
 # File marks:
-'0  15  24  ~/Twistory/Twistory/urls.py
-'1  14  47  ~/Twistory/Twistory/views.py
-'2  51  41  ~/Twistory/Twistory/settings.py
-'3  2  27  ~/Twistory/Twistory/urls.py
-'4  11  75  ~/Twistory/Twistory/views.py
-'5  14  18  ~/Twistory/Twistory/urls.py
-'6  86  9  ~/Twistory/Twistory/settings.py
-'7  1  54  ~/Twistory/Twistory/templates/current_datetime.html
-'8  1  0  ~/Twistory/Twistory/templates/currentdatetime.html
-'9  1  0  ~/Twistory/Twistory/myapp/views.py
+'0  7  0  ~/Twistory/Twistory/myapp/models.py
+'1  12  0  ~/Twistory/Twistory/myapp/tests.py
+'2  15  0  ~/Twistory/Twistory/myapp/models.py
+'3  5  0  ~/Twistory/Twistory/myapp/views.py
+'4  15  24  ~/Twistory/Twistory/urls.py
+'5  14  47  ~/Twistory/Twistory/views.py
+'6  51  41  ~/Twistory/Twistory/settings.py
+'7  2  27  ~/Twistory/Twistory/urls.py
+'8  11  75  ~/Twistory/Twistory/views.py
+'9  14  18  ~/Twistory/Twistory/urls.py
 
 # Jumplist (newest first):
+-'  7  0  ~/Twistory/Twistory/myapp/models.py
+-'  15  0  ~/Twistory/Twistory/myapp/models.py
+-'  12  0  ~/Twistory/Twistory/myapp/tests.py
+-'  1  0  ~/Twistory/Twistory/myapp/tests.py
+-'  1  0  ~/Twistory/Twistory/myapp/models.py
+-'  5  0  ~/Twistory/Twistory/myapp/views.py
 -'  15  24  ~/Twistory/Twistory/urls.py
+-'  1  0  ~/Twistory/Twistory/myapp/views.py
 -'  2  27  ~/Twistory/Twistory/urls.py
 -'  14  47  ~/Twistory/Twistory/views.py
 -'  11  75  ~/Twistory/Twistory/views.py
@@ -48,7 +55,6 @@
 -'  1  54  ~/Twistory/Twistory/templates/current_datetime.html
 -'  1  0  ~/Twistory/Twistory/templates/currentdatetime.html
 -'  7  37  ~/Twistory/Twistory/views.py
--'  1  0  ~/Twistory/Twistory/myapp/views.py
 -'  3  34  ~/Twistory/Twistory/myapp/views.py
 -'  59  9  ~/Twistory/Twistory/settings.py
 -'  11  37  ~/Twistory/Twistory/myapp/views.py
@@ -126,15 +132,31 @@
 -'  1  0  ~/Twistory/manage.py
 -'  1  0  ~/Twistory/manage.py
 -'  1  0  ~/Twistory/manage.py
--'  1  0  ~/Twistory/Twistory/myapp/views.py
--'  3  34  ~/Twistory/Twistory/myapp/views.py
 -'  1  54  ~/Twistory/Twistory/templates/current_datetime.html
 -'  1  54  ~/Twistory/Twistory/templates/current_datetime.html
 -'  1  0  ~/Twistory/Twistory/templates/currentdatetime.html
--'  51  41  ~/Twistory/Twistory/settings.py
--'  86  9  ~/Twistory/Twistory/settings.py
 
 # History of marks within files (newest to oldest):
+
+> ~/Twistory/Twistory/myapp/models.py
+	"	7	0
+
+> ~/Twistory/Twistory/myapp/tests.py
+	"	12	0
+
+> ~/Twistory/Twistory/myapp/views.py
+	"	5	0
+	^	5	0
+	.	5	0
+	+	12	0
+	+	8	124
+	+	2	35
+	+	11	37
+	+	8	73
+	+	5	0
+	+	3	34
+	+	5	25
+	+	5	0
 
 > ~/Twistory/Twistory/urls.py
 	"	15	24
@@ -175,18 +197,6 @@
 
 > ~/Twistory/Twistory/templates/currentdatetime.html
 	"	1	0
-
-> ~/Twistory/Twistory/myapp/views.py
-	"	1	0
-	^	3	35
-	.	3	34
-	+	12	0
-	+	8	124
-	+	2	35
-	+	11	37
-	+	8	73
-	+	5	0
-	+	3	34
 
 > ~/README.txt
 	"	1	0
