@@ -11,4 +11,5 @@ def current_datetime(request):
     return render(request, 'current_datetime.html', {'current_date' : now })
 
 def homepage(request):
-    return HttpResponse("This is our homepage!")
+	image_data = open("/home/Twistory/Twistory/Twistory/myapp/ChrisBosh.jpg", "rb").read()
+    return render(request, 'current_datetime.html', {'current_date' : image_data })
