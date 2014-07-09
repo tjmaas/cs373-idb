@@ -1,10 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-import os
-
-GloablDict = {'Profile' : "Handles/Erik_Spoelstra/ErikSpoelstraProfile.jpg", 'title' : "Erik Spoelstra"}
-
 def homepage(request):
 	return render(request, 'Homepage.html', {})
 
