@@ -14,4 +14,6 @@ urlpatterns = patterns('',
     url(r'^ErikSpoelstra/$', ErikSpoelstra),
     url(r'^LeBronJames/$', LeBronJames),
     url(r'^GreggPopovich/$', GreggPopovich),
+    url(r'^ChrisBosh/$', ChrisBosh),
+    url(r'^DwyaneWade/$', DwyaneWade),
 )
