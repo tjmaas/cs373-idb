@@ -11,9 +11,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', homepage),
-    url(r'^ErikSpoelstra/$', ErikSpoelstra),
-    url(r'^LeBronJames/$', LeBronJames),
-    url(r'^GreggPopovich/$', GreggPopovich),
-    url(r'^ChrisBosh/$', ChrisBosh),
-    url(r'^DwyaneWade/$', DwyaneWade),
+    url(r'^Handles/(.*)/$', handle),
 )
