@@ -19,13 +19,14 @@ To obtain coverage of the test:
 # -------
 
 from unittest import main, TestCase
-from models import Handle, Hashtag, Cluster
+from django.utils import unittest
+from Twistory.myapp.models import Handle, Hashtag, Cluster
 
 # -----------
 # test
 # -----------
 
-class Test (TestCase) :
+class TestModels (unittest.TestCase) :
     # ----
     # Handle Model
     # ----
@@ -34,7 +35,7 @@ class Test (TestCase) :
     	handle = Handle(username = "@LadyGaga", name = "Stephanie", bio = "Mother monster, \
     		popstar, popular twitter person.", tweets = "QUEEN OF THE WORLD!")
     	self.assertEquals(str(handle), "");
-    
+
 # ----
 # main
 # ----

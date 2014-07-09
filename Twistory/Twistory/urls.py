@@ -10,9 +10,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^hello/$', hello),
-    url(r'^current_datetime/$', current_datetime),
     url(r'^$', homepage),
-    url(r'^KingJames/$', KingJames),
-
+    url(r'^ErikSpoelstra/$', ErikSpoelstra),
+    url(r'^LeBronJames/$', LeBronJames),
+    url(r'^GreggPopovich/$', GreggPopovich),
 )
