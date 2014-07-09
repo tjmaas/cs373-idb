@@ -2,12 +2,14 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import os
 
+# Build the dictionaries for each handle page
+
 HandleDirs = []
 for (dirpath, dirnames, filenames) in os.walk(os.path.join(os.path.dirname(__file__),'../static/Handles/')):
     HandleDirs.extend(dirnames)
     break
 
-MasterDict = {}
+MasterHandleDict = {}
 for curDir in HandleDirs :
     curDict = {}
     filePrefix = curDir.replace("_","")
@@ -19,10 +21,21 @@ for curDir in HandleDirs :
     curDict["Handle"] = curHandle
     curDict["Name"] = curName
     curDict["Profile"] = curProfile
-    MasterDict[filePrefix] = curDict
+    MasterHandleDict[filePrefix] = curDict
 
-def homepage(request):
-	return render(request, 'Homepage.html', {})
+def Homepage(request):
+	return render(request, 'Homepage.html')
 
-def handle(request, PageName):
-    return render(request, 'Handle.html', MasterDict[PageName])
+def Handle(request, Pagename):
+    try:
+        Dict = MasterHandleDict[Pagename]
+    except KeyError:
+        return render(request, 'PageNotFound.html', {"Name" : Pagename})
+    else :
+        return render(request, 'Handle.html', Dict)
+
+def Hashtag(request, Pagename):
+    pass
+
+def Cluster(request, Pagename):
+    pass
