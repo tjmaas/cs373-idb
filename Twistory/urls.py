@@ -11,8 +11,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', Homepage),
-    url(r'^Handles/(.*)/$', Handle),
-    url(r'^Hashtags/(.*)/$', Hashtag),
-    url(r'^Clusters/(.*)/$', Cluster),
+    url(r'^handles/(.*)/$', Handle),
+    url(r'^hashtags/(.*)/$', Hashtag),
+    url(r'^clusters/(.*)/$', Cluster),
     url(r'^.*/$', Homepage)
 )

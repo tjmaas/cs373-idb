@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>{{ Name }}</title>
+    <title>#{{ Hashtag }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -37,13 +37,9 @@
     {{nav_bar|safe}}
 
     <div class="starter-template">
-        <h1>{{Name}}</h1>
-        <h1>Twitter Handle:{{Handle}}</h1>
-        <img src = "{% get_static_prefix %}{{ Profile }}" />
-        <p>{{Bio}}</p>
+        <h1>#{{Hashtag}}</h1>
+        <img src = "{% get_static_prefix %}{{ Activity }}" />
     </div>
-
-
 
 
     <!-- Bootstrap core JavaScript
