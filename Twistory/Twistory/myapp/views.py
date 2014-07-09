@@ -3,8 +3,6 @@ from django.shortcuts import render
 
 import os
 
-KingJamesBioString = open(os.path.join(os.path.dirname(os.path.dirname(__file__)), '../static/KingJamesBio.txt'), 'r').readlines()[0]
-
 GloablDict = {'Profile' : "Handles/Erik_Spoelstra/ErikSpoelstraProfile.jpg", 'title' : "Erik Spoelstra"}
 
 def homepage(request):
