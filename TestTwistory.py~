@@ -1,0 +1,11 @@
+from django.db import models
+from Twistory.models import Handle, Hashtag, Cluster
+from unittest import main, TestCase 
+
+class TestTwistory(TestCase) :
+	def testSomething (self) :
+
+
+
+
+main() 
