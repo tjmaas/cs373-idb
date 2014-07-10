@@ -11,6 +11,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', Homepage),
+    url(r'^about/$', About),
     url(r'^handles/(.*)/$', Handle),
     url(r'^hashtags/(.*)/$', Hashtag),
     url(r'^clusters/(.*)/$', Cluster),

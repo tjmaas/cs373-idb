@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import os
 
-nav_bar = open(os.path.join(os.path.dirname(__file__),'../templates/Navbar.html'), 'r').read()
+HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
+HTML_END = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_END.html'), 'r').read()
 
 # Build the dictionaries for each handle page
 
@@ -14,6 +15,11 @@ for (dirpath, dirnames, filenames) in os.walk(os.path.join(os.path.dirname(__fil
 HashtagDirs = []
 for (dirpath, dirnames, filenames) in os.walk(os.path.join(os.path.dirname(__file__),'../static/hashtags/')):
     HashtagDirs.extend(dirnames)
+    break
+
+ClusterDirs = []
+for (dirpath, dirnames, filenames) in os.walk(os.path.join(os.path.dirname(__file__),'../static/clusters/')):
+    ClusterDirs.extend(dirnames)
     break
 
 MasterHandleDict = {}
@@ -28,7 +34,8 @@ for curDir in HandleDirs :
     curDict["Handle"] = curHandle
     curDict["Name"] = curName
     curDict["Profile"] = curProfile
-    curDict["nav_bar"] = nav_bar
+    curDict["HTML_BEGIN"] = HTML_BEGIN
+    curDict["HTML_END"] = HTML_END
     MasterHandleDict[curDir] = curDict
 
 MasterHashtagDict = {}
@@ -37,11 +44,22 @@ for curDir in HashtagDirs :
     curActivity = "hashtags/" + curDir + "/Graphs/" + curDir + "Activity.jpg"
     curDict["Activity"] = curActivity
     curDict["Hashtag"] = curDir
-    curDict["nav_bar"] = nav_bar
+    curDict["HTML_BEGIN"] = HTML_BEGIN
+    curDict["HTML_END"] = HTML_END
     MasterHashtagDict[curDir] = curDict
 
+MasterClusterDict = {}
+for curDir in ClusterDirs :
+    curDict = {}
+    curDict["HTML_BEGIN"] = HTML_BEGIN
+    curDict["HTML_END"] = HTML_END
+    MasterClusterDict[curDir] = curDict
+
 def Homepage(request):
-	return render(request, 'Homepage.html', {"nav_bar" : nav_bar})
+	return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+
+def About(request):
+    return render(request, 'About.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
 def Handle(request, Pagename):
     try:
@@ -60,4 +78,9 @@ def Hashtag(request, Pagename):
         return render(request, 'Hashtag.html', Dict)
 
 def Cluster(request, Pagename):
-    pass
+    try:
+        Dict = MasterClusterDict[Pagename]
+    except KeyError:
+        return render(request, 'PageNotFound.html', {"Name" : Pagename})
+    else :
+        return render(request, 'Cluster.html', Dict)
