@@ -75,7 +75,7 @@ class Test (TestCase) :
 		self.assertEqual(myHashtag.__unicode__(), myHashtag.name)
 		self.assertEqual(myHashtag.__unicode__(), myHashtag.description)
 
-	def test_hashtag (self) :
+	def test_hashtag4 (self) :
 		myHashtag = self.create_hashtag(name = "", description = "")
 		self.assertTrue(isInstance(myHashtag, Hashtag))
 		self.assertEqual(myHashtag.name, "")
