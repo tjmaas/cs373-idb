@@ -30,7 +30,7 @@ for curDir in HandleDirs :
     curHandle = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'BasicInfo.txt'), 'r').readlines()[1]
     curName = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'BasicInfo.txt'), 'r').readlines()[0]
     curProfile = "handles/" + curDir + "/" + filePrefix + "Profile.jpg"
-    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'RHandles.txt'), 'r').read()
+    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RHandles.txt'), 'r').read()
     curDict["Bio"] = curBio
     curDict["Handle"] = curHandle
     curDict["Name"] = curName
