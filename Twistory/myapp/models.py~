@@ -6,7 +6,10 @@ class Handle(models.Model) :
 	picture = models.ImageField()
 	username = models.CharField(max_length = 50)
 	name = models.CharField(max_length = 50)
+<<<<<<< HEAD
 	#video = models.FileField(upload_to = u'video/', max_length=200)
+=======
+>>>>>>> 2cfb77e712b763ba7176022a83b572c18d211b77
 	bio = models.CharField(max_length = 100)
 	graph = models.ImageField()
 	tweets = models.TextField(null = True)
