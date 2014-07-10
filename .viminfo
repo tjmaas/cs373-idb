@@ -7,6 +7,9 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Substitute String:
+$
+
 # Command Line History (newest to oldest):
 :q
 :wq
@@ -21,25 +24,49 @@
 # Input Line History (newest to oldest):
 
 # Registers:
-""-	CHAR	0
+""0	CHAR	0
+	 
+"1	LINE	0
+	" ============================================================================
+	" Netrw Directory Listing                                        (netrw v149)
+	"   /home/Twistory/Twistory/myapp
+	"   Sorted by      name
+	"   Sort sequence: [\/]$,\<core\%(\.\d\+\)\=\>,\.h$,\.c$,\.cpp$,\~\=\*$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$
+	"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:exec
+	" ============================================================================
+	../
+	./
+	__pycache__/
+	__init__.py
+	models.py
+	models.pyc
+	tests.py
+	views.py
+	models.py~
+"-	CHAR	0
 	 
 
 # File marks:
 '0  1  0  ~/.git/MERGE_MSG
-'1  22  55  ~/Twistory/Twistory/myapp/tests.py
+'1  1  0  ~/Twistory/myapp/models.py
 '2  1  0  ~/Twistory/manage.py
-'3  85  39  ~/Twistory/Twistory/settings.py
-'4  37  0  ~/Twistory/Twistory/myapp/tests.py
-'5  30  48  ~/Twistory/Twistory/myapp/views.py
-'6  7  0  ~/Twistory/Twistory/myapp/models.py
-'7  12  0  ~/Twistory/Twistory/myapp/tests.py
-'8  15  0  ~/Twistory/Twistory/myapp/models.py
-'9  5  0  ~/Twistory/Twistory/myapp/views.py
+'3  1  0  ~/myapp
+'4  53  0  ~/Twistory/settings.py
+'5  22  55  ~/Twistory/Twistory/myapp/tests.py
+'6  85  39  ~/Twistory/Twistory/settings.py
+'7  37  0  ~/Twistory/Twistory/myapp/tests.py
+'8  30  48  ~/Twistory/Twistory/myapp/views.py
+'9  7  0  ~/Twistory/Twistory/myapp/models.py
 
 # Jumplist (newest first):
 -'  1  0  ~/.git/MERGE_MSG
--'  22  55  ~/Twistory/Twistory/myapp/tests.py
+-'  1  0  ~/Twistory/myapp/models.py
 -'  1  0  ~/Twistory/manage.py
+-'  1  0  ~/myapp
+-'  1  0  ~/Twistory/myapp
+-'  53  0  ~/Twistory/settings.py
+-'  1  0  ~/Twistory/settings.py
+-'  22  55  ~/Twistory/Twistory/myapp/tests.py
 -'  85  39  ~/Twistory/Twistory/settings.py
 -'  51  41  ~/Twistory/Twistory/settings.py
 -'  37  0  ~/Twistory/Twistory/myapp/tests.py
@@ -125,20 +152,27 @@
 -'  11  37  ~/Twistory/Twistory/myapp/views.py
 -'  2  14  ~/Twistory/Twistory/myapp/views.py
 -'  8  124  ~/Twistory/Twistory/myapp/views.py
--'  1  0  ~/Twistory/manage.py
 -'  85  39  ~/Twistory/Twistory/settings.py
 -'  22  55  ~/Twistory/Twistory/myapp/tests.py
--'  1  0  ~/Twistory/manage.py
 -'  85  39  ~/Twistory/Twistory/settings.py
--'  51  41  ~/Twistory/Twistory/settings.py
--'  37  0  ~/Twistory/Twistory/myapp/tests.py
--'  12  0  ~/Twistory/Twistory/myapp/tests.py
--'  30  48  ~/Twistory/Twistory/myapp/views.py
+-'  1  0  ~/Twistory/manage.py
 
 # History of marks within files (newest to oldest):
 
 > ~/.git/MERGE_MSG
 	"	1	0
+
+> ~/Twistory/myapp/models.py
+	"	1	0
+
+> ~/Twistory/manage.py
+	"	1	0
+
+> ~/myapp
+	"	1	0
+
+> ~/Twistory/settings.py
+	"	53	0
 
 > ~/Twistory/Twistory/myapp/tests.py
 	"	22	55
@@ -146,9 +180,6 @@
 	.	22	13
 	+	22	13
 	y	22	5
-
-> ~/Twistory/manage.py
-	"	1	0
 
 > ~/Twistory/Twistory/settings.py
 	"	85	39

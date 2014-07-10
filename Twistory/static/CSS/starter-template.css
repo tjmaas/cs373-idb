@@ -2,13 +2,18 @@ body {
   padding-top: 50px;
 }
 .starter-template {
-  min-width:100%;
+  width: 100%;
   padding: 40px 0px;
   text-align: center;
 }
 
+.title-wrapper {
+    min-width:100%;
+}
+
 .starter-template h2 {
-    font-size: 100px;
+    font-size: 90px;
     text-align: center;
     color:black;
 }
+

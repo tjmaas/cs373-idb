@@ -5,6 +5,8 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  width:100%;
+
 }
 
 
@@ -29,6 +31,9 @@ body {
 .navbar-wrapper .navbar {
   padding-right: 0px;
   padding-left: 0px;
+  background: rgb(00,00,00);
+  background: rgba(00, 00, 00, 0.8); /* navbar color, need to change home buttom */
+
 
 }
 .navbar-wrapper .navbar .container {
@@ -157,7 +162,7 @@ body {
   }
 
   .carousel-caption h2 {
-    /*font-size: 50px;*/
+    font-size: 50px;
     margin-bottom: 80px;
     margin-left:0px;
     text-shadow:
@@ -168,21 +173,21 @@ body {
        1px 1px 0 #000;
   }
 
-  .carousel-caption h2 span {
-   color: white;
-   font: bold 60px Helvetica, Sans-Serif;
-   letter-spacing: -1px;
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.3);
-   padding: 10px;
-   margin:10px;
-}
+/*  .carousel-caption h2 span {*/
+/*   color: white;*/
+/*   font: bold 60px Helvetica, Sans-Serif;*/
+/*   letter-spacing: -1px;*/
+/*   background: rgb(0, 0, 0);*/
+/*   background: rgba(0, 0, 0, 0.3);*/
+/*   padding: 10px;*/
+/*   margin:10px;*/
+/*}*/
 
   .featurette-heading {
     font-size: 50px;
   }
-}
 
+}
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
