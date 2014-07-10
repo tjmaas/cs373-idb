@@ -7,8 +7,12 @@
         <h1>Twitter Handle:{{Handle}}</h1>
         <img src = "{% get_static_prefix %}{{ Profile }}" />
         <p>{{Bio}}</p>
-        <h2>Related Handles</h2>
-        <p>{{RHandles|safe}}</p>
+        <h1>Related Handles</h1>
+        {{RHandles|safe}}
+        <h1>Related Hashtags</h1>
+        {{RHashtags|safe}}
+        <h1>Related Clusters</h1>
+        {{RClusters|safe}}
     </div>
 
 {{HTML_END|safe}}
