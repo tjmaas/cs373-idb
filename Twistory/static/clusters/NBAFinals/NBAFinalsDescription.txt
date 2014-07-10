@@ -1,0 +1,7 @@
+This cluster is an overall view of the NBA Finals.  The trends described below are each indicative of some real-world event that is reflected in online data.
+
+
+The first graph contains trend lines for #nbafinals and #game1 through #game5.  We know from the graph that the NBA Finals began 5 weeks ago and lasted until 3 weeks ago.  Furthermore, the tags for the individual games follow the chronological order of the series, with mentions of game 1 spiking 5 weeks ago, mentions of games 2 through 4 spiking 4 weeks ago, and mentions of game 5 spiking 3 weeks ago, at the conclusion of the series.
+
+
+This second graph contains trend lines for #nbafinals as well as #game6 and #game7.  In contrast to the first graph, #game6 and #game7 do not spike in the same order as the rest of the series.  Somewhat unsurprisingly, this is because the series ended after the fifth game.  However, a further revelation is contained in the second graph: while games 6 and 7 were much discussed immediately before and during the beginning of the series, their mentions declined monotonically and swiftly.  This in turn leads us to conclude that, as the series went on, thoughts and aspirations related to having a lengthy series did not flare up, even among the losing team's supporters.  In short, fans gave up on the idea of a late-in-series comeback or a closely contended series.
