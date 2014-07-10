@@ -111,7 +111,6 @@ class Test (TestCase) :
 		self.assertEqual(myCluster.__unicode__(), myCluster.name)
 		self.assertEqual(myCluster.__unicode__(), myCluster.parents)
 		self.assertEqual(myCluster.description, "descriptions")	
-		self.assertEqual(myCluster.__unicode__(), myHandle.name)
 
 	def test_cluster4 (self) :
 		myCluster = self.create_cluster(name = "", parents = "", description = "")
