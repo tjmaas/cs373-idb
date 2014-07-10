@@ -75,7 +75,7 @@ class Test (TestCase) :
 		self.assertEqual(myHashtag.__unicode__(), myHashtag.name)
 		self.assertEqual(myHashtag.__unicode__(), myHashtag.description)
 
-	def test_hashtag (self) :
+	def test_hashtag4 (self) :
 		myHashtag = self.create_hashtag(name = "", description = "")
 		self.assertTrue(isInstance(myHashtag, Hashtag))
 		self.assertEqual(myHashtag.name, "")
@@ -111,7 +111,6 @@ class Test (TestCase) :
 		self.assertEqual(myCluster.__unicode__(), myCluster.name)
 		self.assertEqual(myCluster.__unicode__(), myCluster.parents)
 		self.assertEqual(myCluster.description, "descriptions")	
-		self.assertEqual(myCluster.__unicode__(), myHandle.name)
 
 	def test_cluster4 (self) :
 		myCluster = self.create_cluster(name = "", parents = "", description = "")
