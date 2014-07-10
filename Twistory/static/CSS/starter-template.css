@@ -12,8 +12,18 @@ body {
 }
 
 .starter-template h2 {
-    font-size: 90px;
+    font-size: 20px;
     text-align: center;
     color:black;
+}
+
+.starter-template h3 {
+    font-size: 100px;
+    text-align: center;
+    color:black;
+}
+
+.starter-template img {
+    width:30%;
 }
 

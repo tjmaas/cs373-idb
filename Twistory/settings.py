@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-        '/home/Twistory/templates',
+        '/home/Twistory/Twistory/templates',
         )
 
 ROOT_URLCONF = 'Twistory.urls'
