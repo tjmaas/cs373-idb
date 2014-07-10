@@ -30,12 +30,14 @@ for curDir in HandleDirs :
     curHandle = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'BasicInfo.txt'), 'r').readlines()[1]
     curName = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'BasicInfo.txt'), 'r').readlines()[0]
     curProfile = "handles/" + curDir + "/" + filePrefix + "Profile.jpg"
+    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'RHandles.txt'), 'r').read()
     curDict["Bio"] = curBio
     curDict["Handle"] = curHandle
     curDict["Name"] = curName
     curDict["Profile"] = curProfile
     curDict["HTML_BEGIN"] = HTML_BEGIN
     curDict["HTML_END"] = HTML_END
+    curDict["RHandles"] = curRHandles
     MasterHandleDict[curDir] = curDict
 
 MasterHashtagDict = {}
