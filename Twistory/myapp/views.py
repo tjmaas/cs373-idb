@@ -51,17 +51,35 @@ for curDir in HashtagDirs :
 MasterClusterDict = {}
 for curDir in ClusterDirs :
     curDict = {}
+    filePrefix = curDir
+    curBio = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + filePrefix + 'Description.txt'), 'r').read()
+    curDict["Name"] = curDir
+    curDict["Description"] = curBio
+    curDict["Trend1Pic"] = "clusters/" + curDir + "/Graphs/Trend1.jpg"
+    curDict["Trend2Pic"] = "clusters/" + curDir + "/Graphs/Trend2.jpg"
     curDict["HTML_BEGIN"] = HTML_BEGIN
     curDict["HTML_END"] = HTML_END
     MasterClusterDict[curDir] = curDict
 
 def Homepage(request):
-	return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+    """
+    Renders and returns the homepage for publishing. Uses a dictionary for all
+    the variable values marked for django in Homepage.html.
+    """
+    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
 def About(request):
+    """
+    Renders and returns the about page for publishing. Uses a dictionary for all
+    the variables marked for django in About.html.
+    """
     return render(request, 'About.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
 def Handle(request, Pagename):
+    """
+    Renders and returns the handle page for publishing. Uses a dictionary for all
+    the variables marked for django in Handle.html or PageNotFound.html.
+    """
     try:
         Dict = MasterHandleDict[Pagename]
     except KeyError:
@@ -70,6 +88,10 @@ def Handle(request, Pagename):
         return render(request, 'Handle.html', Dict)
 
 def Hashtag(request, Pagename):
+    """
+    Renders and returns the handle page for publishing. Uses a dictionary for all
+    the variables marked for django in PageNotFound.html or Hashtag.html.
+    """
     try:
         Dict = MasterHashtagDict[Pagename]
     except KeyError:
@@ -78,6 +100,10 @@ def Hashtag(request, Pagename):
         return render(request, 'Hashtag.html', Dict)
 
 def Cluster(request, Pagename):
+    """
+    Renders and returns the handle page for publishing. Uses a dictionary for all
+    the variables marked for django in PageNotFound.html or Cluster.html.
+    """
     try:
         Dict = MasterClusterDict[Pagename]
     except KeyError:

@@ -14,7 +14,7 @@ body {
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -27,12 +27,18 @@ body {
   padding-left: 0;
 }
 .navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
+
 }
 .navbar-wrapper .navbar .container {
   width: auto;
 }
+
+.navbar-brand {
+    padding-left:4em;
+}
+
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -103,21 +109,27 @@ body {
 
   /* Navbar positioning foo */
   .navbar-wrapper {
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
+
   .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .navbar-wrapper .navbar {
     padding-right: 0;
     padding-left: 0;
   }
 
+
+
   /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
+  /*.navbar-wrapper .navbar {*/
+  /*  border-radius: 4px;*/
+  /*}*/
 
   /* Bump up size of carousel content */
   .carousel-caption p {
@@ -133,7 +145,21 @@ body {
   }
 
   .carousel-caption h1 {
-    font-size: 40px;
+    font-size: 75px;
+    margin-bottom: 175px;
+    color:#000;
+    text-shadow:
+       2px 2px 0 #FFF,
+     -1px -1px 0 #FFF,
+      1px -1px 0 #FFF,
+      -1px 1px 0 #FFF,
+       1px 1px 0 #FFF;
+  }
+
+  .carousel-caption h2 {
+    /*font-size: 50px;*/
+    margin-bottom: 80px;
+    margin-left:0px;
     text-shadow:
        2px 2px 0 #000,
      -1px -1px 0 #000,
@@ -141,6 +167,16 @@ body {
       -1px 1px 0 #000,
        1px 1px 0 #000;
   }
+
+  .carousel-caption h2 span {
+   color: white;
+   font: bold 60px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.3);
+   padding: 10px;
+   margin:10px;
+}
 
   .featurette-heading {
     font-size: 50px;
