@@ -1,0 +1,5 @@
+This cluster examines the actions of San Antonio Spurs supporters and attention received by invidual players and the Spurs coach, Gregg Popovich.
+
+The first graph shows data tracking general support for the Spurs in the form of several related hashtags.  Of note is the hashtag #beattheheat which, while correlated with the other tags in the graph, behaves somewhat differently early on in the graph.  This difference is a reflection of the pre-finals games of the NBA Playoffs.
+
+The second graph shows data tracking the attention received by individuals within the Spurs organization.  This data reveals two separate kinds of attention received by team members.  The first kind is that received by the already popular players Manu Ginobili, Tony Parker, and Tim Duncan, who all received significant attention before the series began and maintained consistently high attention throughout the finals.   The second kind is that received by the relatively unknown player Kawhi
