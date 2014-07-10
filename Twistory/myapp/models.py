@@ -12,7 +12,7 @@ class Handle(models.Model) :
     name = models.CharField(max_length = 50)
 	#video = models.FileField(upload_to = u'video/', max_length=200)
     bio = models.CharField(max_length = 100)
-    graph = models.ImageField()
+    graphs = models.ImageField()
     tweets = models.TextField(null = True)
 
 class Hashtag(models.Model) :
@@ -21,7 +21,7 @@ class Hashtag(models.Model) :
     to label their tweets with.  Used to describe attributes of these hashtags.
     """
     name = models.CharField(max_length = 50) # primary key?
-    graph = models.ImageField()
+    graphs = models.ImageField()
     description = models.CharField(max_length = 50)
     popular_users = models.TextField(null = True)
 
