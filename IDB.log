@@ -1,0 +1,568 @@
+commit 1d821326962fed39fefa7b94ae9ec25efc4fe081
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 11 01:15:12 2014 +0000
+
+    added settings again
+
+commit c64f218e26e0b0863d76796ee9bd21b9ea891370
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 11 01:09:06 2014 +0000
+
+    readded settings, website up
+
+commit 289664c300200faca8403533e8233f17b178075d
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 19:47:24 2014 -0500
+
+    This commit includes models.html from pydoc
+
+commit fa050d98f9f7b06c83e5a742b8cdb8a6a61a61fc
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 11 00:37:15 2014 +0000
+
+    changed the pagenotfound to display properly
+
+commit b2b0b83d135431d9679904ba967027cf2dd4da3f
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 11 00:30:46 2014 +0000
+
+    added descriptions for hashtags
+
+commit 3d7d2cee00b601eec762b43635c9e53ca24f5e21
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Thu Jul 10 19:12:34 2014 -0500
+
+    added descriptions to hashtags
+
+commit b55c35a369a52425d7d214dfac0fffb6cc9655c9
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 19:05:43 2014 -0500
+
+    fixes yet more hyperlink issues
+
+commit 0070a8eed96e812065ce5a227d744d589bedf2d2
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 19:04:28 2014 -0500
+
+    fixes yet more hyperlink issues
+
+commit c6ca57816f6740cc0cb35180b0042a132a0002ff
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 19:01:12 2014 -0500
+
+    This commit fixes more hyperlink issues
+
+commit 859205586b4f03a174c7f51024b2af4e7a84c57e
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 18:57:51 2014 -0500
+
+    This commit fixes hyperlink data
+
+commit d0b5b7db4962cf3175f737029c76f1e176895572
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 18:49:56 2014 -0500
+
+    This commit implements full hyperlinks for phase 1
+
+commit 6f7de9b742741463c18b5a75530abd3dc1a5dc14
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 18:43:17 2014 -0500
+
+    This commit includes full hyperlinks for phase 1
+
+commit f741e53b60f996f8b8f64abdd2934d7a94842c2c
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 23:28:30 2014 +0000
+
+    changes to css
+
+commit 199292e1985f465734f3eeb4ae737bf25bbfeba5
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 18:21:59 2014 -0500
+
+    This commit includes more internal links"
+
+commit 2fc59d4cab2e36111089e00d91359d34110fc7c7
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Thu Jul 10 18:05:06 2014 -0500
+
+    added RHandles to all handles
+
+commit 660e18a70e8d2effc9813c7c936878c66e53cc09
+Author: tjmaas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 17:55:15 2014 -0500
+
+    Update views.py
+
+commit 27109c82023a9151b045e824b13f33a7ddbc3e79
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 17:51:58 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit c99672a44013006bedf852063266f3903b79bc62
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 17:44:35 2014 -0500
+
+    This commit includes related hashtags on handle html page
+
+commit 61390dfa6c7af3534e1eb1c571234b828030fde5
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 15:41:02 2014 -0500
+
+    Fixed image error, close #25
+
+commit b69b0a5644824e10ead28a7621ea9b712e00ef3b
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 20:37:27 2014 +0000
+
+    css changes
+
+commit 491a5fdb8634529fadc29b109ca542d36481fb27
+Merge: bfc11a0 4708150
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 20:27:34 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 4708150e6cbe843bdfb9254d82a844c4ff2f05fc
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 15:20:19 2014 -0500
+
+    This commit attemps to fix image format issues
+
+commit bfc11a090a4637c407072f2947cf5de98fbffa46
+Merge: d5b292c b5a844b
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 20:10:16 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit d5b292c8abfccf954e9b5cf7dd80539510cf3940
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 20:09:46 2014 +0000
+
+    Testing pydoc
+
+commit b5a844be846b82b53d80b7678f7a6d39d141ed30
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 15:08:32 2014 -0500
+
+    This commit renames image files
+
+commit 69e96b5e40756e92cf53181564754c148435c862
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 14:56:44 2014 -0500
+
+    This commit renames some image files to fit convention.
+
+commit d650900d7c6eee00a3439d0ef11baef1545d36a7
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 14:54:52 2014 -0500
+
+    This commit adds more general data.
+
+commit 87b02be686f224eed903238bfbb1e32505312580
+Merge: 5ba83fa 08d14bb
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 19:34:01 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 5ba83fad4d8766660f092c6016136f3c003032cd
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 19:33:36 2014 +0000
+
+    Added comments for PyDoc to pick up and generate html file for.
+
+commit 08d14bb025d125fc82a697efc4fc0bb35b85468a
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 14:24:48 2014 -0500
+
+    Removed a mistaken line from unit tests.
+
+commit 881fc8dda02d0201000f0b86e44f86956932e7b3
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 13:45:12 2014 -0500
+
+    Added forgotten label number to test case.
+
+commit e719744be789a8fc26954cdd565cfd2c781abe1b
+Merge: b1a0390 d89da3c
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 17:25:56 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit d89da3ca22b9e0779d3b305beaca7465a6ebc392
+Author: tjmaas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 12:03:08 2014 -0500
+
+    This commit includes further cluster data and hashtag data.
+
+commit aaa1616c7f6ff635c17f4f8faae6f850b68baa60
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 10:31:08 2014 -0500
+
+    This commit includes more static data.
+
+commit b1a0390f75ac4bcf805ae5c6636eb65c0d9703f3
+Merge: 64f7d09 768ee33
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 02:21:10 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 768ee33ad12e69e7bbc08712bfe7b8063e1d72e8
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 21:08:40 2014 -0500
+
+    Adding Google Trends graphs to static folder.
+
+commit 55461d89fae5b68dfa7e191fd70ad4ec0dd5dead
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 9 20:49:48 2014 -0500
+
+    tentative unit tests
+
+commit efdfae5fabfc6d295606e8701cca1f220f6db962
+Author: Young Seo <young.seo13@gmail.com>
+Date:   Wed Jul 9 20:04:24 2014 -0500
+
+    Delete TestTwistory.py~
+    
+    duplicate
+
+commit 5e3bd9dafb32e523d96b84fa6ba42c61cc441a04
+Merge: 73c995f 2cfb77e
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 9 20:01:04 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+    
+    Conflicts:
+    	Twistory/myapp/models.py
+
+commit 73c995fa4a72e5772741cc200f6ce80b76ff1f5c
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 9 20:00:24 2014 -0500
+
+    model
+
+commit 64f7d094d3134518e4661edaa31d8c71927a9090
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 10 00:57:22 2014 +0000
+
+    added more to homepage carousel
+
+commit 2cfb77e712b763ba7176022a83b572c18d211b77
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Wed Jul 9 19:54:08 2014 -0500
+
+    This commit includes a description for cluster HeatSupport.
+
+commit 6549dd0df7bcc5aa30f03ed27d09162654d30b5c
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Wed Jul 9 19:36:32 2014 -0500
+
+    This commit includes a description for cluster NBAFinals.
+
+commit 335f2f965d5c810c79b952a2b03532034ad93ecd
+Author: nickdechant <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 19:06:38 2014 -0500
+
+    Update models.py
+    
+    Updating format of models.py.
+
+commit 4e4a98b90a414deaa861ae3b67dd28adb0b5f623
+Author: nickdechant <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 19:06:09 2014 -0500
+
+    Update tests.py
+    
+    Updating format of tests.py.
+
+commit 27e3991b521af98bd37ec080df7d4e65d603ff71
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 23:33:43 2014 +0000
+
+    changed Clusters to clusters
+
+commit cc98224d9f60df808ba426e50585a94fdcdf8626
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Wed Jul 9 18:29:12 2014 -0500
+
+    This commit includes early cluster data.
+
+commit 92e4bd60cc21bdb78ec7bbcb514fd920f3483fe9
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 19:31:41 2014 +0000
+
+    added a coouple images and implemented hashtag logic
+
+commit 03e036804dde72bde33b5d1876adc997deb43964
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Wed Jul 9 12:47:14 2014 -0500
+
+    lower cased the dir handles and hashtags
+
+commit f27ecacd5ca00e72db7731b4592673e15a70e19c
+Author: tjmaas <terrence.j.maas@utexas.edu>
+Date:   Wed Jul 9 03:11:55 2014 -0500
+
+    This commit includes more hashtag data, totaling 10 hashtags.
+
+commit 409c8fa5ff38f462e050eab4498d4bd8b8722150
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 07:15:32 2014 +0000
+
+    Cleaning up a few files
+
+commit 05ea925669d7e2592f08347c4e3d3aa9644cbb5a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 06:59:36 2014 +0000
+
+    Added a lot of automation for building pages and error checking
+
+commit df14a86d84ef9bfc09096a57ea963b4a918d771f
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 06:35:02 2014 +0000
+
+    added logic to build arbitrary pages
+
+commit 84e8eb2f0e30babbb8da75e4444f3eb1705ec546
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 03:10:29 2014 +0000
+
+    added icon
+
+commit 68a6123e82f733a1006994d342f77bd27a10cae6
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 02:56:09 2014 +0000
+
+    added logic in views.py to get Bios
+
+commit f16b375f5f64b8fe789912b48c498ecc31daf5b4
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 01:25:33 2014 +0000
+
+    cleaned up more files
+
+commit de7f499bf0b9adc220b11eadfb495261710dd527
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 01:22:58 2014 +0000
+
+    fixed paths
+
+commit d2f3dcb88cb3c11a21d0eab82eee0a3a9b41f1b1
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Tue Jul 8 20:16:47 2014 -0500
+
+    rearanging files
+
+commit e9111b28614c1e508c605f7f42b96365c221d32a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 01:13:46 2014 +0000
+
+    homepage is working
+
+commit 0f0a382343e836d69870e6cab90641db4af5d88e
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 9 01:10:39 2014 +0000
+
+    added new css files
+
+commit b6baee1710b2359df3d5f4467ae09c27df08269a
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Tue Jul 8 20:06:23 2014 -0500
+
+    cleaning up folders and files
+
+commit d4a06a75a20ce321d33e10d042a39930b73b0e2c
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Tue Jul 8 20:05:33 2014 -0500
+
+    cleaning up files
+
+commit a3d53f32e76945a8fadeeb648662c596a466d76d
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 19:51:03 2014 -0500
+
+    This commit adds more hashtag data
+
+commit 417c31697fa0ab5d67f2c0fafc9f1d13a18cb302
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 19:46:17 2014 -0500
+
+    This commit adds more hashtag data
+
+commit 453e6404797ca5c556d3b29871130fcecd225ca2
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 19:22:37 2014 -0500
+
+    This commit adds more data in the Handles folder
+
+commit 4546ded5c21d2c95b0e9dbf49c476a7e17b1b207
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 17:01:12 2014 -0500
+
+    This commit includes an early template for all handle pages
+
+commit 57e9d9d8e7d421fde0b4ab6159d16df8778e0bdf
+Author: tjmaas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 16:59:53 2014 -0500
+
+    Update views.py
+    
+    This commit updates the global dict for testing purposes
+
+commit d38a02194068d31aa586ca603c4de6270c06712a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Tue Jul 8 21:46:50 2014 +0000
+
+    Preparing for commit of KingJames.html.
+
+commit 48094f61bf1e93aadb86fedd48529b1d017d2260
+Merge: 86bafdc b24feba
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 16:42:59 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 86bafdc5c5bb86f6027df727b8d86bfb37b2a477
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Tue Jul 8 16:42:54 2014 -0500
+
+    This commit includes more gathered data
+
+commit b24febaf9b274f1cdefa1d65ddd9b3f19c00f99b
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Tue Jul 8 16:42:29 2014 -0500
+
+    #3: Adding the beginnings of the unit tests for the models.
+
+commit 52fe9687f4368080ccd6e03e12ed8da063d02dff
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Tue Jul 8 02:26:43 2014 +0000
+
+    Resolves #22 : Added an image using appropriate static blocks and tags.
+
+commit 83d887eec6325bd0488f4eb655f377fea871caf4
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 20:53:23 2014 -0500
+
+    Testing image via internet.
+
+commit 5b15d73bb75ab9aeb88fb842368bcaca8ead1c62
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 20:26:05 2014 -0500
+
+    Fixed indentations.
+
+commit 6ca9f3a2dd1df1e7c7551b17485809bf1d545075
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 20:24:48 2014 -0500
+
+    Uploading code for image testing.
+
+commit 632b9606b0e9af4764347394b58e0113979d31bc
+Merge: 828457b 7c92b3d
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 20:18:05 2014 -0500
+
+    Merge branch 'master' of github.com:tjmaas/cs373-idb
+
+commit 828457bce468e2692bd4d570c18af1bc8e1bdba5
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 20:17:53 2014 -0500
+
+    Adding test image of Chris Bosh being compared to Littlefoot.
+
+commit 7c92b3dffe91ab5bbe727f6239df354f3cba29a1
+Merge: bbb0673 97dd5d3
+Author: Young Seo <young.seo13@gmail.com>
+Date:   Mon Jul 7 19:42:06 2014 -0500
+
+    Merge pull request #20 from boomuuh/master
+    
+    Adding Apiary file
+
+commit bbb06734ec93b6e8c6f1fe6090224f9907f1e189
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 19:40:19 2014 -0500
+
+    Resolves #21 : moved the views.py code into the myapp folder.
+
+commit 835b63c9a52ccc6da99263e26708b106f4a3e4ba
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 19:38:23 2014 -0500
+
+    Moved the views.py file into the myapp file.
+
+commit 97dd5d3108f4b90d2d93d867183da8f0543d3669
+Author: Boomer Truong <btruong@famigo.com>
+Date:   Mon Jul 7 19:36:57 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit ae2ae6e2694b6db76ada98b25c3a679ade5bacd7
+Author: Boomer Truong <btruong@famigo.com>
+Date:   Mon Jul 7 19:35:57 2014 -0500
+
+    Adding handle and hashtag resources
+
+commit 0b29733caacb609f3617fb334e1d6e2dc091fa3b
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 19:19:06 2014 -0500
+
+    Commiting demo version of models.
+
+commit 2bff9d15cfb02f6ae3e821122f54ce057ded7142
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 19:11:31 2014 -0500
+
+    models skeleton
+
+commit 9dbb360e3a4049d2775fca6cd958dead43309a57
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Mon Jul 7 18:54:40 2014 -0500
+
+    This commit includes updates to the database outline.
+
+commit 6ccdd06d750117e4a32a2e09253d44a7e3cf617d
+Author: Bryan S <bryan@cs.utexas.edu>
+Date:   Mon Jul 7 18:47:01 2014 -0500
+
+    Added outline of the database we intend to have
+
+commit 299ddcd517fdac3f74f3159bb6e6526020fc0033
+Merge: 1709e1f fdaf842
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 23:30:05 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 1709e1f41fa5e5f63d3352b6d7fb51cb85fad62c
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 23:29:42 2014 +0000
+
+    First commit redo
+
+commit ff1b66af52b73af91f152e4dcfcb212a538184ad
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Mon Jul 7 23:27:17 2014 +0000
+
+    First commit
+
+commit 9da84b45b37227a23f5f16ae80599110ddf8f983
+Author: Boomer Truong <btruong@famigo.com>
+Date:   Mon Jul 7 05:57:39 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit fdaf842360dd8dedb0d404577dbb9cb6abc71863
+Author: tjmaas <terrence.j.maas@utexas.edu>
+Date:   Wed Jul 2 14:52:22 2014 -0500
+
+    Initial commit
