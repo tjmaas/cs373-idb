@@ -51,8 +51,10 @@ for curDir in HashtagDirs :
     curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHandles.txt'), 'r').read()
     curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
     curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RClusters.txt'), 'r').read()
+    curDesc = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'Description.txt'), 'r').read()
     curDict["Activity"] = curActivity
     curDict["Hashtag"] = curDir
+    curDict["Description"] = curDesc
     curDict["HTML_BEGIN"] = HTML_BEGIN
     curDict["HTML_END"] = HTML_END
     curDict["RHandles"] = curRHandles

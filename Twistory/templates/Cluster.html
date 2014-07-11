@@ -3,18 +3,18 @@
     {% load static %}
 
     <div class="starter-template">
-        <h1>Cluster:{{Name}}</h1>
+        <h1>Cluster: {{Name}}</h1>
         <p>{{Description}}</p>
         <h1>Trends</h1>
         <p>{{Trend1}}</p>
         <img src = "{% get_static_prefix %}{{ Trend1Pic }}" />
         <p>{{Trend2}}</p>
         <img src = "{% get_static_prefix %}{{ Trend2Pic }}" />
-        <h1>Related Handles</h1>
+        <h2>Related Handles</h2>
         {{RHandles|safe}}
-        <h1>Related Hashtags</h1>
+        <h2>Related Hashtags</h2>
         {{RHashtags|safe}}
-        <h1>Related Clusters</h1>
+        <h2>Related Clusters</h2>
         {{RClusters|safe}}
     </div>
 

@@ -1,1 +1,1 @@
-#GoSpursGo is a hashtag that is related to the Spurs being in the 2014 NBA Finals. The hashtag was common around Late June 2014 when the finals were going on. This graph shows how the hashtag died off once the finals ended.
+#NBAFinals was trending around late June 2014. This graph shows the build up to when the finals were happening and the decline in tweets as the finals ended.
