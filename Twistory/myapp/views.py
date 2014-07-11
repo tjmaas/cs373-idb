@@ -105,8 +105,8 @@ def Handle(request, Pagename):
     """
     try:
         Dict = MasterHandleDict[Pagename]
-    except KeyError:
-        return render(request, 'PageNotFound.html', {"Name" : Pagename})
+    except Exception:
+        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
         return render(request, 'Handle.html', Dict)
 
@@ -117,8 +117,8 @@ def Hashtag(request, Pagename):
     """
     try:
         Dict = MasterHashtagDict[Pagename]
-    except KeyError:
-        return render(request, 'PageNotFound.html', {"Name" : Pagename})
+    except Exception:
+        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
         return render(request, 'Hashtag.html', Dict)
 
@@ -129,7 +129,7 @@ def Cluster(request, Pagename):
     """
     try:
         Dict = MasterClusterDict[Pagename]
-    except KeyError:
-        return render(request, 'PageNotFound.html', {"Name" : Pagename})
+    except Exception:
+        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
         return render(request, 'Cluster.html', Dict)
