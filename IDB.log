@@ -1,3 +1,15 @@
+commit 03bfc4be39b321264a4333e97bdfbc1b31ceb6c3
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 20:40:35 2014 -0500
+
+    This commit includes the technical report
+
+commit e319155fbf6e7a5902505dda9baa141d3a7b8a9c
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 20:29:29 2014 -0500
+
+    This commit includes a log file
+
 commit 1d821326962fed39fefa7b94ae9ec25efc4fe081
 Author: Nick <nick.dechant@utexas.edu>
 Date:   Fri Jul 11 01:15:12 2014 +0000
