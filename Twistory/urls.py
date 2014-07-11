@@ -15,5 +15,5 @@ urlpatterns = patterns('',
     url(r'^handles/(.*)/$', Handle),
     url(r'^hashtags/(.*)/$', Hashtag),
     url(r'^clusters/(.*)/$', Cluster),
-    url(r'^.*/$', Homepage)
+    url(r'^.*/$', PageNotFound)
 )

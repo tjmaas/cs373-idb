@@ -95,6 +95,9 @@ def About(request):
     """
     return render(request, 'About.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
+def PageNotFound(request):
+    return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+
 def Handle(request, Pagename):
     """
     Renders and returns the handle page for publishing. Uses a dictionary for all
