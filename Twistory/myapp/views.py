@@ -31,8 +31,8 @@ for curDir in HandleDirs :
     curName = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + filePrefix + 'BasicInfo.txt'), 'r').readlines()[0]
     curProfile = "handles/" + curDir + "/" + filePrefix + "Profile.jpg"
     curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RHandles.txt'), 'r').read()
-    curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
-    curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + 'RClusters.txt'), 'r').read()
+    curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
+    curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RClusters.txt'), 'r').read()
     curDict["Bio"] = curBio
     curDict["Handle"] = curHandle
     curDict["Name"] = curName
@@ -48,9 +48,9 @@ MasterHashtagDict = {}
 for curDir in HashtagDirs :
     curDict = {}
     curActivity = "hashtags/" + curDir + "/Graphs/" + curDir + "Activity.jpg"
-    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RHandles.txt'), 'r').read()
+    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHandles.txt'), 'r').read()
     curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
-    curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + 'RClusters.txt'), 'r').read()
+    curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RClusters.txt'), 'r').read()
     curDict["Activity"] = curActivity
     curDict["Hashtag"] = curDir
     curDict["HTML_BEGIN"] = HTML_BEGIN
@@ -65,8 +65,8 @@ for curDir in ClusterDirs :
     curDict = {}
     filePrefix = curDir
     curBio = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + filePrefix + 'Description.txt'), 'r').read()
-    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/handles/' + curDir + '/' + 'RHandles.txt'), 'r').read()
-    curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/hashtags/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
+    curRHandles = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + 'RHandles.txt'), 'r').read()
+    curRHashtags = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + 'RHashtags.txt'), 'r').read()
     curRClusters = open(os.path.join(os.path.dirname(__file__), '../static/clusters/' + curDir + '/' + 'RClusters.txt'), 'r').read()
     curDict["Name"] = curDir
     curDict["Description"] = curBio
