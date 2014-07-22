@@ -2,38 +2,38 @@ from django.db import models
 
 # Create your models here.
 
-class Handle(models.Model) :
+class State(models.Model) :
     """
-    Model class for handles.  Used to describe users in twitter and contain
-    values useful for our database.
+    Model class for States. Used to represent State data.
     """
-    picture = models.ImageField()
-    username = models.CharField(max_length = 50) # primary key?
-    name = models.CharField(max_length = 50)
-	#video = models.FileField(upload_to = u'video/', max_length=200)
-    bio = models.CharField(max_length = 100)
-    graphs = models.ImageField()
-    tweets = models.TextField(null = True)
+    name = models.CharField(max_length = 255)
+    date_founded = models.CharField(max_length = 10)
+    flag = models.ImageField("Flag", upload_to="images/")
+    #flag = models.CharField(max_length = 1000)
+    population = models.IntegerField()
+    size = models.IntegerField()
 
-class Hashtag(models.Model) :
+class Park(models.Model) :
     """
-    Model class for hashtags.  Used to describe indicated strings by users
-    to label their tweets with.  Used to describe attributes of these hashtags.
+    Model class for Park. Used to represent Park data.
     """
-    name = models.CharField(max_length = 50) # primary key?
-    graphs = models.ImageField()
-    description = models.CharField(max_length = 50)
-    popular_users = models.TextField(null = True)
+    state = models.ForeignKey('State', related_name = "parks")
+    name = models.CharField(max_length = 255)
+    size = models.IntegerField()
+    max_elevation = models.IntegerField()
+    date_founded = models.IntegerField()
+    park_image = models.ImageField("park_map", upload_to="images/")
+    #park_image = models.CharField(max_length = 1000)
+    num_visitors = models.IntegerField()
+    #video
 
-class Cluster(models.Model) :
+class Hike(models.Model) :
     """
-    Cluster class for clusters.  Used to describe related hashtags and their
-    users.
+    Model class for Hikes.  Used to represent Hike data.
     """
-    name = models.CharField(max_length = 50) # primary key?
-    members = models.TextField(null = True)
-    parents = models.CharField(max_length = 50)
-    description = models.CharField(max_length = 100)
-    key_figures = models.TextField(null = True)
-    related_pages = models.TextField(null = True)
-    graphs = models.ImageField()
+    name = models.CharField(max_length = 255)
+    distance = models.FloatField()
+    est_time = models.IntegerField()
+    hike_image = models.ImageField("hike_image", upload_to="images/")
+    difficulty = models.CharField(max_length = 255)
+    park = models.ForeignKey("Park", related_name = "hikes")
