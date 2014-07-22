@@ -1,128 +1,4 @@
 ls
-vim urls.py
-ls
-vim urls.py
-ls
-vim urls.py
-ls
-cd ..
-ls
-cd ..
-ls
-cd ..
-ls
-cd Twistory
-ls
-cd Dropbox
-ls
-cd ..
-ls
-vim README.txt
-ls
-cd Twistory
-ls
-cd Twistory
-ls
-clear
-ls
-vim settings.py
-ls
-cd ..
-ls
-cd .
-.ls
-cd ..
-ls
-cd ..
-ls
-cd ..
-ls
-cd home
-ls
-cd Twistory
-ls
-cd Twistroy
-ls
-cd Twistory
-ls
-pwd
-ls
-cd Twistory
-ls
-vim settings.py
-ls
-vim settings.py
-clear
-ls
-mkdir template
-vim settings.py
-rm -r template
-mkdir templates
-ls
-cd templates
-ls
-vim current_datetime.html
-ls
-vim current_datetime.html
-cd ..
-ls
-vim urls.py
-q!
-ls
-cd myapp
-ls
-vim views.py
-ls
-cd ..
-ls
-cd views.py
-ls
-cd myapp
-ls
-vim views.py
-cd ..
-ls
-vim views.py
-ls
-cd myapp
-ls
-vim views.py
-ls
-cd ..
-ls
-vim views.py
-cd myapp
-ls
-vim views.py
-cd. .
-ls
-cd ..
-ls
-vim views.py
-cd myapp
-ls
-vim views.py
-cd ..
-ls
-vim views.py
-ls
-cd myapp
-ls
-vim views.py
-cd ..
-ls
-cd myapp
-ls
-vim views.py
-ls
-cd ..
-ls
-vim settings.py
-ls
-cd myapp
-ls
-cd ..
-ls
 cd myapp
 ls
 vim views.py
@@ -496,5 +372,129 @@ git commit -m "changed Clusters to clusters"
 git push
 git add --all .
 git commit -m "added more to homepage carousel"
+git push
+git pull origin master
+ls
+pydoc models.py
+cd Twistory
+ls
+cd myapp
+ls
+pydoc models.py
+cd ../..
+ls
+cd Twistory
+python manage.py
+python manage.py test
+python manage.py --settings=Twistory.settings test
+python manage.py test --setting=Twistory.settings
+python manage.py test --setting="Twistory.settings"
+ls
+cd static/
+ls
+cp handles/LeBron_James/RHandles.txt handles/*/RHandles.txt
+cd handles/Chris_Bosh/
+ls
+cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
+cd ..
+ls
+cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
+ls
+cd ..
+cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
+cp handles/LeBron_James/RHandles.txt handles/*/
+ls
+cd clusters/
+cd ..
+ls
+cd handles/
+ls
+cd Chris_Bosh/
+ls
+cd ..
+ls
+cp handles/LeBron_James/RHandles.txt handles/*/RHandles.txt
+cp handles/LeBron_James/RHandles.txt handles/*/ RHandles.txt
+cp handles/LeBron_James/RHandles.txt handles/*/
+cp -r handles/LeBron_James/RHandles.txt handles/*/
+ls
+cd handles/
+ls
+cd Chris_Bosh/
+ls
+cd ..
+ls
+cd Dwyane_Wade/
+ls
+cd ..
+cd LeBron_James/
+ls
+cd Graphs/
+ls
+cd ..
+ls
+cp RHandles.txt ../Chris_Bosh/
+cd ../Chris_Bosh/
+ls
+cd ..
+cd LeBron_James/
+ls
+cp RHandles.txt ../*/
+cd ..
+ls
+git pull
+git pull origin master
+rm Chris_Bosh/RHandles.txt Tony_Parker/RHandles.txt 
+git pull origin master
+git push origin master
+git status
+ls
+cd ..
+ls
+git status
+cd static/handles/Tony_Parker/
+ls
+git pull origin master
+cd ..
+ls
+cd ..
+lsw
+cd ..
+ls
+git --checkout templates/Handle.html
+git reset HEAD -- .
+git pull origin master
+git status
+git checkout -- templates/Handle.html
+git pull origin master
+git push origin master
+git add *
+git add --all .
+git status
+git add --all .
+git commit -m "added descriptions for hashtags"
+git push
+git add --all .
+git commit -m "changed the pagenotfound to display properly"
+git push
+ls
+cd myapp/
+ls
+pydoc -w models.py
+pydoc -w Twistory.models.py
+git pull origin master
+git status
+git add --all .
+git push origin master
+git commit -m "readded settings, website up"
+git push
+ls
+git status
+git add --all .
+git commit -m "added settings again"
+cd ..
+ls
+git add --all .
+git commit -m "added settings again"
 git push
 git pull origin master
