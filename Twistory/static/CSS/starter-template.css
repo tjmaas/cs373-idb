@@ -1,5 +1,10 @@
 body {
   padding-top: 50px;
+  background: url(http://images.boomsbeat.com/data/images/full/653/26-jpg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .starter-template {
   width: 100%;
@@ -7,11 +12,12 @@ body {
   text-align: center;
 }
 
-.title-wrapper {
+.title-wrapper > h2 {
     min-width:100%;
+    position: absolute;
 }
 
-.starter-template h2 {
+.starter-template {
     font-size: 20px;
     text-align: center;
     color:black;
@@ -20,7 +26,10 @@ body {
 .starter-template h3 {
     font-size: 100px;
     text-align: center;
-    color:black;
+    color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-variant: small-caps;
+    font-weight: 900;
 }
 
 .starter-template img {
