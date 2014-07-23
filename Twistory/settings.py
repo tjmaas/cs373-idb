@@ -62,8 +62,12 @@ WSGI_APPLICATION = 'Twistory.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Twistory$default',
+        'USER': 'Twistory',
+        'PASSWORD': '0therp455w0rd',
+        'HOST': 'mysql.server',
+        'TEST_NAME': 'Twistory$test_default',
     }
 }
 
