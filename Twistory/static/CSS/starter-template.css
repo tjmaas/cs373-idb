@@ -12,18 +12,20 @@ body {
   text-align: center;
 }
 
-.title-wrapper > h2 {
+.title-wrapper > h3 {
     min-width:100%;
     position: absolute;
 }
-
-.starter-template {
-    font-size: 20px;
+.starter-template h2 {
+    font-size: 40px;
     text-align: center;
-    color:black;
+    color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-variant: small-caps;
+    font-weight: 900;
 }
 
-.starter-template h3 {
+.starter-template h1 {
     font-size: 100px;
     text-align: center;
     color:white;

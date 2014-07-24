@@ -1,85 +1,3 @@
-ls
-cd myapp
-ls
-vim views.py
-cd ..
-ls
-vim views.py
-ls
-cd templates
-ls
-vim currentdatetime.html
-ls
-vim current_datetime.html
-ls
-cd ..
-ls
-vim views.py
-ls
-vim urls.py
-ls
-vim settings.py
-ls
-vim views.py
-ls
-vim urls.py
-ls
-vim views.py
-ls
-q
-ls
-vim urls.py
-ls
-vim views.py
-ls
-vim urls.py
-ls
-cd templates
-ls
-pwd
-cd ,,
-cd ..
-ls
-vim settings.py
-clear
-ls
-cd ..
-ls
-cd Twistory/
-ls
-wget http://getbootstrap.com/2.3.2/assets/bootstrap.zip
-Install-Package Twitter.Bootstrap
-ls
-git status
-git pull
-git pull origin master
-git add -A
-cd ..
-ls
-git add -A
-cd ..
-ls
-cd ..
-ls
-git add -A
-cd Twistory
-ls
-git add -A
-git status
-git remote -v
-ls
-cd Twistory
-ls
-cd Twistory
-ls
-vim urls.py
-ls
-cd myapp
-ls
-vim views.py
-ls
-cd ..
-ls
 cd ..
 ls
 python3 manage.py test
@@ -498,3 +416,85 @@ git add --all .
 git commit -m "added settings again"
 git push
 git pull origin master
+ls
+cd Twistory/
+ls
+python3 manage.py sql myapp
+python3
+pip freeze
+python3 manage.py sql myapp
+python manage.py sql myapp
+python manage.py sql
+python manage.py sql myapp
+python manage.py syncdb
+python manage.py shell
+python3 manage.py shell
+cd ..
+ls
+cd ..
+ls
+cd Twistory/
+ls
+git status
+git add --all .
+git commit -m "got database to work"
+git push origin master
+git pull
+git pull origin master
+ls
+cd ..
+ls
+cd Twistory/
+git add --all .
+git commit -m "changed views"
+git push origin master
+git add --all .
+git commit -m "changed views"
+git push origin master
+git pull origin master
+cd Twistory/
+ls
+rm db.sqlite3 
+git pull origin master
+ls
+cd ..
+ls
+cd ..
+ls
+cd Twistory/
+ls
+git add --all .
+git commit -m "changed views to work with models and db"
+git push origin master
+ls
+git add --all .
+git commit -m "added states list and state html"
+git push origin master
+git pull origin master
+git push origin master
+ls
+cd Twistory
+ls
+python manage.py shell
+ls
+python3 DBAdder.py 
+ls
+python manage.py shell
+ls
+git status
+ls
+rm DBAdder.py 
+git status
+git add -A
+git add --all
+git add -A
+ls
+cd ..
+ls
+cd ..
+ls
+cd Twistory
+ls
+git add -A
+git commit -m "Added 3 states, 6 parks, and 18 hikes to the database"
+git push origin master
