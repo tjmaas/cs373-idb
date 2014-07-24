@@ -24,8 +24,14 @@ class Park(models.Model) :
     name = models.CharField(max_length = 255)
     size = models.IntegerField()
     max_elevation = models.IntegerField()
+<<<<<<< HEAD
     date_founded = models.CharField(max_length = 255)
     park_image = models.CharField(max_length = 1000)
+=======
+    date_founded = models.CharField(max_length = 10)
+    park_image = models.ImageField("park_map", upload_to="images/")
+    #park_image = models.CharField(max_length = 1000)
+>>>>>>> 99be723ae093b17e4a3f5aa8ff7de38dca0c5d98
     num_visitors = models.IntegerField()
     video = models.CharField(max_length = 1000)
 

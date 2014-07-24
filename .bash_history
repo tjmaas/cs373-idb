@@ -1,4 +1,15 @@
 ls
+cd myapp
+ls
+vim views.py
+cd ..
+ls
+vim views.py
+ls
+cd templates
+ls
+vim currentdatetime.html
+ls
 vim current_datetime.html
 ls
 cd ..
@@ -487,14 +498,3 @@ git add --all .
 git commit -m "added settings again"
 git push
 git pull origin master
-ls
-cd ..
-ls
-cd Twistory/
-ls
-git push
-git add .
-git commit -m "added new homepage"
-git push
-git pull origin master
-git push
