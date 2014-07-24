@@ -118,12 +118,10 @@ def Park_ID (request, Pagename):
     try:
         ParkObject = Park.objects.get(name=Pagename)
         Dict = {}
-        name = ParkObject.name
-        name.replace(" ", "")
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
-        Dict["state"] = ParkObject.state.name
-        Dict["name"] = name
+        Dict["state"] = "<h2>State: <a href=/states/" + ParkObject.state.name + ">" + ParkObject.state.name + "</a></h2>"
+        Dict["name"] = ParkObject.name
         Dict["size"] = ParkObject.size
         Dict["max_elevation"] = ParkObject.max_elevation
         Dict["date_founded"] = ParkObject.date_founded
@@ -144,6 +142,7 @@ def Hike_List (request):
     try:
         HikeObjects = Hike.objects.all()
         for obj in HikeObjects :
+
             HtmlToReturn += "<img src=" + obj.hike_image + ">"
             HtmlToReturn += "<h2><a href=/hikes/" + obj.name.replace(" ", "%20") + ">" + obj.name + "</a></h2>"
             HtmlToReturn += "<p></p>"
@@ -167,7 +166,7 @@ def Hike_ID (request, Pagename):
         Dict["est_time"] = HikeObject.est_time
         Dict["hike_image"] = HikeObject.hike_image
         Dict["difficulty"] = HikeObject.difficulty
-        Dict["park"] = HikeObject.park.name
+        Dict["park"] = "<h2>Park: <a href=/parks/" + HikeObject.park.name + ">" + HikeObject.park.name + "</a></h2>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
