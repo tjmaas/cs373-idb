@@ -83,7 +83,7 @@ def State_ID (request, Pagename):
         Dict["video"] = StateObject.video
         for park in ParksinState :
             newParkName = park.name.replace(" ", "%20")
-            HtmlParks += "<li><a href=/parks/" + newParkName + ">" + park.name + "</a></li>"
+            HtmlParks += "<li><h2><a href=/parks/" + newParkName + ">" + park.name + "</a></h2></li>"
         Dict["HtmlParks"] = HtmlParks
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
@@ -166,7 +166,7 @@ def Hike_ID (request, Pagename):
         Dict["est_time"] = HikeObject.est_time
         Dict["hike_image"] = HikeObject.hike_image
         Dict["difficulty"] = HikeObject.difficulty
-        Dict["park"] = "<h2>Park: <a href=/parks/" + HikeObject.park.name + ">" + HikeObject.park.name + "</a></h2>"
+        Dict["park"] = "<h2>Park: <a href=/parks/" + HikeObject.park.name.replace(" ", "%20") + ">" + HikeObject.park.name + "</a></h2>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
