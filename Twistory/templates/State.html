@@ -3,8 +3,13 @@
     {% load static %}
 
     <div class="starter-template">
-        <h1>{{State}}</h1>
-        <img src = "{% get_static_prefix %}{{ Image }}" />
+        <h3>{{name}}</h3>
+        <img src = "{{ flag }}" />
+        <h1>Date Founded: {{date_founded}}</h1>
+        <h1>Population: {{population}}</h1>
+        <h1>Size: {{size}}</h1>
+        {{video}}
     </div>
+
 
 {{HTML_END|safe}}

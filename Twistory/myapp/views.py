@@ -36,12 +36,16 @@ def State_List (request):
     Renders and returns the handle page for publishing. Uses a dictionary for all
     the variables marked for django in Handle.html or PageNotFound.html.
     """
+    HtmlToReturn = ""
     try:
-        Dict = MasterHandleDict[Pagename]
+        StateObjects = State.objects.all()
+        for obj in StateObjects :
+            HtmlToReturn += "<img src=" + obj.flag + ">"
+            HtmlToReturn += "<li><a href=/states/" + obj.name + ">" + obj.name + "</a></li>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'Handle.html', Dict)
+        return render(request, 'StateList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
 
 def State_ID (request, Pagename):
     """
