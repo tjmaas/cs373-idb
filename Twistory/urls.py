@@ -13,10 +13,11 @@ urlpatterns = patterns('',
     url(r'^$', Homepage),
     url(r'^about/$', About),
     url(r'^states/$', State_List),
-    url(r'^states/(.*)/$', State_ID ),
+    url(r'^states.json/$', State_List_API),
+    url(r'^states/(.*)/$', State_ID),
     url(r'^parks/$', Park_List),
     url(r'^parks/(.*)/$', Park_ID),
     url(r'^hikes/$', Hike_List),
-    url(r'^hikes/(.*)/$', Hike_ID ),
+    url(r'^hikes/(.*)/$', Hike_ID),
     url(r'^.*/$', PageNotFound)
 )

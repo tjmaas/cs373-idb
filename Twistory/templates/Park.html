@@ -3,15 +3,17 @@
     {% load static %}
 
     <div class="starter-template">
-        <h1>#{{Hashtag}}</h1>
-        <img src = "{% get_static_prefix %}{{ Activity }}" />
-        <p>{{Description}}</p>
-        <h2>Related Handles</h2>
-        {{RHandles|safe}}
-        <h2>Related Hashtags</h2>
-        {{RHashtags|safe}}
-        <h2>Related Clusters</h2>
-        {{RClusters|safe}}
+        <h1>{{name}}</h1>
+        <img src = "{{ park_image }}" />
+        <h2>Size: {{size}} acres</h2>
+        <h2>Max Elevation: {{max_elevation}}</h2>
+        <h2>Date Founded: {{date_founded}}</h2>
+        <h2>Number of Visitors: {{num_visitors}} per year</h2>
+        {{state|safe}}
+        <iframe width="640" height="360" src="//{{video}}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+
     </div>
+
 
 {{HTML_END|safe}}
