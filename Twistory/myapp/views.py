@@ -3,6 +3,9 @@ from django.shortcuts import render
 from myapp.models import State, Park, Hike
 import json
 import os
+import locale
+
+locale.setlocale(locale.LC_ALL, 'en_US')
 
 HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
 HTML_END = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_END.html'), 'r').read()
@@ -74,8 +77,8 @@ def State_ID (request, Pagename):
         Dict["name"] = StateObject.name
         Dict["date_founded"] = StateObject.date_founded
         Dict["flag"] = StateObject.flag
-        Dict["population"] = StateObject.population
-        Dict["size"] = StateObject.size
+        Dict["population"] = locale.format("%d", StateObject.population, grouping=True)
+        Dict["size"] = locale.format("%d", StateObject.size, grouping=True)
         Dict["video"] = StateObject.video
         for park in ParksinState :
             HtmlParks += "<li><a href=/parks/" + park.name + ">" + park.name + "</a></li>"
