@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from myapp.models import State
 import os
 
 HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
@@ -86,7 +87,9 @@ def Homepage(request):
     Renders and returns the homepage for publishing. Uses a dictionary for all
     the variable values marked for django in Homepage.html.
     """
-    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+
+    s = State.objects.get(name="Texas")
+    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "NAME":s.name})
 
 def About(request):
     """
