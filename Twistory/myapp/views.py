@@ -55,8 +55,9 @@ def State_List (request):
     try:
         StateObjects = State.objects.all()
         for obj in StateObjects :
+            HtmlToReturn += "<a href=/states/" + obj.name + ">"
             HtmlToReturn += "<img src=" + obj.flag + ">"
-            HtmlToReturn += "<li><a href=/states/" + obj.name + ">" + obj.name + "</a></li>"
+            HtmlToReturn += "<h2><a href=/states/" + obj.name + ">" + obj.name + "</a></h2>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
