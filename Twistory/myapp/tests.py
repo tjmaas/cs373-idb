@@ -6,7 +6,7 @@
 
 from django.test import TestCase
 from django.test.utils import setup_test_environment
-from myapp.models import Handle, Hashtag, Cluster
+from myapp.models import State, Park, Hike
 
 # -----------
 # test
@@ -15,110 +15,109 @@ from myapp.models import Handle, Hashtag, Cluster
 class Test (TestCase) :
 
 	# ----
-	# Handle Model
+	# State Model
 	# ----
 
-	def create_handle (self, username, name, bio) :
-		return Handle.objects.create(username = "person", name = "realName", bio = "biography")
 
-	def test_handle1 (self) :
-		myHandle = self.create_handle(username = "Dwayne", name = "Dwayne Wade")
-		self.assertTrue(isInstance(myHandle, Handle))
-		self.assertEqual(myHandle.__unicode__(), myHandle.username)
-		self.assertEqual(myCluster.__unicode__(), myHandle.name)		
+	def test_state1 (self) :
 
-	def test_handle2 (self) :
-		myHandle = self.create_handle(username = "Dwayne", bio = "basketball player")
-		self.assertTrue(isInstance(myHandle, Handle))
-		self.assertEqual(myHandle.__unicode__(), myHandle.username)
-		self.assertEqual(myCluster.__unicode__(), myHandle.bio)	
-
-	def test_handle3 (self) :
-		myHandle = self.create_handle(bio = "basketball player", name = "Dwayne Wade")
-		self.assertTrue(isInstance(myHandle, Handle))
-		self.assertEqual(myHandle.__unicode__(), myHandle.bio)
-		self.assertEqual(myCluster.__unicode__(), myHandle.name)	
-
-	def test_handle4 (self) :
-		myHandle = self.create_handle(username = "", name = "", bio = "")
-		self.assertTrue(isInstance(myHandle, Handle))
-		self.assertEqual(myHandle.username, "")
-		self.assertEqual(myHandle.name, "")
-		self.assertEqual(myHandle.bio, "") 
+		s = State.objects.get(name = "Arizona")
+		p = Park.objects.filter(state = s)
+		if p[0] is not null :
+			self.assertEqual(p[0].state, s.name) 
+		self.assertTrue(isInstance(s, State))
+		self.assertEqual(s.__unicode__(), s.name)
+		self.assertEqual(s.__unicode__(), s.date_founded)
 
 
+	def test_state2 (self) :
+
+		s = State.objects.get(name = "Colorado")
+
+		self.assertTrue(isInstance(s, State))
+		self.assertEqual(s.__unicode__(), s.name)
+		self.assertEqual(s.__unicode__(), s.date_founded)		
+
+	def test_state3 (self) :
+
+		s = State.objects.get(name = "Washington")
+
+		self.assertTrue(isInstance(s, State))
+		self.assertEqual(s.__unicode__(), s.name)
+		self.assertEqual(s.__unicode__(), s.date_founded)		
 
 
 	# ----
-	# Hashtag Model
+	# Park Model
 	# ----
 
-	def create_hashtag (self, name, description):
-		return Hashtag.objects.create(name = "hashtag", description = "person")
-
-	def test_hashtag1 (self) :
-		myHashtag = self.create_hashtag(name = "NBAFinals", description = "NBA playoff finals for Miami Heat vs. San Antonio Spurs")
-		self.assertTrue(isInstance(myHashtag, Hashtag))
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.name)
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.description)
-
-	def test_hashtag2 (self) :
-		myHashtag = self.create_hashtag(name = "Cramps", description = "people making fun of Lebron James's game performance")
-		self.assertTrue(isInstance(myHashtag, Hashtag))
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.name)
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.description)
 
 
-	def test_hashtag3 (self) :
-		myHashtag = self.create_hashtag(name = "GoSpursGo", description = "San Antonio Spurs' chant")
-		self.assertTrue(isInstance(myHashtag, Hashtag))
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.name)
-		self.assertEqual(myHashtag.__unicode__(), myHashtag.description)
+	def test_park1 (self) :
 
-	def test_hashtag4 (self) :
-		myHashtag = self.create_hashtag(name = "", description = "")
-		self.assertTrue(isInstance(myHashtag, Hashtag))
-		self.assertEqual(myHashtag.name, "")
-		self.assertEqual(myHashtag.description, "")
+		p = Park.objects.get(name = "Grand Canyon")
 
+		self.assertTrue(isInstance(p, Park))
+		self.assertEqual(p.date_founded, "02/26/1919")
+		self.assertEqual(p.__unicode__(), p.name)
+		self.assertEqual(p.__unicode__(), p.date_founded)				
+
+	def test_park2 (self) :
+
+		p = Park.objects.get(name = "Rocky Mountain")
+
+		self.assertTrue(isInstance(p, Park))
+		self.assertEqual(p.date_founded, "01/26/1915")
+		self.assertEqual(p.__unicode__(), p.name)
+		self.assertEqual(p.__unicode__(), p.date_founded)
+
+
+	def test_park3 (self) :
+
+		p = Park.objects.get(name = "Denali")
+
+		self.assertTrue(isInstance(p, Park))
+		self.assertEqual(p.date_founded, "02/26/1917")
+		self.assertEqual(p.__unicode__(), p.name)
+		self.assertEqual(p.__unicode__(), p.date_founded)
 
 
 
 	# ----
-	# Cluster Model
+	# Hike Model
 	# ----
 
-	def create_cluster (self, name, parents, description) :
-		return Cluster.objects.create(name = "clusterName", parents = "parents", description = "descriptions")
 
-	def test_cluster1 (self) :
-		myCluster = self.create_cluster(name = "NBAFinals", parents = "NBA", description = "finals bballz 2014")
-		self.assertTrue(isInstance(myCluster, Cluster))
-		self.assertEqual(myCluster.__unicode__(), myCluster.name)
-		self.assertEqual(myCluster.__unicode__(), myCluster.parents)
-		self.assertEqual(myCluster.__unicode__(), myCluster.description)
 
-	def test_cluster2 (self) :
-		myCluster = self.create_cluster(parents = "NBA", description = "finals bballz 2014")
-		self.assertTrue(isInstance(myCluster, Cluster))
-		self.assertEqual(myCluster.__unicode__(), myCluster.parents)
-		self.assertEqual(myCluster.__unicode__(), myCluster.description)
-		self.assertEqual(myCluster.name, "clusterName")		
+	def test_hike1 (self) :
 
-	def test_cluster3 (self) :
-		myCluster = self.create_cluster(name = "NBAFinals", parents = "NBA")
-		self.assertTrue(isInstance(myCluster, Cluster))
-		self.assertEqual(myCluster.__unicode__(), myCluster.name)
-		self.assertEqual(myCluster.__unicode__(), myCluster.parents)
-		self.assertEqual(myCluster.description, "descriptions")	
+		h = Hike.objects.get(name = "Gower Gulch Loop")
 
-	def test_cluster4 (self) :
-		myCluster = self.create_cluster(name = "", parents = "", description = "")
-		self.assertTrue(isInstance(myCluster, Cluster))
-		self.assertEqual(name, "")
-		self.assertEqual(parents, "")
-		self.assertEqual(description, "")
+		self.assertTrue(isInstance(h, Hike))
+		self.assertEqual(h.difficulty, "moderate")
+		self.assertEqual(p.__unicode__(), h.name)
+		self.assertEqual(p.__unicode__(), h.difficulty)
 
+
+
+	def test_hike2 (self) :
+
+		h = Hike.objects.get(name = "Lower Yosemite Fall Trail")
+
+		self.assertTrue(isInstance(h, Hike))
+		self.assertEqual(h.difficulty, "easy")
+		self.assertEqual(p.__unicode__(), h.name)
+		self.assertEqual(p.__unicode__(), h.difficulty)
+
+
+	def test_hike3 (self) :
+
+		h = Hike.objects.get(name = "Mount Healy")
+
+		self.assertTrue(isInstance(h, Hike))
+		self.assertEqual(h.difficulty, "strenuous")
+		self.assertEqual(p.__unicode__(), h.name)
+		self.assertEqual(p.__unicode__(), h.difficulty)
 
 
 # ----

@@ -24,7 +24,7 @@ class Park(models.Model) :
     name = models.CharField(max_length = 255)
     size = models.IntegerField()
     max_elevation = models.IntegerField()
-    date_founded = models.IntegerField()
+    date_founded = models.CharField(max_length = 10)
     park_image = models.ImageField("park_map", upload_to="images/")
     #park_image = models.CharField(max_length = 1000)
     num_visitors = models.IntegerField()
