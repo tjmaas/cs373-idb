@@ -122,11 +122,11 @@ def Park_ID (request, Pagename):
         Dict["HTML_END"] = HTML_END
         Dict["state"] = "<h2>State: <a href=/states/" + ParkObject.state.name + ">" + ParkObject.state.name + "</a></h2>"
         Dict["name"] = ParkObject.name
-        Dict["size"] = ParkObject.size
-        Dict["max_elevation"] = ParkObject.max_elevation
+        Dict["size"] = locale.format("%d", ParkObject.size, grouping=True)
+        Dict["max_elevation"] = locale.format("%d", ParkObject.max_elevation, grouping=True)
         Dict["date_founded"] = ParkObject.date_founded
         Dict["park_image"] = ParkObject.park_image
-        Dict["num_visitors"] = ParkObject.num_visitors
+        Dict["num_visitors"] = locale.format("%d", ParkObject.num_visitors, grouping=True)
         Dict["video"] = ParkObject.video
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})

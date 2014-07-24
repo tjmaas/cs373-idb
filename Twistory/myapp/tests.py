@@ -21,30 +21,50 @@ class Test (TestCase) :
 
 	def test_state1 (self) :
 
-		s = State.objects.get(name = "Arizona")
-		p = Park.objects.filter(state = s)
-		if p[0] is not null :
-			self.assertEqual(p[0].state, s.name) 
-		self.assertTrue(isInstance(s, State))
-		self.assertEqual(s.__unicode__(), s.name)
-		self.assertEqual(s.__unicode__(), s.date_founded)
+		s = State.objects.create(
+			name = "Arizona",
+			date_founded = "12/12/1212",
+			flag = "www.google.com",
+			population = 1000,
+			size = 10,
+			video = "myvideourl")
+
+		self.assertTrue(type(s) == State)
+		self.assertEqual("Arizona", s.name)
+		self.assertEqual("12/12/1212", s.date_founded)
 
 
 	def test_state2 (self) :
 
-		s = State.objects.get(name = "Colorado")
+		s = State.objects.create(
+			name = "Colorado",
+			date_founded = "12/12/1212",
+			flag = "www.google.com",
+			population = 1000,
+			size = 10,
+			video = "myvideourl")
 
-		self.assertTrue(isInstance(s, State))
-		self.assertEqual(s.__unicode__(), s.name)
-		self.assertEqual(s.__unicode__(), s.date_founded)		
+		self.assertTrue(s.population > 10)
+		self.assertEqual(s.size, 10)
+		self.assertTrue(type(s) == State)
 
 	def test_state3 (self) :
 
-		s = State.objects.get(name = "Washington")
+		s = State.objects.create(
+			name = "Colorado",
+			date_founded = "End of the World",
+			flag = "www.reddit.com",
+			population = -200,
+			size = 0,
+			video = "videoOfCats")
 
-		self.assertTrue(isInstance(s, State))
-		self.assertEqual(s.__unicode__(), s.name)
-		self.assertEqual(s.__unicode__(), s.date_founded)		
+		self.assertTrue(s.population == -200)
+		self.assertEqual(s.size, 0)
+		self.assertTrue(type(s) == State)
+		self.assertEqual(s.date_founded, "End of the World")
+		self.assertEqual(s.flag, "www.reddit.com")
+		self.assertEqual(s.video, "videoOfCats")
+
 
 
 	# ----
@@ -55,21 +75,52 @@ class Test (TestCase) :
 
 	def test_park1 (self) :
 
-		p = Park.objects.get(name = "Grand Canyon")
+		s = State.objects.create(
+			name = "Colorado",
+			date_founded = "End of the World",
+			flag = "www.reddit.com",
+			population = -200,
+			size = 0,
+			video = "videoOfCats")
 
-		self.assertTrue(isInstance(p, Park))
-		self.assertEqual(p.date_founded, "02/26/1919")
-		self.assertEqual(p.__unicode__(), p.name)
-		self.assertEqual(p.__unicode__(), p.date_founded)				
+		p = Park.objects.create(
+		    name = "Zilker Park",
+		    state = s,
+		    size = 0,
+		    max_elevation = 9999,
+		    date_founded = "1/1/2000",
+		    park_image = "www.amazon.com",
+		    num_visitors = 42,
+		    video = "ThisIsAVideo")
+
+		self.assertTrue(type(p) == Park)
+		self.assertTrue(type(p.state) == State)
+
 
 	def test_park2 (self) :
 
-		p = Park.objects.get(name = "Rocky Mountain")
+		s = State.objects.create(
+			name = "Arizona",
+			date_founded = "12/12/1212",
+			flag = "www.google.com",
+			population = 1000,
+			size = 10,
+			video = "myvideourl")
 
-		self.assertTrue(isInstance(p, Park))
-		self.assertEqual(p.date_founded, "01/26/1915")
-		self.assertEqual(p.__unicode__(), p.name)
-		self.assertEqual(p.__unicode__(), p.date_founded)
+		p = Park.objects.create(
+		    name = "Zilker Park",
+		    state = s,
+		    size = 0,
+		    max_elevation = 9999,
+		    date_founded = "1/1/2000",
+		    park_image = "www.amazon.com",
+		    num_visitors = 42,
+		    video = "ThisIsAVideo")
+
+		self.assertTrue(p.max_elevation == 9999)
+		self.assertEqual(p.size, 0)
+		self.assertEqual(p.state.population, 1000)
+		self.assertEqual(p.state.size, 10)
 
 
 	def test_park3 (self) :
