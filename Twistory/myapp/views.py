@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from myapp.models import State, Park, Hike
+import json
 import os
 
 HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
@@ -13,7 +14,7 @@ def Homepage(request):
     Renders and returns the homepage for publishing. Uses a dictionary for all
     the variable values marked for django in Homepage.html.
     """
-    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "NAME":s.name})
+    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
 def About(request):
     """
@@ -29,6 +30,17 @@ def PageNotFound(request):
 
 
 
+def State_List_API (request):
+    List = []
+
+    StateObjects = State.objects.all()
+
+    for obj in StateObjects:
+        d = {}
+        d["name"] = obj.name
+        d["flag"] = obj.flag
+        List += d
+    return HttpResponse(json.dumps(d),mimetype="application/json")
 
 
 def State_List (request):
@@ -54,6 +66,8 @@ def State_ID (request, Pagename):
     """
     try:
         StateObject = State.objects.get(name=Pagename)
+        ParksinState = Park.objects.filter(state=StateObject)
+        HtmlParks = "<h3>Parks In " + Pagename + "</h3>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
@@ -63,6 +77,9 @@ def State_ID (request, Pagename):
         Dict["population"] = StateObject.population
         Dict["size"] = StateObject.size
         Dict["video"] = StateObject.video
+        for park in ParksinState :
+            HtmlParks += "<li><a href=/parks/" + park.name + ">" + park.name + "</a></li>"
+        Dict["HtmlParks"] = HtmlParks
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
