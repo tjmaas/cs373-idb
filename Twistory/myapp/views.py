@@ -82,7 +82,8 @@ def State_ID (request, Pagename):
         Dict["size"] = locale.format("%d", StateObject.size, grouping=True)
         Dict["video"] = StateObject.video
         for park in ParksinState :
-            HtmlParks += "<li><a href=/parks/" + park.name + ">" + park.name + "</a></li>"
+            newParkName = park.name.replace(" ", "%20")
+            HtmlParks += "<li><a href=/parks/" + newParkName + ">" + park.name + "</a></li>"
         Dict["HtmlParks"] = HtmlParks
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
@@ -98,8 +99,9 @@ def Park_List (request):
     try:
         ParkObjects = Park.objects.all()
         for obj in ParkObjects :
+            newParkName = obj.name.replace(" ", "%20")
             HtmlToReturn += "<img src=" + obj.park_image + ">"
-            HtmlToReturn += "<h2><a href=/parks/" + obj.name + ">" + obj.name + "</a></h2>"
+            HtmlToReturn += "<h2><a href=/parks/" + newParkName + ">" + obj.name + "</a></h2>"
             HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
