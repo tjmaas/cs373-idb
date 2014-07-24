@@ -145,7 +145,7 @@ def Hike_List (request):
         HikeObjects = Hike.objects.all()
         for obj in HikeObjects :
             HtmlToReturn += "<img src=" + obj.hike_image + ">"
-            HtmlToReturn += "<h2><a href=/hikes/" + obj.name + ">" + obj.name + "</a></h2>"
+            HtmlToReturn += "<h2><a href=/hikes/" + obj.name.replace(" ", "%20") + ">" + obj.name + "</a></h2>"
             HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
@@ -166,7 +166,7 @@ def Hike_ID (request, Pagename):
         Dict["distance"] = HikeObject.distance
         Dict["est_time"] = HikeObject.est_time
         Dict["hike_image"] = HikeObject.hike_image
-        Dict["difficulty"] = HikeObject.size
+        Dict["difficulty"] = HikeObject.difficulty
         Dict["park"] = HikeObject.park.name
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
