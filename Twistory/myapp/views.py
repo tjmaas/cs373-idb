@@ -55,9 +55,9 @@ def State_List (request):
     try:
         StateObjects = State.objects.all()
         for obj in StateObjects :
-            HtmlToReturn += "<a href=/states/" + obj.name + ">"
             HtmlToReturn += "<img src=" + obj.flag + ">"
             HtmlToReturn += "<h2><a href=/states/" + obj.name + ">" + obj.name + "</a></h2>"
+            HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
@@ -94,25 +94,34 @@ def Park_List (request):
     Renders and returns the handle page for publishing. Uses a dictionary for all
     the variables marked for django in Handle.html or PageNotFound.html.
     """
+    HtmlToReturn = ""
     try:
-        Dict = MasterHandleDict[Pagename]
+        ParkObjects = Park.objects.all()
+        for obj in ParkObjects :
+            HtmlToReturn += "<img src=" + obj.park_image + ">"
+            HtmlToReturn += "<h2><a href=/parks/" + obj.name + ">" + obj.name + "</a></h2>"
+            HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'Handle.html', Dict)
+        return render(request, 'StateList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+
 
 def Park_ID (request, Pagename):
     """
     Renders and returns the handle page for publishing. Uses a dictionary for all
     the variables marked for django in Handle.html or PageNotFound.html.
     """
+
     try:
         ParkObject = Park.objects.get(name=Pagename)
         Dict = {}
+        name = ParkObject.name
+        name.replace(" ", "")
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
         Dict["state"] = ParkObject.state.name
-        Dict["name"] = ParkObject.name
+        Dict["name"] = name
         Dict["size"] = ParkObject.size
         Dict["max_elevation"] = ParkObject.max_elevation
         Dict["date_founded"] = ParkObject.date_founded
@@ -129,12 +138,17 @@ def Hike_List (request):
     Renders and returns the handle page for publishing. Uses a dictionary for all
     the variables marked for django in Handle.html or PageNotFound.html.
     """
+    HtmlToReturn = ""
     try:
-        Dict = MasterHandleDict[Pagename]
+        HikeObjects = Hike.objects.all()
+        for obj in HikeObjects :
+            HtmlToReturn += "<img src=" + obj.hike_image + ">"
+            HtmlToReturn += "<h2><a href=/hikes/" + obj.name + ">" + obj.name + "</a></h2>"
+            HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'Handle.html', Dict)
+        return render(request, 'HikeList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
 
 def Hike_ID (request, Pagename):
     """
@@ -142,16 +156,16 @@ def Hike_ID (request, Pagename):
     the variables marked for django in Handle.html or PageNotFound.html.
     """
     try:
-        StateObject = State.objects.get(name=Pagename)
+        HikeObject = Hike.objects.get(name=Pagename)
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
-        Dict["name"] = StateObject.name
-        Dict["date_founded"] = StateObject.date_founded
-        Dict["flag"] = StateObject.flag
-        Dict["population"] = StateObject.population
-        Dict["size"] = StateObject.size
-        Dict["video"] = StateObject.video
+        Dict["name"] = HikeObject.name
+        Dict["distance"] = HikeObject.distance
+        Dict["est_time"] = HikeObject.est_time
+        Dict["hike_image"] = HikeObject.hike_image
+        Dict["difficulty"] = HikeObject.size
+        Dict["park"] = HikeObject.park.name
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
