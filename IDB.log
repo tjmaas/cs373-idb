@@ -1,3 +1,311 @@
+commit 0a49f9169381731e44e80e66d3cd3a12d9ef1494
+Merge: 9ae2b08 8fd9704
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 18:34:48 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 8fd9704a5563f30e73827db9a74b89c58d86589c
+Merge: 3319645 fe88951
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 23:34:15 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 331964502025de3b6999153ff43d9127b1b15475
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 23:33:33 2014 +0000
+
+    Committing to prepare for final submission
+
+commit fe889519178fd2f64b721dff2e0c04d7ebd28401
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Fri Jul 25 15:21:44 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit e68eb30e8127481f93270bfd8627a86959ee688c
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 18:55:49 2014 +0000
+
+    responsive images and video, api tests run
+
+commit 2affc1adfbcc821a096c7a0e338b65bd474c0ed4
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 04:11:47 2014 +0000
+
+    added test text
+
+commit 82dbba7871a3f4f7449aa495dff0a8a0c7d24d2f
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 03:54:58 2014 +0000
+
+    FIXED THE STATE LIST
+
+commit 7d570eed088209480c63a6644d81a1a60d6ce138
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 03:09:33 2014 +0000
+
+    models.html, messed with css for background, header & footer
+
+commit 999d67cac1a964ba164cc8eb09448cc28020cd3d
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 00:12:51 2014 +0000
+
+    Finished uploading database
+
+commit b430eeebc5fcf84053a57af1fadb461728756824
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 22:49:35 2014 +0000
+
+    fixed navbar, formatted numbers
+
+commit 9ae2b08ed5949c84d286c35329252c34b742e352
+Merge: 27b5bd6 2ee5d2d
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 17:04:45 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 2ee5d2d97812a6ef7b71eb2805a836d658b723e8
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 20:27:33 2014 +0000
+
+    fixed spacing for park under hike and added new favicon
+
+commit 1a3f189bfc27825c68c01245a6558a71fbbd0559
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 19:51:27 2014 +0000
+
+    made state in park and park in hike clickable
+
+commit 34588a7eb84bbe217c3479fb84602339255c24d8
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 18:07:58 2014 +0000
+
+    fixed hike html spaces
+
+commit cb21a887db2a995460b5889c8ed801ecf80df873
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 17:47:59 2014 +0000
+
+    fixed spacing issue
+
+commit d2f6ad404b213133b385ded57db678da68d5bde1
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 16:31:44 2014 +0000
+
+    templates and views for parks, park, hikes, and hike
+
+commit f554fcb8b495f269b8ec7ae98631e6fb4f1bcd8a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 15:41:41 2014 +0000
+
+    made state flags clickable
+
+commit 47e79464773b808f2099af6b8aa98cf244fea231
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 15:17:44 2014 +0000
+
+    made pop and size print with commas
+
+commit d15511bbd57fc66f44408d51683d24d0b5a2af1a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 15:10:18 2014 +0000
+
+    changed css formatting
+
+commit 55256bf272e8eeaf8de5d9432118479917e27c41
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 04:49:49 2014 +0000
+
+    Added 3 states, 6 parks, and 18 hikes to the database
+
+commit c49eea18b90993bcaec62cf1d8e6eaef2bea7c02
+Merge: 7a3496f 2bb9ecb
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 02:18:25 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 7a3496f3d4fb777b8fa3a92a0e800fb37b30f677
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 02:18:02 2014 +0000
+
+    added states list and state html
+
+commit 27b5bd6dd78142614648c043c5e7425b93e693b3
+Merge: 215c0ef 2bb9ecb
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 20:58:38 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 215c0ef50297ab1429fab77a7f4e97fb38f628fe
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 20:58:34 2014 -0500
+
+    Removed duplicate park model attributes
+
+commit 2bb9ecb6b16b824b62b8ac8b6ca673e159d1d17d
+Merge: 3081588 56e00e1
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 23 20:45:30 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 56e00e1d36e5a6a3e2392cebc11ded12490b3f4b
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 01:45:05 2014 +0000
+
+    changed views to work with models and db
+
+commit 3081588611eb8a357198d38c1c72aa0d92604b31
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 23 20:40:00 2014 -0500
+
+    models
+
+commit 836df894a5d87d2455bc256cb52dfcd99c3ac264
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 20:24:04 2014 -0500
+
+    Added first database for testing
+
+commit 8a899220afda1c450c6e404ebddd093928652198
+Merge: 0d84d0b 99be723
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 20:15:29 2014 -0500
+
+    First database test
+
+commit 0d84d0b5561e023a22ebc0a3023b72bf72a27a8f
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 20:15:00 2014 -0500
+
+    First database test
+
+commit 99be723ae093b17e4a3f5aa8ff7de38dca0c5d98
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 01:12:38 2014 +0000
+
+    changed views
+
+commit 95c8e3a482da7c33a621a4b5d32656918ecc9a34
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 01:11:59 2014 +0000
+
+    changed views
+
+commit 92d6a7eb33d9cfbe195b800c84d6b0081f714f87
+Merge: 716b345 ea4611e
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 23 19:35:44 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+    merging
+
+commit 716b34524ade582a67e3f75ce1b5498c49aef3a6
+Author: youngseo <young.seo13@gmail.com>
+Date:   Wed Jul 23 19:35:38 2014 -0500
+
+    tests
+
+commit ea4611e2e8aae0ad186f3a683221e292e4b997ac
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 00:32:26 2014 +0000
+
+    got database to work
+
+commit ad1f4bdb4123e14c290c8b0df01d8a16435cf61c
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Thu Jul 24 00:09:52 2014 +0000
+
+    Revert to old commit
+
+commit 4be695010642e1b5768b68cb9d5bd805761935b2
+Merge: c2ba70d 64bbd91
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 18:19:19 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit c2ba70d2a129f5c18cb4b4ccae47e5bdb7ecfa47
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 18:19:01 2014 -0500
+
+    Moved SQL file to same directory as views.py
+
+commit 64bbd9113645c281a79c6fd4a35d83c1735f5ada
+Merge: 0852ee6 77d2b32
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 23:17:33 2014 +0000
+
+    trying to fix merge conflicts
+
+commit 0852ee60e147e1edef39524640a98e544bcd8c7a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 23:08:52 2014 +0000
+
+    new db
+
+commit 00fabe935b7c9fe1118e2ac0ece5964a9fa79bf6
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 23:03:59 2014 +0000
+
+    new db
+
+commit 77d2b322b405f71b4a5324ab008209028294cbd9
+Merge: 7d0fa6b 9bd4711
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 21:46:01 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 7d0fa6b76479871538c0b5f5afb5c90fc2cad8f2
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Jul 23 21:45:35 2014 +0000
+
+    started db
+
+commit 9bd4711ac56768c076732dfe339c664095000b89
+Merge: 2066e5c 7adfdfa
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 21 19:56:29 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit 2066e5c062baf3704ad812e167f1eca328a69b81
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 21 19:56:14 2014 -0500
+
+    Updated models with __str__ functions
+
+commit 7adfdfa6db44a415beb369c4880129dfa83397e9
+Merge: adad866 31f315e
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Tue Jul 22 00:55:39 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit adad866cabd0600eb4b0abc51275ee439adb2ebe
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Tue Jul 22 00:54:58 2014 +0000
+
+    added new homepage
+
+commit 31f315e4441824c10c9864a1ce470f09ef91b170
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Mon Jul 21 19:22:27 2014 -0500
+
+    Updated models to reflect the new National Parks topic.
+
+commit 43d0d383f5cd2369bdd949fb634d0ee026243677
+Author: Terrence Maas <terrence.j.maas@utexas.edu>
+Date:   Thu Jul 10 20:41:20 2014 -0500
+
+    This includes the updated log
+
 commit 03bfc4be39b321264a4333e97bdfbc1b31ceb6c3
 Author: Terrence Maas <terrence.j.maas@utexas.edu>
 Date:   Thu Jul 10 20:40:35 2014 -0500
