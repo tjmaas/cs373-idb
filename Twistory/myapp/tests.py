@@ -125,12 +125,29 @@ class Test (TestCase) :
 
 	def test_park3 (self) :
 
-		p = Park.objects.get(name = "Denali")
+		s = State.objects.create(
+			name = "Granola",
+			date_founded = "19/90/1990",
+			flag = "Cereal",
+			population = 2,
+			size = -37,
+			video = "Box")
 
-		self.assertTrue(isInstance(p, Park))
-		self.assertEqual(p.date_founded, "02/26/1917")
-		self.assertEqual(p.__unicode__(), p.name)
-		self.assertEqual(p.__unicode__(), p.date_founded)
+		p = Park.objects.create(
+		    name = "Auditorium Shores",
+		    state = s,
+		    size = 27,
+		    max_elevation = 9000,
+		    date_founded = "1/31/2000",
+		    park_image = "Pretty Skyline",
+		    num_visitors = 5000,
+		    video = "YouTube Video")
+
+
+		self.assertTrue(type(p.state) == State)
+		self.assertEqual(p.state.video, "Box")
+		self.assertEqual(p.video, "YouTube Video")
+		self.assertEqual(p.max_elevation, 9000)
 
 
 
@@ -141,34 +158,103 @@ class Test (TestCase) :
 
 
 	def test_hike1 (self) :
+		s = State.objects.create(
+			name = "Granola",
+			date_founded = "19/90/1990",
+			flag = "Cereal",
+			population = 2,
+			size = -37,
+			video = "Box")
 
-		h = Hike.objects.get(name = "Gower Gulch Loop")
+		p = Park.objects.create(
+		    name = "Auditorium Shores",
+		    state = s,
+		    size = 27,
+		    max_elevation = 9000,
+		    date_founded = "1/31/2000",
+		    park_image = "Pretty Skyline",
+		    num_visitors = 5000,
+		    video = "YouTube Video")
 
-		self.assertTrue(isInstance(h, Hike))
-		self.assertEqual(h.difficulty, "moderate")
-		self.assertEqual(p.__unicode__(), h.name)
-		self.assertEqual(p.__unicode__(), h.difficulty)
+		h = Hike.objects.create (
+		    name = "Simple Hike",
+		    distance = 1,
+		    est_time = 60,
+		    hike_image = "pretty trees",
+		    difficulty = "Moderate",
+		    park = p )
+
+
+		self.assertTrue(type(h) == Hike)
+		self.assertEqual(h.name, "Simple Hike")
+		self.assertEqual(h.hike_image, "pretty trees")
+		self.assertEqual(h.difficulty, "Moderate")
 
 
 
 	def test_hike2 (self) :
+		s = State.objects.create(
+			name = "Granola",
+			date_founded = "19/90/1990",
+			flag = "Cereal",
+			population = 2,
+			size = -37,
+			video = "Box")
 
-		h = Hike.objects.get(name = "Lower Yosemite Fall Trail")
+		p = Park.objects.create(
+		    name = "Auditorium Shores",
+		    state = s,
+		    size = 27,
+		    max_elevation = 9000,
+		    date_founded = "1/31/2000",
+		    park_image = "Pretty Skyline",
+		    num_visitors = 5000,
+		    video = "YouTube Video")
 
-		self.assertTrue(isInstance(h, Hike))
-		self.assertEqual(h.difficulty, "easy")
-		self.assertEqual(p.__unicode__(), h.name)
-		self.assertEqual(p.__unicode__(), h.difficulty)
+		h = Hike.objects.create (
+		    name = "Hard Hike",
+		    distance = 1,
+		    est_time = 60,
+		    hike_image = "pretty trees",
+		    difficulty = "Moderate",
+		    park = p )
+
+		self.assertTrue(type(h.park) == Park )
+		self.assertTrue(type(h.park.state == State))
 
 
 	def test_hike3 (self) :
 
-		h = Hike.objects.get(name = "Mount Healy")
+		s = State.objects.create(
+			name = "Granola",
+			date_founded = "19/90/1990",
+			flag = "Cereal",
+			population = 2,
+			size = -37,
+			video = "Box")
 
-		self.assertTrue(isInstance(h, Hike))
-		self.assertEqual(h.difficulty, "strenuous")
-		self.assertEqual(p.__unicode__(), h.name)
-		self.assertEqual(p.__unicode__(), h.difficulty)
+		p = Park.objects.create(
+			name = "Auditorium Shores",
+			state = s,
+			size = 27,
+			max_elevation = 9000,
+			date_founded = "1/31/2000",
+			park_image = "Pretty Skyline",
+			num_visitors = 5000,
+			video = "1924")
+
+		h = Hike.objects.create (
+			name = "Gatsby Trail",
+			distance = 22,
+			est_time = 33,
+			hike_image = "44",
+			difficulty = "55",
+			park = p )
+
+		self.assertTrue(h.distance < h.est_time)
+		self.assertEqual(h.difficulty, "55")
+		self.assertTrue(h.distance < h.park.size)
+		self.assertTrue(h.name != h.park.name != h.park.state.name)
 
 
 # ----

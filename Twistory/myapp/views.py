@@ -34,17 +34,57 @@ def PageNotFound(request):
 
 
 def State_List_API (request):
-    List = []
+    List = {}
 
     StateObjects = State.objects.all()
 
     for obj in StateObjects:
-        d = {}
-        d["name"] = obj.name
-        d["flag"] = obj.flag
-        List += d
-    return HttpResponse(json.dumps(d),mimetype="application/json")
+        List[obj.name] = "api/v1/states/" + obj.name
 
+    return HttpResponse(json.dumps(List), mimetype="application/json")
+
+def State_ID_API (request, Pagename):
+    info = {}
+
+    obj = State.objects.get(name = Pagename)
+    info["name"] = obj.name
+    info["flag"] = obj.flag
+    info["date_founded"] = obj.date_founded
+    info["population"] = obj.population
+    info["size"] = obj.size
+    info["video"] = obj.video
+    parks = {}
+    allparks = Park.objects.filter(state=obj)
+    for p in allparks:
+        parks[p.name] = "api/v1/parks/" + p.name
+
+    info["parks"] = parks
+
+    return HttpResponse(json.dumps(info), mimetype="application/json")
+
+def Park_List_API (request):
+    List = {}
+
+    ParkObjects = Park.objects.all()
+
+    for obj in ParkObjects:
+        List[obj.name] = "api/v1/parks/" + obj.name
+
+    return HttpResponse(json.dumps(List), mimetype="application/json")
+
+def Park_ID_API (request,Pagename):
+    info = {}
+    obj = Park.objects.get(name=Pagename)
+    info["name"] = obj.name
+    info["state"] = obj.state
+    info["size"] = obj.size
+    info["max_elevation"] = obj.max_elevation
+    info["date_founded"] = obj.date_founded
+    info["park_image"] = obj.park_image
+    info["num_visitors"] = obj.num_visitors
+    info["video"] = obj.video
+
+    return HttpResponse(json.dumps(info), mimetype="application/json")
 
 def State_List (request):
     """
