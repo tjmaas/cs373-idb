@@ -47,18 +47,19 @@ $
 	 
 
 # File marks:
-'0  1  0  ~/.git/MERGE_MSG
-'1  1  0  ~/Twistory/myapp/models.py
-'2  1  0  ~/Twistory/manage.py
-'3  1  0  ~/myapp
-'4  53  0  ~/Twistory/settings.py
-'5  22  55  ~/Twistory/Twistory/myapp/tests.py
-'6  85  39  ~/Twistory/Twistory/settings.py
-'7  37  0  ~/Twistory/Twistory/myapp/tests.py
-'8  30  48  ~/Twistory/Twistory/myapp/views.py
-'9  7  0  ~/Twistory/Twistory/myapp/models.py
+'0  1  0  ~/Twistory/tests.out
+'1  1  0  ~/.git/MERGE_MSG
+'2  1  0  ~/Twistory/myapp/models.py
+'3  1  0  ~/Twistory/manage.py
+'4  1  0  ~/myapp
+'5  53  0  ~/Twistory/settings.py
+'6  22  55  ~/Twistory/Twistory/myapp/tests.py
+'7  85  39  ~/Twistory/Twistory/settings.py
+'8  37  0  ~/Twistory/Twistory/myapp/tests.py
+'9  30  48  ~/Twistory/Twistory/myapp/views.py
 
 # Jumplist (newest first):
+-'  1  0  ~/Twistory/tests.out
 -'  1  0  ~/.git/MERGE_MSG
 -'  1  0  ~/Twistory/myapp/models.py
 -'  1  0  ~/Twistory/manage.py
@@ -155,9 +156,11 @@ $
 -'  85  39  ~/Twistory/Twistory/settings.py
 -'  22  55  ~/Twistory/Twistory/myapp/tests.py
 -'  85  39  ~/Twistory/Twistory/settings.py
--'  1  0  ~/Twistory/manage.py
 
 # History of marks within files (newest to oldest):
+
+> ~/Twistory/tests.out
+	"	1	0
 
 > ~/.git/MERGE_MSG
 	"	1	0

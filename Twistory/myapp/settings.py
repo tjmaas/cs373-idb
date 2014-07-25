@@ -52,7 +52,8 @@ TEMPLATE_DIRS = (
         '/home/Twistory/Twistory/templates',
         )
 
-ROOT_URLCONF = 'Twistory.urls'
+ROOT_URLCONF = 'urls'
+
 
 WSGI_APPLICATION = 'Twistory.wsgi.application'
 
@@ -63,7 +64,7 @@ WSGI_APPLICATION = 'Twistory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/home/Twistory/Twistory/db.sqlite3',
     }
 }
 
