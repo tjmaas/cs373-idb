@@ -60,7 +60,7 @@ def State_ID_API (request, Pagename):
         info["parks"] = parks
 
     except Exception:
-        h = HttpResponse(json.dumps({"error": "This name does not exist in the file"}), content_type="application/json")
+        h = HttpResponse(json.dumps({"error": Pagename+" does not exist in the file"}), content_type="application/json")
         h.status_code = 404
         return h
 
@@ -76,27 +76,37 @@ def Park_List_API (request):
     for obj in ParkObjects:
         List[obj.name] = "api/parks/" + obj.name
 
-    return HttpResponse(json.dumps(List), mimetype="application/json")
+    return HttpResponse(json.dumps(List), content_type="application/json")
 
 def Park_ID_API (request,Pagename):
     info = {}
-    obj = Park.objects.get(name=Pagename)
-    info["name"] = obj.name
-    info["state"] = obj.state.name
-    info["size(acre)"] = obj.size
-    info["max_elevation(ft)"] = obj.max_elevation
-    info["date_founded"] = obj.date_founded
-    info["image"] = obj.park_image
-    info["visitors(annual)"] = obj.num_visitors
-    info["video"] = obj.video
-    hikes = {}
-    allhikes = Hike.objects.filter(state=obj)
-    for h in allhikes:
-        hikes[h.name] = "api/hikes" + h.name
 
-    info["hikes"] = hikes
+    try:
+        obj = Park.objects.get(name=Pagename)
+        info["name"] = obj.name
 
-    return HttpResponse(json.dumps(info), mimetype="application/json")
+        info["state"] = obj.state.name
+
+        info["size(acre)"] = obj.size
+        info["max_elevation(ft)"] = obj.max_elevation
+        info["date_founded"] = obj.date_founded
+        info["image"] = obj.park_image
+        info["visitors(annual)"] = obj.num_visitors
+        info["video"] = obj.video
+        hikes = {}
+        allhikes = Hike.objects.filter(park=obj)
+        for h in allhikes:
+            hikes[h.name] = "api/hikes" + h.name
+
+        info["hikes"] = hikes
+
+    except Exception:
+        e = HttpResponse(json.dumps({"error": Pagename+" does not exist in the file"}), content_type="application/json")
+        e.status_code = 404
+        return e
+    else:
+
+        return HttpResponse(json.dumps(info), content_type="application/json")
 
 
 def Hike_List_API (request):
@@ -107,19 +117,24 @@ def Hike_List_API (request):
     for obj in HikeObjects:
         List[obj.name] = "api/hikes/" + obj.name
 
-    return HttpResponse(json.dumps(List), mimetype="application/json")
+    return HttpResponse(json.dumps(List), content_type="application/json")
 
 def Hike_ID_API (request, Pagename):
     info = {}
-    obj = Hike.objects.get(name=Pagename)
-    info["name"] = obj.name
-    info["distance(mile)"] = obj.distance
-    info["est_time(min)"] = obj.est_time
-    info["image"] = obj.hike_image
-    info["difficulty"] = obj.difficulty
-    info["park"] = obj.park.name
-
-    return HttpResponse(json.dumps(info), mimetype="application/json")
+    try:
+        obj = Hike.objects.get(name=Pagename)
+        info["name"] = obj.name
+        info["distance(mile)"] = obj.distance
+        info["est_time(min)"] = obj.est_time
+        info["image"] = obj.hike_image
+        info["difficulty"] = obj.difficulty
+        info["park"] = obj.park.name
+    except Exception:
+        e = HttpResponse(json.dumps({"error": Pagename+" does not exist in the file"}), content_type="application/json")
+        e.status_code = 404
+        return e
+    else:
+        return HttpResponse(json.dumps(info), content_type="application/json")
 
 
 

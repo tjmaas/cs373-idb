@@ -264,12 +264,64 @@ class Test (TestCase) :
 	# API Request Tests
 	# ----
 
-	def test_api (self) :
-	    self.c = Client ()
-	    response = self.c.get('/api/states/U/')
-	    print(response.content)
+	def setUp (self) :
+	    self.c = Client()
+
+
+	def test_api_state_1 (self) :
+	    response = self.c.get('/api/states/ABC/')
+
+	    self.assertEqual(response.status_code,404)
+
+	def test_api_state_2 (self) :
+	    response = self.c.get('/api/states/ABC')
+
+	    self.assertEqual(response.status_code,301)
+
+	def test_api_state_3 (self) :
+	    response = self.c.get('/api/states/')
 
 	    self.assertEqual(response.status_code,200)
+
+	def test_api_park_1 (self) :
+	    response = self.c.get('/api/parks/P/')
+
+	    self.assertEqual(response.status_code,404)
+
+	def test_api_park_2 (self) :
+	    response = self.c.get('/api/parks/')
+
+	    self.assertEqual(response.status_code,200)
+
+	def test_api_park_3 (self) :
+	    response = self.c.get('/api/parks')
+
+	    self.assertEqual(response.status_code,301)
+
+
+	def test_api_hike_1 (self) :
+	    response = self.c.get('/api/hikes/h2/')
+
+	    self.assertEqual(response.status_code,404)
+
+	def test_api_hike_2 (self) :
+	    response = self.c.get('/api/hikes/')
+
+	    self.assertEqual(response.status_code,200)
+
+	def test_api_hike_3 (self) :
+	    response = self.c.get('/api/hikes/h')
+
+	    self.assertEqual(response.status_code,301)
+
+
+
+
+
+
+
+
+
 
 
 
