@@ -120,12 +120,17 @@ def State_List (request):
     Renders and returns the handle page for publishing. Uses a dictionary for all
     the variables marked for django in Handle.html or PageNotFound.html.
     """
-    HtmlToReturn = ""
+    HtmlToReturn = "<div class=\"row\">"
     try:
         StateObjects = State.objects.all()
         statesByAlpha = sorted([state.name for state in StateObjects])
+        inRow = 0
         for state in statesByAlpha :
+            if (inRow == 3) :
+                HtmlToReturn += "</div> <div class=\"row\">"
+                inRow = 0
             HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=\"#\"><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"></a></div>\n"
+            inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
