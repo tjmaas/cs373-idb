@@ -129,7 +129,7 @@ def State_List (request):
             if (inRow == 3) :
                 HtmlToReturn += "</div> <div class=\"row\">"
                 inRow = 0
-            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=\"#\"><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"></a></div>\n"
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"></a><div class=\"starter-template\"><h2>Test</h2></div></div>\n"
             inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
