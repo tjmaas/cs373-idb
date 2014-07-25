@@ -4,9 +4,11 @@
 # imports
 # -------
 
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.test.utils import setup_test_environment
+from django.core.urlresolvers import reverse
 from myapp.models import State, Park, Hike
+
 
 # -----------
 # test
@@ -257,9 +259,33 @@ class Test (TestCase) :
 		self.assertTrue(h.name != h.park.name != h.park.state.name)
 
 
+
+
+	# ----
+	# API Request Tests
+	# ----
+
+
+	def set_up (self):
+
+	    self.client = Client()
+
+
+
+	def test_api_request1 (self):
+
+	    response = self.client.get('/abc')
+
+	    self.assertEqual(response.status_code,200)
+
+
+
+
+
 # ----
 # main
 # ----
 
 setup_test_environment()
-#main()
+
+# main()

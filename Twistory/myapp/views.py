@@ -31,15 +31,13 @@ def PageNotFound(request):
 
 
 
-
-
 def State_List_API (request):
     List = {}
 
     StateObjects = State.objects.all()
 
     for obj in StateObjects:
-        List[obj.name] = "api/v1/states/" + obj.name
+        List[obj.name] = "api/states/" + obj.name
 
     return HttpResponse(json.dumps(List), mimetype="application/json")
 
@@ -51,12 +49,12 @@ def State_ID_API (request, Pagename):
     info["flag"] = obj.flag
     info["date_founded"] = obj.date_founded
     info["population"] = obj.population
-    info["size"] = obj.size
+    info["size(sqml)"] = obj.size
     info["video"] = obj.video
     parks = {}
     allparks = Park.objects.filter(state=obj)
     for p in allparks:
-        parks[p.name] = "api/v1/parks/" + p.name
+        parks[p.name] = "api/parks/" + p.name
 
     info["parks"] = parks
 
@@ -68,7 +66,7 @@ def Park_List_API (request):
     ParkObjects = Park.objects.all()
 
     for obj in ParkObjects:
-        List[obj.name] = "api/v1/parks/" + obj.name
+        List[obj.name] = "api/parks/" + obj.name
 
     return HttpResponse(json.dumps(List), mimetype="application/json")
 
@@ -76,15 +74,46 @@ def Park_ID_API (request,Pagename):
     info = {}
     obj = Park.objects.get(name=Pagename)
     info["name"] = obj.name
-    info["state"] = obj.state
-    info["size"] = obj.size
-    info["max_elevation"] = obj.max_elevation
+    info["state"] = obj.state.name
+    info["size(acre)"] = obj.size
+    info["max_elevation(ft)"] = obj.max_elevation
     info["date_founded"] = obj.date_founded
-    info["park_image"] = obj.park_image
-    info["num_visitors"] = obj.num_visitors
+    info["image"] = obj.park_image
+    info["visitors(annual)"] = obj.num_visitors
     info["video"] = obj.video
+    hikes = {}
+    allhikes = Hike.objects.filter(state=obj)
+    for h in allhikes:
+        hikes[h.name] = "api/hikes" + h.name
+
+    info["hikes"] = hikes
 
     return HttpResponse(json.dumps(info), mimetype="application/json")
+
+
+def Hike_List_API (request):
+    List = {}
+
+    HikeObjects = Hike.objects.all()
+
+    for obj in HikeObjects:
+        List[obj.name] = "api/hikes/" + obj.name
+
+    return HttpResponse(json.dumps(List), mimetype="application/json")
+
+def Hike_ID_API (request, Pagename):
+    info = {}
+    obj = Hike.objects.get(name=Pagename)
+    info["name"] = obj.name
+    info["distance(mile)"] = obj.distance
+    info["est_time(min)"] = obj.est_time
+    info["image"] = obj.hike_image
+    info["difficulty"] = obj.difficulty
+    info["park"] = obj.park.name
+
+    return HttpResponse(json.dumps(info), mimetype="application/json")
+
+
 
 def State_List (request):
     """
@@ -94,10 +123,9 @@ def State_List (request):
     HtmlToReturn = ""
     try:
         StateObjects = State.objects.all()
-        for obj in StateObjects :
-            HtmlToReturn += "<img src=" + obj.flag + ">"
-            HtmlToReturn += "<h2><a href=/states/" + obj.name + ">" + obj.name + "</a></h2>"
-            HtmlToReturn += "<p></p>"
+        statesByAlpha = sorted([state.name for state in StateObjects])
+        for state in statesByAlpha :
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=\"#\"><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"></a></div>\n"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
@@ -138,10 +166,11 @@ def Park_List (request):
     HtmlToReturn = ""
     try:
         ParkObjects = Park.objects.all()
-        for obj in ParkObjects :
-            newParkName = obj.name.replace(" ", "%20")
-            HtmlToReturn += "<img src=" + obj.park_image + ">"
-            HtmlToReturn += "<h2><a href=/parks/" + newParkName + ">" + obj.name + "</a></h2>"
+        parksByAlpha = sorted([park.name for park in ParkObjects])
+        for park in parksByAlpha :
+            newParkName = park.replace(" ", "%20")
+            HtmlToReturn += "<img src=" + Park.objects.get(name=park).park_image + ">"
+            HtmlToReturn += "<h2><a href=/parks/" + newParkName + ">" + park + "</a></h2>"
             HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
@@ -157,6 +186,8 @@ def Park_ID (request, Pagename):
 
     try:
         ParkObject = Park.objects.get(name=Pagename)
+        HikesinPark = Hike.objects.filter(park=ParkObject)
+        HtmlHikes = "<h3>Hikes In " + Pagename + "</h3>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
@@ -168,6 +199,9 @@ def Park_ID (request, Pagename):
         Dict["park_image"] = ParkObject.park_image
         Dict["num_visitors"] = locale.format("%d", ParkObject.num_visitors, grouping=True)
         Dict["video"] = ParkObject.video
+        for hike in HikesinPark :
+            HtmlHikes += "<li><h2><a href=/hikes/" + hike.name.replace(" ", "%20") + ">" + hike.name + "</a></h2></li>"
+        Dict["HtmlHikes"] = HtmlHikes
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
@@ -181,10 +215,10 @@ def Hike_List (request):
     HtmlToReturn = ""
     try:
         HikeObjects = Hike.objects.all()
-        for obj in HikeObjects :
-
-            HtmlToReturn += "<img src=" + obj.hike_image + ">"
-            HtmlToReturn += "<h2><a href=/hikes/" + obj.name.replace(" ", "%20") + ">" + obj.name + "</a></h2>"
+        hikesByAlpha = sorted([hike.name for hike in HikeObjects])
+        for hike in hikesByAlpha :
+            HtmlToReturn += "<img src=" + Hike.objects.get(name=hike).hike_image + ">"
+            HtmlToReturn += "<h2><a href=/hikes/" + hike.replace(" ", "%20") + ">" + hike + "</a></h2>"
             HtmlToReturn += "<p></p>"
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
