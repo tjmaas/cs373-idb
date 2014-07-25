@@ -32,11 +32,13 @@ body {
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+
 }
 .navbar-wrapper .navbar {
   background: rgb(00,00,00);
-  background: rgba(00, 00, 00, 0.8); /* navbar color, need to change home buttom */
-
+  background: rgba(00, 00, 00, 0.8);
+  margin-bottom: 0;
+  border: 0;
 
 }
 .navbar-wrapper .navbar .container {

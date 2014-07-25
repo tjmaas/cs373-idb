@@ -39,26 +39,34 @@ def State_List_API (request):
     for obj in StateObjects:
         List[obj.name] = "api/states/" + obj.name
 
-    return HttpResponse(json.dumps(List), mimetype="application/json")
+    return HttpResponse(json.dumps(List), content_type="application/json")
 
 def State_ID_API (request, Pagename):
     info = {}
 
-    obj = State.objects.get(name = Pagename)
-    info["name"] = obj.name
-    info["flag"] = obj.flag
-    info["date_founded"] = obj.date_founded
-    info["population"] = obj.population
-    info["size(sqml)"] = obj.size
-    info["video"] = obj.video
-    parks = {}
-    allparks = Park.objects.filter(state=obj)
-    for p in allparks:
-        parks[p.name] = "api/parks/" + p.name
+    try:
+        obj = State.objects.get(name = Pagename)
+        info["name"] = obj.name
+        info["flag"] = obj.flag
+        info["date_founded"] = obj.date_founded
+        info["population"] = obj.population
+        info["size(sqml)"] = obj.size
+        info["video"] = obj.video
+        parks = {}
+        allparks = Park.objects.filter(state=obj)
+        for p in allparks:
+            parks[p.name] = "api/parks/" + p.name
 
-    info["parks"] = parks
+        info["parks"] = parks
 
-    return HttpResponse(json.dumps(info), mimetype="application/json")
+    except Exception:
+        h = HttpResponse(json.dumps({"error": "This name does not exist in the file"}), content_type="application/json")
+        h.status_code = 404
+        return h
+
+    else:
+        return HttpResponse(json.dumps(info), content_type="application/json")
+
 
 def Park_List_API (request):
     List = {}
@@ -129,7 +137,7 @@ def State_List (request):
             if (inRow == 3) :
                 HtmlToReturn += "</div> <div class=\"row\">"
                 inRow = 0
-            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"></a><div class=\"starter-template\"><h2>Test</h2></div></div>\n"
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + state +  "</h2></a></div></div>"
             inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
@@ -144,7 +152,7 @@ def State_ID (request, Pagename):
     try:
         StateObject = State.objects.get(name=Pagename)
         ParksinState = Park.objects.filter(state=StateObject)
-        HtmlParks = "<h3>Parks In " + Pagename + "</h3>"
+        HtmlParks = "<h2>Parks In " + Pagename + "</h2>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
@@ -172,15 +180,18 @@ def Park_List (request):
     try:
         ParkObjects = Park.objects.all()
         parksByAlpha = sorted([park.name for park in ParkObjects])
+        inRow = 0
+        HtmlToReturn = "<div class=\"row\">"
         for park in parksByAlpha :
-            newParkName = park.replace(" ", "%20")
-            HtmlToReturn += "<img src=" + Park.objects.get(name=park).park_image + ">"
-            HtmlToReturn += "<h2><a href=/parks/" + newParkName + ">" + park + "</a></h2>"
-            HtmlToReturn += "<p></p>"
+            if (inRow == 3) :
+                HtmlToReturn += "</div> <div class=\"row\">"
+                inRow = 0
+            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/parks/" + park.replace(" ", "%20") + "><img src=\"" + Park.objects.get(name=park).park_image + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + park +  "</h2></a></div></div></center>"
+            inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'StateList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+        return render(request, 'ParkList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
 
 
 def Park_ID (request, Pagename):
@@ -192,7 +203,7 @@ def Park_ID (request, Pagename):
     try:
         ParkObject = Park.objects.get(name=Pagename)
         HikesinPark = Hike.objects.filter(park=ParkObject)
-        HtmlHikes = "<h3>Hikes In " + Pagename + "</h3>"
+        HtmlHikes = "<h2>Hikes In " + Pagename + "</h2>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["HTML_END"] = HTML_END
@@ -221,10 +232,14 @@ def Hike_List (request):
     try:
         HikeObjects = Hike.objects.all()
         hikesByAlpha = sorted([hike.name for hike in HikeObjects])
+        inRow = 0
+        HtmlToReturn = "<div class=\"row\">"
         for hike in hikesByAlpha :
-            HtmlToReturn += "<img src=" + Hike.objects.get(name=hike).hike_image + ">"
-            HtmlToReturn += "<h2><a href=/hikes/" + hike.replace(" ", "%20") + ">" + hike + "</a></h2>"
-            HtmlToReturn += "<p></p>"
+            if (inRow == 3) :
+                HtmlToReturn += "</div> <div class=\"row\">"
+                inRow = 0
+            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/hikes/" + hike.replace(" ", "%20") + "><img src=\"" + Hike.objects.get(name=hike).hike_image + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + hike +  "</h2></a></div></div></center>"
+            inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :

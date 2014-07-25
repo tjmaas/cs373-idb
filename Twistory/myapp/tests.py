@@ -6,7 +6,6 @@
 
 from django.test import TestCase, Client
 from django.test.utils import setup_test_environment
-from django.core.urlresolvers import reverse
 from myapp.models import State, Park, Hike
 
 
@@ -265,18 +264,15 @@ class Test (TestCase) :
 	# API Request Tests
 	# ----
 
-
-	def set_up (self):
-
-	    self.client = Client()
-
-
-
-	def test_api_request1 (self):
-
-	    response = self.client.get('/abc')
+	def test_api (self) :
+	    self.c = Client ()
+	    response = self.c.get('/api/states/U/')
+	    print(response.content)
 
 	    self.assertEqual(response.status_code,200)
+
+
+
 
 
 
