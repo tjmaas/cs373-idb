@@ -3,85 +3,75 @@ HOST: twistory.pythonanywhere.com/
 
 #### Twistory
 
-Twistory API gives access to real world **Twitter data** and view _trending events_
 
 **Version: v1**
 
 Resources
 
-+ [Handles](<http://idb14.apiary-mock.com/handles)
-+ [Hashtag](<http://idb14.apiary-mock.com/hashtags)
-+ [Clusters](<http://idb14.apiary-mock.com/clusters)
++ [State](<http://idb14.apiary-mock.com/states)
++ [Park](<http://idb14.apiary-mock.com/parks)
++ [Hike](<http://idb14.apiary-mock.com/hikes)
 
 
-# Group Handles
-Twitter Handle resources are _people/entities_ that are actively engaged on twitter 
+# Group States
 
 
-## Handle Collection [/handles]
+## State Collection [/api/states]
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/handles>
-        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
-        Accept-Language: <en-us>
-        ```
-    + Body
-        ```
-        [{
-         "id": 1, "name": "KingJames", "picture": "link to pic"
-         }, 
-         {
-         "id": 2, "name": "oscar11", "picture": "link to pic"
-         },
-         {
-         "id": 3, "name": "kobebryant", "picture": "link to pic"
-         }]
-        ```
-        
-### List the name, id and profile picture of all handles [GET]
-+ Response 200
-
-    [Handle Collection][]
-
-
-
-## Handle [/handles/handle_id]
-
-+ Parameters
-    + handle_id (required, integer, `GET /handles/234`) ... the id given to a handle by this website
-    
-+ Model (application/json)
-    + Headers
-    
-        ```
-        Link: <http://idb14.apiary-mock.com/handles/1>
+        Link: <http://idb14.apiary-mock.com/api/states>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         {
-            "id": 1, "name": "KingJames", "picture": "link to pic", "bio": "Current NBA player",
-            "tweet": "link to this handle's tweeter website",
-            "videos": [{"video": "link to video", "description": "dunk"}],
-            "graphs": [{"graph": "link to graph", "description": "number of tweets in 2013"}],
-            "related_handles": [{"id":3, "name": "kobebryant", "page": "/handles/3"}],
-            "related_hashtags": [{"id":1, "name": "HeatsVsSpurs", "page": "/hashtags/1"},
-                                 {"id":3, "name": "FreeAgency", "page": "/hashtags/3"}
-                                ],
-            "related_clusters": [{"id":1, "name":"MiamiHeat", "page": "/clusters/1"}]
-        }
+         "Utah": "/api/states/Utah"  
+         
+         "Texas": "/api/states/Texas"
+        
+         "California": "/api/states/California"
+         }
+        ```
+        
+### List the name and the path to its detailed page of all states [GET]
++ Response 200
+
+    [State Collection][]
+
+
+
+## State [/api/states/state_name]
+
++ Parameters
+    + state_name (required, string, `GET /api/states/Texas`) 
+    
++ Model (application/json)
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/states.json/Utah>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "name": "Utah", "date_founded": "1/4/1896", "population": "29000872",
+                   "size(sqml)": "84899", "video": "link to video", "flag": "link to pic of flags"
+            "parks": {"Zion": "/api/parks/Zion"},
+         }
         ```
       
 
-### List all info of the handle with the given id [GET]
+### List all info of the state with the given name [GET]
 
 + Response 200 (application/json)
 
-    [Handle][]
+    [State][]
     
 + Response 404 (application/json)
 
@@ -91,68 +81,63 @@ Twitter Handle resources are _people/entities_ that are actively engaged on twit
 
 
 
-# Group Hashtags
-Hashtags are markers that denote a specific tweet
+# Group Parks
 
-## Hashtag Collection [/hashtags]
-
-+ Model (application/json)
-
-    + Headers
-    
-        ```
-        Link: <http://idb14.apiary-mock.com/hashtags>
-        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
-        Accept-Language: <en-us>
-        ```
-    + Body
-        ```
-        [{
-         "id": 1, "name": "HeatsVsSpurs" 
-        }, {
-         "id": 2, "name": "WorldCup" 
-        }, {
-         "id": 3, "name": "FreeAgency"
-        }]
-        ```
-
-### List the id and name of all hashtags [GET]
-
-+ Response 200 (application/json)
-
-    [Hashtag Collection][]
-
-
-## Hashtag [/hashtags/hashtag_id]
-
-+ Parameters
-    + hashtag_id(required, integer,`GET /hashtags/45454`) ... the id given to a hashtag by this website
+## Park Collection [/api/parks]
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/hashtags/1>
+        Link: <http://idb14.apiary-mock.com/api/parks>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         {
-            "hashtag_id": 1, "name": "HeatsVsSpurs", "description": "NBA final",
-            "graphs": [{"graph": "link to graph", "description": "number of uses in 2013"}],
-            "related_handles": [{"id":1, "name": "KingJames", "page": "/handles/1"}],
-            "related_hashtags": [],
-            "related_clusters": [{"id":1, "name":"MiamiHeat", "page": "/clusters/1"}]
+         "Zion" : "/api/parks/Zion",
+         "Yosemite" : "/api/parks/Yosemite" 
+         "Denail" : "/api/parks/Denail"
         }
         ```
 
-### List all info of the hashtag with the given id [GET]
+### List the name and the path to its detailed page of all parks [GET]
 
 + Response 200 (application/json)
 
-    [Hashtag][]
+    [Park Collection][]
+
+
+## Park [/api/parks/park_name]
+
++ Parameters
+    + park_name (required, string,`GET /api/parks/Grand Cayon`) ...
+
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/api/parks/Yosemite>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "name": "Yosemite", "size(acres)": "747956", "date_founded": "12/02/1982", "image": "link to image",
+            "max_elevation(ft)": 13114, "visitors(annual)": "100000", "video": "link to video,
+            "state": "California, "hikes": {"Mirror Lake Loop": "/api/hikes/Mirror Lake Loop", "Hallet Peak": "/api/hikes/Hallet Peak"}        
+        }
+        ```
+
+### List all info of the park with the given name [GET]
+
++ Response 200 (application/json)
+
+    [Park][]
     
 + Response 404 (application/json)
 
@@ -161,69 +146,65 @@ Hashtags are markers that denote a specific tweet
         }
 
 
-# Group Clusters
-Clusters are groups that are associated with multiple handles and hashtags
+# Group Hikes
 
-## Cluster Collection [/clusters]
-
-+ Model (application/json)
-
-    + Headers
-    
-        ```
-        Link: <http://idb14.apiary-mock.com/clusters>
-        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
-        Accept-Language: <en-us>
-        ```
-    + Body
-        ```
-        [{
-            "id": 1, "name": "MiamiHeat"
-         },
-         {
-            "id": 2, "name": "Brazil"
-        }]
-        ```
-
-
-
-### List the id and name of all clusters [GET]
-
-+ Response 200 (application/json)
-
-    [Cluster Collection][]
-
-## Cluster [/clusters/cluster_id]
-
-+ Parameters
-    + cluster_id(required, integer, `GET /clusters/2`) ... the id given to a cluster by this website
+## Hike Collection [/api/hikes]
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/clusters/1>
+        Link: <http://idb14.apiary-mock.com/api/hikes>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         {
-            "id": 1, "name": "MiamiHeat", "description": "A NBA team",
-            "graphs": [{"graphs": "link to graph", "description": "active period"}]
-            "related_handles": [{"id":1, "name": "KingJames", "page": "/handles/1"}],
-            "related_hashtags": [{"id":1, "name": "HeatsVsSpurs", "page": "/hashtags/1"}],
-            "related_clusters": []            
+            "Mirror Lake Loop": "/api/hikes/Mirror Lake Loop"
+        
+            "Hallet Peak", "/api/hikes/Hallet Peak"
+        ]
+        ```
+
+
+
+### List the name and the path to the detailed page of all hikes [GET]
+
++ Response 200 (application/json)
+
+    [Hike Collection][]
+
+## Hike [/api/hikes/hike_name]
+
++ Parameters
+    + hike_name (required, string, `GET /api/hike/Mirror Lake Loop`)
+
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/api/hikes/Mirror Lake Loop>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "name": "Mirror Lake Loop", "distance(mile)": "5",
+            "est_time(min)": "90 min", "difficulty": "moderate", "image": "link to pic"
+            "park": "Yosemite"          
         } 
         ```
 
 
-### List all info of the cluster with the given id [GET]
+### List all info of the hike with the given name [GET]
 
 + Response 200 (application/json)
 
-    [Cluster][]   
+    [Hike][]   
     
 
 + Response 404 (application/json)
@@ -231,4 +212,3 @@ Clusters are groups that are associated with multiple handles and hashtags
         {
             "error": "This id does not exsit in the file."
         }
-        
