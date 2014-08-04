@@ -6,9 +6,26 @@
             <div class="singles">
             <h1>{{name}}</h1>
             <img src = "{{ flag }}" />
-            <h2>Date Founded: {{date_founded}}</h2>
-            <h2>Population: {{population}}</h2>
-            <h2>Size: {{size}} Sq. Mi.</h2>
+            <div class="row">
+                <div class ="col-md-6">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Date Founded</th>
+                                <th>Population</th>
+                                <th>Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{date_founded}}</td>
+                                <td>{{population}}</td>
+                                <td>{{size}} Sq. Mi.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="video-wrapper">
             <center>
             <div class="video-container">
@@ -17,6 +34,28 @@
             </center>
             </div>
             {{HtmlParks|safe}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class ="col-md-6">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Date Founded</th>
+                        <th>Population</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{date_founded}}</td>
+                        <td>{{population}}</td>
+                        <td>{{size}} Sq. Mi.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

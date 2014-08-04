@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from myapp.models import State, Park, Hike
+import urllib.request
 import json
 import os
 import locale
@@ -30,8 +31,29 @@ def PageNotFound(request):
     return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
 
 
+def Hungry(request):
+    response = urllib.request.urlopen('http://regionalfoods.pythonanywhere.com/api/recipe')
+    recipes_json = list(eval(response.read().decode("utf-8")))
+
+
+    HtmlToReturn = "<div class=\"row\">"
+    try:
+        inRow = 0
+        for item in recipes_json:
+            d = item["fields"]
+            if (inRow == 3) :
+                HtmlToReturn += "</div> <div class=\"row\">"
+                inRow = 0
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + d["name"] +  "</h2></a></div></div>"
+            inRow += 1
+    except Exception:
+        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+    else :
+        return render(request, 'Hungry.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+
 
 def State_List_API (request):
+
     List = {}
 
     StateObjects = State.objects.all()
@@ -40,6 +62,8 @@ def State_List_API (request):
         List[obj.name] = "api/states/" + obj.name
 
     return HttpResponse(json.dumps(List), content_type="application/json")
+
+
 
 def State_ID_API (request, Pagename):
     info = {}

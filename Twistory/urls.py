@@ -26,5 +26,6 @@ urlpatterns = patterns('',
     url(r'^hikes/(.*)/$', Hike_ID),
     url(r'^api/hikes/$', Hike_List_API),
     url(r'^api/hikes/(.*)/$', Hike_ID_API),
+    url(r'^hungry/$', Hungry),
     url(r'^.*/$', PageNotFound)
 )
