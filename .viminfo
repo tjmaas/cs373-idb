@@ -47,20 +47,25 @@ $
 	 
 
 # File marks:
-'0  1  0  ~/Twistory/tests.out
-'1  1  0  ~/.git/MERGE_MSG
-'2  1  0  ~/Twistory/myapp/models.py
-'3  1  0  ~/Twistory/manage.py
-'4  1  0  ~/myapp
-'5  53  0  ~/Twistory/settings.py
-'6  22  55  ~/Twistory/Twistory/myapp/tests.py
-'7  85  39  ~/Twistory/Twistory/settings.py
-'8  37  0  ~/Twistory/Twistory/myapp/tests.py
-'9  30  48  ~/Twistory/Twistory/myapp/views.py
+'0  2  10  ~/Twistory/testAPI.py
+'1  3  30  ~/Twistory/testAPI.py
+'2  1  0  ~/.git/MERGE_MSG
+'3  1  0  ~/Twistory/tests.out
+'4  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
+'5  1  0  ~/Twistory/myapp/models.py
+'6  1  0  ~/Twistory/manage.py
+'7  1  0  ~/myapp
+'8  53  0  ~/Twistory/settings.py
+'9  22  55  ~/Twistory/Twistory/myapp/tests.py
 
 # Jumplist (newest first):
--'  1  0  ~/Twistory/tests.out
+-'  2  10  ~/Twistory/testAPI.py
+-'  3  30  ~/Twistory/testAPI.py
+-'  1  0  ~/Twistory/testAPI.py
 -'  1  0  ~/.git/MERGE_MSG
+-'  1  0  ~/Twistory/tests.out
+-'  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
+-'  1  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
 -'  1  0  ~/Twistory/myapp/models.py
 -'  1  0  ~/Twistory/manage.py
 -'  1  0  ~/myapp
@@ -151,19 +156,29 @@ $
 -'  3  34  ~/Twistory/Twistory/myapp/views.py
 -'  59  9  ~/Twistory/Twistory/settings.py
 -'  11  37  ~/Twistory/Twistory/myapp/views.py
--'  2  14  ~/Twistory/Twistory/myapp/views.py
--'  8  124  ~/Twistory/Twistory/myapp/views.py
--'  85  39  ~/Twistory/Twistory/settings.py
--'  22  55  ~/Twistory/Twistory/myapp/tests.py
--'  85  39  ~/Twistory/Twistory/settings.py
 
 # History of marks within files (newest to oldest):
+
+> ~/Twistory/testAPI.py
+	"	2	10
+	^	2	11
+	.	2	11
+	+	1	141
+	+	1	19
+	+	2	6
+	+	1	0
+	+	2	75
+	+	3	35
+	+	2	11
+
+> ~/.git/MERGE_MSG
+	"	1	0
 
 > ~/Twistory/tests.out
 	"	1	0
 
-> ~/.git/MERGE_MSG
-	"	1	0
+> /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
+	"	271	0
 
 > ~/Twistory/myapp/models.py
 	"	1	0

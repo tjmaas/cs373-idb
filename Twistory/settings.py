@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'haystack',
+    'whoosh'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +58,17 @@ ROOT_URLCONF = 'Twistory.urls'
 
 
 WSGI_APPLICATION = 'Twistory.wsgi.application'
+
+WHOOSH_INDEX = os.path.join(BASE_DIR,'whoosh/')
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': WHOOSH_INDEX,
+    },
+}
+
+
 
 
 # Database

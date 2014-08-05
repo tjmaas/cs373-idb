@@ -1,8 +1,11 @@
-{{HTML_BEGIN|safe}}
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/singles.css" rel="stylesheet">
+{% endblock %}
+{% load static %}
+{% block body %}
 
-    {% load static %}
-
-    <div class="starter-template">
+    <div class="homepage">
         <div class = "singles">
             <h1>{{name}}</h1>
             <img src = "{{ hike_image }}" />
@@ -14,4 +17,4 @@
     </div>
 
 
-{{HTML_END|safe}}
+{% endblock %}

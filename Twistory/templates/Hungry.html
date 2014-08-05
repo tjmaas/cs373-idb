@@ -1,0 +1,11 @@
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/homepage.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="homepage">
+    <h1>Hungry?</h1>
+    <div class="container">
+    {{HTML|safe}}
+</div>
+{% endblock %}

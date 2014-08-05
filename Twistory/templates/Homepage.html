@@ -1,14 +1,15 @@
-{{HTML_BEGIN|safe}}
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/homepage.css" rel="stylesheet">
+{% endblock%}
 
-    <div class="starter-template">
+
+{% block body %}
+    <div class="homepage">
         <div class = "title-wrapper">
             <div class = "title">
                 <h1>National Parks</h1>
             </div>
         </div>
     </div>
-
-
-
-
-{{HTML_END|safe}}
+{% endblock %}
