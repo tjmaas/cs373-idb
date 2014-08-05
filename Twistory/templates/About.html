@@ -1,6 +1,10 @@
-{{HTML_BEGIN|safe}}
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/homepage.css" rel="stylesheet">
+{% endblock%}
 
-    <div class="starter-template">
+{% block body %}
+    <div class="homepage">
         <h1>Twistory</h1>
         <div class="about-para">
             <p>Twistory allows you to explore different National Parks and their hikes.<br><br></p>
@@ -8,4 +12,4 @@
         </div>
     </div>
 
-{{HTML_END|safe}}
+{% endblock %}

@@ -1,42 +1,20 @@
-{{HTML_BEGIN|safe}}
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/singles.css" rel="stylesheet">
+{% endblock %}
+{% load static %}
+{% block body %}
 
-    {% load static %}
-
-    <div class="starter-template">
+    <div class="homepage">
             <div class="singles">
             <h1>{{name}}</h1>
-            <img src = "{{ flag }}" />
-            <div class="row">
-                <div class ="col-md-6">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Date Founded</th>
-                                <th>Population</th>
-                                <th>Size</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{date_founded}}</td>
-                                <td>{{population}}</td>
-                                <td>{{size}} Sq. Mi.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <img src = "{{ flag }}" /><br><br><br>
+
             <div class="video-wrapper">
             <center>
             <div class="video-container">
                 <iframe width="640" height="360" src="//{{video}}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-            </div>
-            </center>
-            </div>
-            {{HtmlParks|safe}}
-        </div>
-    </div>
-
+            </div> <br><br><br>
 
     <div class="row">
         <div class ="col-md-6">
@@ -58,6 +36,13 @@
             </table>
         </div>
     </div>
+            </center>
+            </div>
+            {{HtmlParks|safe}}
+        </div>
+    </div>
 
 
-{{HTML_END|safe}}
+
+
+{% endblock %}

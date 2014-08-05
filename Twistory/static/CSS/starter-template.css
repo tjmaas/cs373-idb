@@ -4,115 +4,70 @@ html {
 }
 
 body {
-  padding-top: 50px;
-  background: url(http://sevennaturalwonders.org/wp-content/uploads/2008/12/shutterstock_93233353.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin-bottom: 60px;
-}
-.starter-template {
-  width: 100%;
-  padding: 40px 0px;
-  text-align: center;
-}
-
-.title-wrapper > h3 {
-    min-width:100%;
-    position: absolute;
-}
-.starter-template h2 {
-    font-size: 40px;
-    text-align: center;
-    color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
-    font-weight: 900;
-}
-
-.starter-template h1 {
-    font-size: 100px;
-    text-align: center;
-    color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
-    font-weight: 900;
-}
-
-.starter-template p {
-    font-size: 25px;
-    color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
-    font-weight: 900;
-
+  padding-bottom: 40px;
+  color: #5a5a5a;
+  width:100%;
+  padding-top:70px;
 }
 
 
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
 
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
 
-.thumbnail {
-	margin-bottom:7px;
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+
+}
+.navbar-wrapper .navbar {
+  background: rgb(00,00,00);
+  background: rgba(00, 00, 00, 0.8);
+  margin-bottom: 0;
+  border: 0;
+
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+.navbar-brand {
+    padding-left:3em;
 }
 
 
-.title-wrapper{
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .navbar-wrapper .container {
     width: 100%;
-    text-align: center;
-}
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
 
-.title{
-    width:800px;
-    max-width:100%;
-    margin-left:auto;
-    margin-right:auto;
-    height: auto;
-}
-
-.about-para{
-    width:600px;
-    max-width:100%;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.row img{
-    width: 350px;
-    height: 200px;
-}
-
-.singles img{
-    width:45%;
-    height:35%;
-}
-
-.video-wrapper {
-    width:50%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width:100%;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0; overflow: hidden;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-
-.footer {
+  .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -122,6 +77,11 @@ body {
   background-color: rgba(00, 00, 00, 0.8);
   z-index: 1;
 }
+
+}
+
+
+
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -144,16 +104,4 @@ code {
   font-size: 80%;
 }
 
-@media(max-width: 480px) {
-  .starter-template h1 {
-    font-size: 80px;
-  }
 
-  .singles h1 {
-      font-size: 60px;
-  }
-
-  .singles h2 {
-      font-size: 40px;
-  }
-}

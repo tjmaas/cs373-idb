@@ -1,7 +1,11 @@
-{{HTML_BEGIN|safe}}
+{% extends "HTML_BEGIN.html" %}
+{% block head %}
+<link href="../../static/CSS/homepage.css" rel="stylesheet">
+{% endblock%}
 
-    <div class="starter-template">
+{% block body %}
+    <div class="homepage">
         <h1>We're sorry, we couldn't find a page about that. Please check your spelling and try again.</h1>
     </div>
 
-{{HTML_END|safe}}
+{% endblock %}
