@@ -36,7 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'myapp',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,11 +54,18 @@ TEMPLATE_DIRS = (
         '/home/Twistory/Twistory/templates',
         )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'Twistory.urls'
 
 
 WSGI_APPLICATION = 'Twistory.wsgi.application'
 
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -84,9 +93,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-SETTINGS_DIR = os.path.dirname(__file__)
+SETTINGS_DIR = 'myapp.settings'
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 STATIC_URL = '/static/'
 STATIC_PATH = os.path.join(PROJECT_PATH,'static')
-

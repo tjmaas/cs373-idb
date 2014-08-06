@@ -1,4 +1,3 @@
-import datetime
 from haystack import indexes
 from myapp.models import State
 
@@ -9,8 +8,8 @@ class StateIndex(indexes.SearchIndex, indexes.Indexable):
     name = indexes.CharField(model_attr='name')
     date_founded = indexes.CharField(model_attr='date_founded')
     flag = indexes.CharField(model_attr='flag')
-    population = indexes.IntegerField(model_attr='name')
-    size = indexes.IntegerField(model_attr='name')
+    population = indexes.IntegerField(model_attr='population')
+    size = indexes.IntegerField(model_attr='size')
     video = indexes.CharField(model_attr='video')
 
     def get_model(self):
@@ -18,4 +17,4 @@ class StateIndex(indexes.SearchIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return self.get_model().objects.filter(pub_date__lte=datetime.datetime.now())
+        return self.get_model().objects

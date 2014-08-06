@@ -1,32 +1,12 @@
 {% extends "HTML_BEGIN.html" %}
 {% block head %}
-<link href="../../static/CSS/homepage.css" rel="stylesheet">
+<link href="../../static/CSS/singles.css" rel="stylesheet">
 {% endblock %}
+{% load static %}
 {% block body %}
-    {% load static %}
 
     <div class="homepage">
-        <div class="singles">
-            <h1>You searched for "{{query}}". Here is what we found:</h1>
-        </div>
-        <div class="singles">
-            <h1>States</h1>
-            {% for obj in found_State_entries %}
-                <li>{{ obj.name }}</li>
-            {% endfor %}
-        </div>
-        <div class="singles">
-            <h1>Parks</h1>
-            {% for obj in found_Park_entries %}
-                <li>{{ obj.name }}</li>
-            {% endfor %}
-        </div>
-        <div class="singles">
-            <h1>Hikes</h1>
-            {% for obj in found_Hike_entries %}
-                <li>{{ obj.name }}</li>
-            {% endfor %}
-        </div>
-    </div>
-
+            <div class="singles">
+            <h1>{{q}}</h1>
 {% endblock %}
+

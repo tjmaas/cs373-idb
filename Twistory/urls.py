@@ -1,10 +1,9 @@
-from django.conf.urls import patterns, include, url
-
+from django.conf.urls import *
 from myapp.views import *
 
 
 from django.contrib import admin
-admin.autodiscover()
+#admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -12,7 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', Homepage),
+
     url(r'^about/$', About),
     url(r'^states/$', State_List),
     url(r'^states/(.*)/$', State_ID),
@@ -21,7 +20,8 @@ urlpatterns = patterns('',
     url(r'^hikes/$', Hike_List),
     url(r'^hikes/(.*)/$', Hike_ID),
     url(r'^hungry/$', Hungry),
-    url(r'^search/$', Search),
+    url(r'^$', Homepage),
+    url(r'^search/', Search),
 
 
     # API

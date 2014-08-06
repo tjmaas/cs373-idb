@@ -1,11 +1,17 @@
-body {
-  padding-top: 50px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin-bottom: 60px;
+.row{
+    margin-left:auto;
+    margin-right:auto;
 }
+
+.row img{
+    width: 350px;
+    height: 200px;
+}
+
+.thumbnail {
+	margin-bottom:7px;
+}
+
 
 .homepage {
   width: 100%;
@@ -50,14 +56,14 @@ body {
     font-weight: 900;
 }
 
-.homepage p {
-    font-size: 25px;
-    color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
-    font-weight: 900;
+/*.homepage p {*/
+/*    font-size: 25px;*/
+/*    color:white;*/
+/*    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+/*    font-variant: small-caps;*/
+/*    font-weight: 900;*/
 
-}
+/*}*/
 
 @media(max-width: 480px) {
   .homepage h1 {

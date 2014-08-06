@@ -10,11 +10,14 @@ import locale
 import re
 from django.db.models import Q
 from django.template import RequestContext
+from haystack.forms import ModelSearchForm, HighlightedSearchForm
+from haystack.query import SearchQuerySet
+from haystack.views import SearchView
+from .forms import GlobalSearchForm
 
 locale.setlocale(locale.LC_ALL, 'en_US')
 
 HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
-HTML_END = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_END.html'), 'r').read()
 
 # Build the dictionaries for each handle page
 
@@ -23,23 +26,22 @@ def Homepage(request):
     Renders and returns the homepage for publishing. Uses a dictionary for all
     the variable values marked for django in Homepage.html.
     """
-    return render(request, 'Homepage.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+    return render(request, 'Homepage.html')
 
 def About(request):
     """
     Renders and returns the about page for publishing. Uses a dictionary for all
     the variables marked for django in About.html.
     """
-    return render(request, 'About.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+    return render(request, 'About.html')
 
 def PageNotFound(request):
-    return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+    return render(request, 'PageNotFound.html')
 
 
 def Hungry(request):
     response = urllib.request.urlopen('http://regionalfoods.pythonanywhere.com/api/recipe')
     recipes_json = list(eval(response.read().decode("utf-8")))
-
 
     HtmlToReturn = "<div class=\"row\">"
     try:
@@ -52,14 +54,14 @@ def Hungry(request):
             """
             HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + d["name"] +  "</h2></a></div></div>"
             """
-            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h4></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
+            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h4></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
             #<a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">d["name"]</a>
             #"<div class=\"modal fade\" id=\"basicModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"basicModal\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Modal title</h4></div><div class=\"modal-body\"><h3>Modal Body</h3></div></div></div></div>"
             inRow += 1
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
-        return render(request, 'Hungry.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+        return render(request, 'Hungry.html', {"HTML" : HtmlToReturn})
 
 
 def State_List_API (request):
@@ -186,12 +188,12 @@ def State_List (request):
             if (inRow == 3) :
                 HtmlToReturn += "</div> <div class=\"row\">"
                 inRow = 0
-            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + state +  "</h2></a></div></div>"
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + state +  "</h2></a></div></div>"
             inRow += 1
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
-        return render(request, 'StateList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+        return render(request, 'StateList.html', {"HTML" : HtmlToReturn})
 
 def State_ID (request, Pagename):
     """
@@ -204,7 +206,6 @@ def State_ID (request, Pagename):
         HtmlParks = "<h2>Parks In " + Pagename + "</h2>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
-        Dict["HTML_END"] = HTML_END
         Dict["name"] = StateObject.name
         Dict["date_founded"] = StateObject.date_founded
         Dict["flag"] = StateObject.flag
@@ -216,7 +217,7 @@ def State_ID (request, Pagename):
             HtmlParks += "<li><h2><a href=/parks/" + newParkName + ">" + park.name + "</a></h2></li>"
         Dict["HtmlParks"] = HtmlParks
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
         return render(request, 'State.html', Dict)
 
@@ -235,12 +236,12 @@ def Park_List (request):
             if (inRow == 3) :
                 HtmlToReturn += "</div> <div class=\"row\">"
                 inRow = 0
-            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/parks/" + park.replace(" ", "%20") + "><img src=\"" + Park.objects.get(name=park).park_image + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + park +  "</h2></a></div></div></center>"
+            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/parks/" + park.replace(" ", "%20") + "><img src=\"" + Park.objects.get(name=park).park_image + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + park +  "</h2></a></div></div></center>"
             inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'ParkList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+        return render(request, 'ParkList.html', {"HTML" : HtmlToReturn})
 
 
 def Park_ID (request, Pagename):
@@ -255,7 +256,6 @@ def Park_ID (request, Pagename):
         HtmlHikes = "<h2>Hikes In " + Pagename + "</h2>"
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
-        Dict["HTML_END"] = HTML_END
         Dict["state"] = "<h2>State: <a href=/states/" + ParkObject.state.name + ">" + ParkObject.state.name + "</a></h2>"
         Dict["name"] = ParkObject.name
         Dict["size"] = locale.format("%d", ParkObject.size, grouping=True)
@@ -268,7 +268,7 @@ def Park_ID (request, Pagename):
             HtmlHikes += "<li><h2><a href=/hikes/" + hike.name.replace(" ", "%20") + ">" + hike.name + "</a></h2></li>"
         Dict["HtmlHikes"] = HtmlHikes
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
         return render(request, 'Park.html', Dict)
 
@@ -287,12 +287,12 @@ def Hike_List (request):
             if (inRow == 3) :
                 HtmlToReturn += "</div> <div class=\"row\">"
                 inRow = 0
-            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/hikes/" + hike.replace(" ", "%20") + "><img src=\"" + Hike.objects.get(name=hike).hike_image + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + hike +  "</h2></a></div></div></center>"
+            HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/hikes/" + hike.replace(" ", "%20") + "><img src=\"" + Hike.objects.get(name=hike).hike_image + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + hike +  "</h2></a></div></div></center>"
             inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
     else :
-        return render(request, 'HikeList.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, "HTML" : HtmlToReturn})
+        return render(request, 'HikeList.html', {"HTML" : HtmlToReturn})
 
 def Hike_ID (request, Pagename):
     """
@@ -303,7 +303,6 @@ def Hike_ID (request, Pagename):
         HikeObject = Hike.objects.get(name=Pagename)
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
-        Dict["HTML_END"] = HTML_END
         Dict["name"] = HikeObject.name
         Dict["distance"] = HikeObject.distance
         Dict["est_time"] = HikeObject.est_time
@@ -311,62 +310,15 @@ def Hike_ID (request, Pagename):
         Dict["difficulty"] = HikeObject.difficulty
         Dict["park"] = "<h2>Park: <a href=/parks/" + HikeObject.park.name.replace(" ", "%20") + ">" + HikeObject.park.name + "</a></h2>"
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
         return render(request, 'Hike.html', Dict)
 
-def normalize_query(query_string,
-                    findterms=re.compile(r'"([^"]+)"|(\S+)').findall,
-                    normspace=re.compile(r'\s{2,}').sub):
-    ''' Splits the query string in invidual keywords, getting rid of unecessary spaces
-        and grouping quoted words together.
-        Example:
-
-        >>> normalize_query('  some random  words "with   quotes  " and   spaces')
-        ['some', 'random', 'words', 'with quotes', 'and', 'spaces']
-
-    '''
-    return [normspace(' ', (t[0] or t[1]).strip()) for t in findterms(query_string)]
-
-def get_query(query_string, search_fields):
-    ''' Returns a query, that is a combination of Q objects. That combination
-        aims to search keywords within a model by testing the given search fields.
-
-    '''
-    query = None # Query to search for every search term
-    terms = normalize_query(query_string)
-    for term in terms:
-        or_query = None # Query to search for a given term in each field
-        for field_name in search_fields:
-            q = Q(**{"%s__icontains" % field_name: term})
-            if or_query is None:
-                or_query = q
-            else:
-                or_query = or_query | q
-        if query is None:
-            query = or_query
-        else:
-            query = query & or_query
-    return query
-
-def Search (request) :
+def Search(request):
     query_string = ''
-    if ('srch-term' in request.GET) and request.GET['srch-term'].strip():
-        query_string = request.GET['srch-term']
-
-        State_entry_query = get_query(query_string, ['name'])
-        Park_entry_query = get_query(query_string, ['name'])
-        Hike_entry_query = get_query(query_string, ['name'])
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+        #THIS IS THE SEARCH STRING, WE NEED TO FIGURE OUT HOW TO SEARCH NOW
+    return render_to_response('search.html', {'q': query_string})
 
 
-        found_State_entries = State.objects.filter(State_entry_query).order_by('name')
-        found_Park_entries = Park.objects.filter(Park_entry_query).order_by('name')
-        found_Hike_entries = Hike.objects.filter(Hike_entry_query).order_by('name')
-
-        testArray = []
-        for obj in found_State_entries :
-            obj.name
-
-    return render_to_response('search.html',
-                          { "HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END, 'query': query_string, 'found_State_entries': found_State_entries, 'found_Park_entries': found_Park_entries,
-                          'found_Hike_entries': found_Hike_entries }, context_instance=RequestContext(request))
