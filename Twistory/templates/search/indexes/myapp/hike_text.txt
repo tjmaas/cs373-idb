@@ -1,2 +1,5 @@
 {{ object.name }}
 {{ object.est_time }}
+{{ object.distance }}
+{{ object.difficulty }}
+{{ object.park.name }}

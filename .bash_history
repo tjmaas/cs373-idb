@@ -1,50 +1,3 @@
-cd ..
-ls
-cd ..
-ls
-cd Twistory/
-ls
-git add --all .
-git commit -m "changed views to work with models and db"
-git push origin master
-ls
-git add --all .
-git commit -m "added states list and state html"
-git push origin master
-git pull origin master
-git push origin master
-ls
-cd Twistory
-ls
-python manage.py shell
-ls
-python3 DBAdder.py 
-ls
-python manage.py shell
-ls
-git status
-ls
-rm DBAdder.py 
-git status
-git add -A
-git add --all
-git add -A
-ls
-cd ..
-ls
-cd ..
-ls
-cd Twistory
-ls
-git add -A
-git commit -m "Added 3 states, 6 parks, and 18 hikes to the database"
-git push origin master
-git status
-git add --all .
-git commit -m "fixed spacing issue"
-git push
-git status
-git add --all .
 hit commit -m "fixed hike html spaces"
 git commit -m "fixed hike html spaces"
 git push
@@ -498,3 +451,50 @@ ls
 git add -A
 git checkout -b BOOMERS-BRANCH
 git status
+ls
+cd Twistory
+ls
+./manage.py shell
+pip3.4 show django-haystack
+pip3.4 show django
+pip3.4 show whoosh
+ls
+pwd
+cd app
+cd Twistory/
+ls
+./manage.py update_index
+./manage.py rebuild_index
+./manage.py createsuperuser 
+./manage.py rebuild_index
+./manage.py 
+./manage.py update_index
+./manage.py rebuild_index
+./manage.py shell
+./manage.py rebuild_index
+./manage.py shell
+./manage.py rebuild_index
+./manage.py shell
+./manage.py rebuild_index
+pip3.4 show whoosh
+./manage.py shell
+ls
+pwd
+ls
+cd
+python3.4
+python3.4 setup.py test
+ls
+cd Twistory/
+ls
+python3.3 setup.py test
+ls
+./manage.py shell
+ls
+cd ..
+ls
+pwd
+cd Twistory/
+ls
+./manage.py rebuild_index
+./manage.py shell

@@ -5,7 +5,7 @@ import urllib.request
 import json
 import os
 import locale
-from haystack.query import SearchQuerySet
+from haystack.query import SearchQuerySet,SQ
 
 # used for getting random background image
 import random
@@ -342,6 +342,7 @@ def Search (request) :
     and_names = set()
     or_names = set()
     final_sqs_or = set()
+
 
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
