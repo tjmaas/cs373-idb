@@ -1,9 +1,14 @@
-from django.conf.urls import *
-from myapp.views import *
+from django.conf.urls import patterns, url, include
+from Twistory.myapp.views import *
+from haystack.views import SearchView
+from haystack.forms import SearchForm
+from haystack.query import SearchQuerySet
 
+
+sqs = SearchQuerySet()
 
 from django.contrib import admin
-#admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -21,7 +26,12 @@ urlpatterns = patterns('',
     url(r'^hikes/(.*)/$', Hike_ID),
     url(r'^hungry/$', Hungry),
     url(r'^$', Homepage),
-    url(r'^search/', Search),
+    # url(r'^search/$', SearchView(
+    #     template='search/search.html',
+    #     searchqueryset=sqs,
+    #     form_class=SearchForm),
+    #     name='haystack_search'),
+    url(r'^search/$', Search),
 
 
     # API
@@ -34,3 +44,8 @@ urlpatterns = patterns('',
 
     url(r'^.*/$', PageNotFound)
 )
+# SearchView(
+#         template='search/search.html',
+#         searchqueryset=sqs,
+#         form_class=HighlightedSearchForm),
+#         name='haystack_search')

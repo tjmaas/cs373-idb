@@ -1,1 +1,4 @@
 {{ object.name }}
+{{ object.date_founded }}
+{{ object.size }}
+{{ object.population }}

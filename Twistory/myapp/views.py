@@ -1,25 +1,21 @@
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
-from myapp.models import State, Park, Hike
-from whoosh.query import *
-from whoosh.index import open_dir
+from .models import State, Park, Hike
 import urllib.request
 import json
 import os
 import locale
-import re
-from django.db.models import Q
-from django.template import RequestContext
-from haystack.forms import ModelSearchForm, HighlightedSearchForm
 from haystack.query import SearchQuerySet
-from haystack.views import SearchView
-from .forms import GlobalSearchForm
+
+# used for getting random background image
+import random
+import os.path
 
 locale.setlocale(locale.LC_ALL, 'en_US')
 
 HTML_BEGIN = open(os.path.join(os.path.dirname(__file__),'../templates/HTML_BEGIN.html'), 'r').read()
 
-# Build the dictionaries for each handle page
+# Build the dictionaries for each page
 
 def Homepage(request):
     """
@@ -40,7 +36,7 @@ def PageNotFound(request):
 
 
 def Hungry(request):
-    response = urllib.request.urlopen('http://regionalfoods.pythonanywhere.com/api/recipe')
+    response = urllib.request.urlopen('https://regionalfoods.pythonanywhere.com/api/recipe/')
     recipes_json = list(eval(response.read().decode("utf-8")))
 
     HtmlToReturn = "<div class=\"row\">"
@@ -48,13 +44,13 @@ def Hungry(request):
         inRow = 0
         for item in recipes_json:
             d = item["fields"]
-            if (inRow == 3) :
-                HtmlToReturn += "</div> <div class=\"row\">"
-                inRow = 0
+            # if (inRow == 3) :
+            #     HtmlToReturn += "</div> <div class=\"row\">"
+            #     inRow = 0
             """
-            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + d["name"] +  "</h2></a></div></div>"
+            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "https://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + d["name"] +  "</h2></a></div></div>"
             """
-            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h4></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "http://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
+            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h4></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "https://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
             #<a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">d["name"]</a>
             #"<div class=\"modal fade\" id=\"basicModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"basicModal\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Modal title</h4></div><div class=\"modal-body\"><h3>Modal Body</h3></div></div></div></div>"
             inRow += 1
@@ -185,9 +181,9 @@ def State_List (request):
         statesByAlpha = sorted([state.name for state in StateObjects])
         inRow = 0
         for state in statesByAlpha :
-            if (inRow == 3) :
-                HtmlToReturn += "</div> <div class=\"row\">"
-                inRow = 0
+            # if (inRow == 3) :
+            #     HtmlToReturn += "</div> <div class=\"row\">"
+            #     inRow = 0
             HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + state +  "</h2></a></div></div>"
             inRow += 1
     except Exception:
@@ -203,7 +199,7 @@ def State_ID (request, Pagename):
     try:
         StateObject = State.objects.get(name=Pagename)
         ParksinState = Park.objects.filter(state=StateObject)
-        HtmlParks = "<h2>Parks In " + Pagename + "</h2>"
+        HtmlParks = ""
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
         Dict["name"] = StateObject.name
@@ -214,8 +210,16 @@ def State_ID (request, Pagename):
         Dict["video"] = StateObject.video
         for park in ParksinState :
             newParkName = park.name.replace(" ", "%20")
-            HtmlParks += "<li><h2><a href=/parks/" + newParkName + ">" + park.name + "</a></h2></li>"
+            HtmlParks += "<li><h3><a href=/parks/" + newParkName + ">" + park.name + "</a></h3></li>"
         Dict["HtmlParks"] = HtmlParks
+
+        #getting random background
+        images = []
+        for filename in os.listdir("/home/Twistory/Twistory/static/images/"):
+            images.append(filename)
+        r = random.randint(0, len(images)-1)
+        Dict["background"] = str(images[r])
+
     except Exception:
         return render(request, 'PageNotFound.html')
     else :
@@ -233,13 +237,13 @@ def Park_List (request):
         inRow = 0
         HtmlToReturn = "<div class=\"row\">"
         for park in parksByAlpha :
-            if (inRow == 3) :
-                HtmlToReturn += "</div> <div class=\"row\">"
-                inRow = 0
+            # if (inRow == 3) :
+            #     HtmlToReturn += "</div> <div class=\"row\">"
+            #     inRow = 0
             HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/parks/" + park.replace(" ", "%20") + "><img src=\"" + Park.objects.get(name=park).park_image + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + park +  "</h2></a></div></div></center>"
             inRow += 1
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
         return render(request, 'ParkList.html', {"HTML" : HtmlToReturn})
 
@@ -253,10 +257,10 @@ def Park_ID (request, Pagename):
     try:
         ParkObject = Park.objects.get(name=Pagename)
         HikesinPark = Hike.objects.filter(park=ParkObject)
-        HtmlHikes = "<h2>Hikes In " + Pagename + "</h2>"
+        HtmlHikes = ""
         Dict = {}
         Dict["HTML_BEGIN"] = HTML_BEGIN
-        Dict["state"] = "<h2>State: <a href=/states/" + ParkObject.state.name + ">" + ParkObject.state.name + "</a></h2>"
+        Dict["state"] = "<a href=/states/" + ParkObject.state.name + ">" + ParkObject.state.name + "</a>"
         Dict["name"] = ParkObject.name
         Dict["size"] = locale.format("%d", ParkObject.size, grouping=True)
         Dict["max_elevation"] = locale.format("%d", ParkObject.max_elevation, grouping=True)
@@ -265,8 +269,16 @@ def Park_ID (request, Pagename):
         Dict["num_visitors"] = locale.format("%d", ParkObject.num_visitors, grouping=True)
         Dict["video"] = ParkObject.video
         for hike in HikesinPark :
-            HtmlHikes += "<li><h2><a href=/hikes/" + hike.name.replace(" ", "%20") + ">" + hike.name + "</a></h2></li>"
+            HtmlHikes += "<li><h3><a href=/hikes/" + hike.name.replace(" ", "%20") + ">" + hike.name + "</a></h3></li>"
         Dict["HtmlHikes"] = HtmlHikes
+
+        #getting random background
+        images = []
+        for filename in os.listdir("/home/Twistory/Twistory/static/images/"):
+            images.append(filename)
+        r = random.randint(0, len(images)-1)
+        Dict["background"] = str(images[r])
+
     except Exception:
         return render(request, 'PageNotFound.html')
     else :
@@ -284,13 +296,13 @@ def Hike_List (request):
         inRow = 0
         HtmlToReturn = "<div class=\"row\">"
         for hike in hikesByAlpha :
-            if (inRow == 3) :
-                HtmlToReturn += "</div> <div class=\"row\">"
-                inRow = 0
+            # if (inRow == 3) :
+            #     HtmlToReturn += "</div> <div class=\"row\">"
+            #     inRow = 0
             HtmlToReturn += "<center><div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/hikes/" + hike.replace(" ", "%20") + "><img src=\"" + Hike.objects.get(name=hike).hike_image + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + hike +  "</h2></a></div></div></center>"
             inRow += 1
     except Exception:
-        return render(request, 'PageNotFound.html', {"HTML_BEGIN" : HTML_BEGIN, "HTML_END" : HTML_END})
+        return render(request, 'PageNotFound.html')
     else :
         return render(request, 'HikeList.html', {"HTML" : HtmlToReturn})
 
@@ -308,17 +320,49 @@ def Hike_ID (request, Pagename):
         Dict["est_time"] = HikeObject.est_time
         Dict["hike_image"] = HikeObject.hike_image
         Dict["difficulty"] = HikeObject.difficulty
-        Dict["park"] = "<h2>Park: <a href=/parks/" + HikeObject.park.name.replace(" ", "%20") + ">" + HikeObject.park.name + "</a></h2>"
+        Dict["park"] = "<h3><a href=/parks/" + HikeObject.park.name.replace(" ", "%20") + ">" + HikeObject.park.name + "</a></h3>"
+
+        #getting random background
+        images = []
+        for filename in os.listdir("/home/Twistory/Twistory/static/images/"):
+            images.append(filename)
+        r = random.randint(0, len(images)-1)
+        Dict["background"] = str(images[r])
+
     except Exception:
         return render(request, 'PageNotFound.html')
     else :
         return render(request, 'Hike.html', Dict)
 
-def Search(request):
+def Search (request) :
     query_string = ''
+    sqs_list = []
+    sqs_or = set()
+    same_results = set()
+    and_names = set()
+    or_names = set()
+    final_sqs_or = set()
+
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
-        #THIS IS THE SEARCH STRING, WE NEED TO FIGURE OUT HOW TO SEARCH NOW
-    return render_to_response('search.html', {'q': query_string})
+        new_query = query_string.split(' ')
+        for word in new_query :
+            sqs_list.append((SearchQuerySet().filter(content=word)))
+        for curSet in sqs_list :
+            sqs_or.update(set((q for q in curSet)))
+
+        sqs_and = set(SearchQuerySet().filter(content=query_string))
+
+        for item in sqs_and :
+            and_names.add(item.name)
+        for item in sqs_or :
+            or_names.add(item.name)
+
+        same_results = and_names.intersection(or_names)
+
+        for item in sqs_or :
+            if item.name not in same_results :
+                final_sqs_or.add(item)
 
 
+    return render_to_response('search/search.html', {'and_results': sqs_and, 'or_results' : final_sqs_or, 'query' : query_string, 'same_results' : same_results})

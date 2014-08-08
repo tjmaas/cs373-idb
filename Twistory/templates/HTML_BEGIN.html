@@ -27,6 +27,7 @@
   <body>
 
 
+
     <div class="navbar-wrapper">
         <div class="navbar navbar-default navbar-static-top" role="navigation">
           <div class="container">
@@ -51,10 +52,11 @@
                 <div class="col-sm-3 col-md-3 pull-right">
                     <form class="navbar-form" role="search" method="get" action="/search/">
                         <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="q" id="q">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="q_id">
                         <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
+
                         </div>
                     </form>
                 </div>
@@ -62,7 +64,6 @@
           </div>
         </div>
     </div>
-
 
 
     {% block body %}

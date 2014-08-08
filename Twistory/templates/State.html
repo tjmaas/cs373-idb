@@ -1,47 +1,99 @@
 {% extends "HTML_BEGIN.html" %}
 {% block head %}
-<link href="../../static/CSS/singles.css" rel="stylesheet">
+<link href="../../static/CSS/singles2.css" rel="stylesheet">
 {% endblock %}
 {% load static %}
 {% block body %}
 
-    <div class="homepage">
-            <div class="singles">
-            <h1>{{name}}</h1>
-            <div class="flag-wrapper">
-                <img src = "{{ flag }}" /><br><br><br>
-            </div>
-            <div class="video-wrapper">
-            <center>
-            <div class="video-container">
-                <iframe width="640" height="360" src="//{{video}}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-            </div> <br><br><br>
 
-    <div class="row">
-        <div class ="col-md-6">
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Date Founded</th>
-                        <th>Population</th>
-                        <th>Size</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{date_founded}}</td>
-                        <td>{{population}}</td>
-                        <td>{{size}} Sq. Mi.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-            </center>
+    <div class="background">
+    <img src="../../static/images/{{background}}" />
+        <div class="row">
+            <div class="col-sm-4">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h1><center><strong>{{name}}</strong></center></h1>
+                  <!--<h3 class="panel-title">{{name}}</h3>-->
+                </div>
+                <div class="panel-body">
+                  <img src = "{{flag}}" />
+                </div>
+              </div>
             </div>
-            {{HtmlParks|safe}}
-        </div>
+            <div class="col-sm-4">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Info</h3>
+                </div>
+                <div class="panel-body">
+                  <h3>Date Founded: {{date_founded}}</h3><br>
+                  <h3>Population: {{population}}</h3><br>
+                  <h3>Size: {{size}} Sq. Mi.</h3><br>
+                </div>
+              </div>
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Parks</h3>
+                </div>
+                <div class="panel-body">
+                  {{HtmlParks|safe}}
+                </div>
+              </div>
+            </div><!-- /.col-sm-4 -->
+            <div class="col-sm-4">
+              <div class="panel panel-danger">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Video</h3>
+                </div>
+                <div class="panel-body">
+                  <iframe src="//{{video}}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div><!-- /.col-sm-4 -->
+      </div>
     </div>
+
+
+
+
+    <!-- THIS IS THE CODE FROM TUESDAY NIGHT, COMMENTED BY TERRENCE
+    <!--<div class="homepage">-->
+    <!--        <div class="singles">-->
+    <!--        <h1>{{name}}</h1>-->
+    <!--        <div class="flag-wrapper">-->
+    <!--            <img src = "{{ flag }}" /><br><br><br>-->
+    <!--        </div>-->
+    <!--        <div class="video-wrapper">-->
+    <!--        <center>-->
+    <!--        <div class="video-container">-->
+    <!--            <iframe width="640" height="360" src="//{{video}}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>-->
+    <!--        </div> <br><br><br>-->
+
+    <!--<div class="row">-->
+    <!--    <div class ="col-md-6">-->
+    <!--        <table class="table table-condensed">-->
+    <!--            <thead>-->
+    <!--                <tr>-->
+    <!--                    <th>Date Founded</th>-->
+    <!--                    <th>Population</th>-->
+    <!--                    <th>Size</th>-->
+    <!--                </tr>-->
+    <!--            </thead>-->
+    <!--            <tbody>-->
+    <!--                <tr>-->
+    <!--                    <td>{{date_founded}}</td>-->
+    <!--                    <td>{{population}}</td>-->
+    <!--                    <td>{{size}} Sq. Mi.</td>-->
+    <!--                </tr>-->
+    <!--            </tbody>-->
+    <!--        </table>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--        </center>-->
+    <!--        </div>-->
+    <!--        {{HtmlParks|safe}}-->
+    <!--    </div>-->
+    <!--</div>-->
 
 
 

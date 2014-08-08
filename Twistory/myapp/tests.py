@@ -6,7 +6,7 @@
 
 from django.test import TestCase, Client
 from django.test.utils import setup_test_environment
-from myapp.models import State, Park, Hike
+from .models import State, Park, Hike
 
 
 # -----------

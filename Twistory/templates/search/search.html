@@ -1,5 +1,119 @@
 {% extends "HTML_BEGIN.html" %}
-{% load i18n %}
-{% block body %}
-  <h3>Results</h3>
+{% block head %}
+<link href="../../static/CSS/singles.css" rel="stylesheet">
 {% endblock %}
+{% load humanize %}
+{% load static %}
+{% block body %}
+
+    <div class="homepage">
+            <div class="singles">
+            <h3>Search results for "{{query}}"</h3>
+            <h3>Results using AND operator:</h3>
+            {% for result in and_results %}
+                {% ifequal result.model_name 'state' %}
+                <p>
+                    <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.flag }}' height=100 width=175>
+                </p>
+                <p>
+                    Date Founded: {{ result.object.date_founded }}
+                </p>
+                <p>
+                    Population: {{ result.object.population|intcomma }}
+                </p>
+                <p>
+                    Size: {{ result.object.size|intcomma }} Sq. Mi.
+                </p>
+                {% endifequal %}
+                {% ifequal result.model_name 'park' %}
+                <p>
+                    <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+                {% ifequal result.model_name 'hike' %}
+                <p>
+                    <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+            <h3>Results using OR operator:</h3>
+            {% for result in or_results %}
+                {% if result.model_name == 'state' %}
+                <p>
+                    <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.flag }}' height=100 width=175>
+                </p>
+                <p>
+                    Date Founded: {{ result.object.date_founded }}
+                </p>
+                <p>
+                    Population: {{ result.object.population|intcomma }}
+                </p>
+                <p>
+                    Size: {{ result.object.size|intcomma }} Sq. Mi.
+                </p>
+                {% endif %}
+                {% ifequal result.model_name 'park' %}
+                <p>
+                    <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+                {% ifequal result.model_name 'hike' %}
+                <p>
+                    <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+            <h3>Same results:{{same_results}}</h3>
+            {% for result in same_results %}
+                {% if result.model_name == 'state' %}
+                <p>
+                    <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.flag }}' height=100 width=175>
+                </p>
+                <p>
+                    Date Founded: {{ result.object.date_founded }}
+                </p>
+                <p>
+                    Population: {{ result.object.population|intcomma }}
+                </p>
+                <p>
+                    Size: {{ result.object.size|intcomma }} Sq. Mi.
+                </p>
+                {% endif %}
+                {% ifequal result.model_name 'park' %}
+                <p>
+                    <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+                {% ifequal result.model_name 'hike' %}
+                <p>
+                    <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                {% endifequal %}
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+    </div>
+    </div>
+{% endblock %}
+

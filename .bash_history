@@ -1,317 +1,3 @@
-ls
-cp tests.py /home/Twistory/Twistory/Twistory
-ls
-cd ..
-ls
-cd ..
-ls
-./manage.py test
-ls
-cd ..
-sl
-cd Twistory
-ls
-cd ..
-ls
-cd Twistory
-ls
-cd Twistory
-ls
-cd ..
-ls
-./manage.py test
-clear
-./manage.py test
-ls
-cd Twistory
-ls
-rm tests.py
-ls
-cd myapp
-ls
-cd ..
-ls
-cd ..
-ls
-vim manage.py
-ls
-cd Twistory/
-ls
-cd myapp/
-ls
-vim tests.py
-ls
-coverage3 run --branch tests.py
-sudo apt-get install coverage3
-apt-get install coverage3
-./manage.py test myapp
-ls
-cd ..
-ls
-cd ..
-ls
-./manage.py test myapp
-./manage.py test Twistory.myapp.tests
-./manage.py test Twistory/
-django
-ls
-git status
-git pull
-git pull orgin/master
-git pull orgin master
-ls
-git pull orign master
-git pull origin master
-cd ..
-ls
-cd Twistory/
-ls
-cd Twistory/
-ls
-cd ..
-ls
-cd ..
-ls
-git pull origin master
-git add .
-git status
-git add --all .
-git status
-git commit -m "added new css files"
-git push
-git status
-git add .
-git commit -m "homepage is working"
-git push
-git pull origin master
-git add .
-git commit -m "fixed paths"
-git push
-git add .
-git commit -m "cleaned up more files"
-git push
-git add .
-git add --all .
-git commit -m "added logic in views.py to get Bios"
-git push
-git status
-git pull
-git pull origin master
-ls
-pwd
-git status
-git add Twistory/templates/Homepage.html
-git commit -m "added icon"
-git status
-git push
-git status
-git pull
-git pull origin master
-git status
-git add --all .
-git commit -m "added logic to build arbitrary pages"
-git push
-git add --all .
-git commit -m "Added a lot of automation for building pages and error checking"
-git push
-git add --all .
-git commit -m "Cleaning up a few files"
-git push
-git pull
-git pull origin master
-git pull
-git pull origin master
-git add-all .
-git add --all .
-git commit -m "added a coouple images and implemented hashtag logic"
-git push
-git pull
-git pull origin master
-ls
-cd Twistory/
-ls
-cd static/
-ls
-cp -r Clusters/ clusters/
-ls
-rm -r Clusters/
-ls
-cd ..
-ls
-git add --all
-git push
-git push origin master
-git commit -m "changed Clusters to clusters"
-git push
-git add --all .
-git commit -m "added more to homepage carousel"
-git push
-git pull origin master
-ls
-pydoc models.py
-cd Twistory
-ls
-cd myapp
-ls
-pydoc models.py
-cd ../..
-ls
-cd Twistory
-python manage.py
-python manage.py test
-python manage.py --settings=Twistory.settings test
-python manage.py test --setting=Twistory.settings
-python manage.py test --setting="Twistory.settings"
-ls
-cd static/
-ls
-cp handles/LeBron_James/RHandles.txt handles/*/RHandles.txt
-cd handles/Chris_Bosh/
-ls
-cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
-cd ..
-ls
-cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
-ls
-cd ..
-cp handles/LeBron_James/RHandles.txt handles/*/RHandles1.txt
-cp handles/LeBron_James/RHandles.txt handles/*/
-ls
-cd clusters/
-cd ..
-ls
-cd handles/
-ls
-cd Chris_Bosh/
-ls
-cd ..
-ls
-cp handles/LeBron_James/RHandles.txt handles/*/RHandles.txt
-cp handles/LeBron_James/RHandles.txt handles/*/ RHandles.txt
-cp handles/LeBron_James/RHandles.txt handles/*/
-cp -r handles/LeBron_James/RHandles.txt handles/*/
-ls
-cd handles/
-ls
-cd Chris_Bosh/
-ls
-cd ..
-ls
-cd Dwyane_Wade/
-ls
-cd ..
-cd LeBron_James/
-ls
-cd Graphs/
-ls
-cd ..
-ls
-cp RHandles.txt ../Chris_Bosh/
-cd ../Chris_Bosh/
-ls
-cd ..
-cd LeBron_James/
-ls
-cp RHandles.txt ../*/
-cd ..
-ls
-git pull
-git pull origin master
-rm Chris_Bosh/RHandles.txt Tony_Parker/RHandles.txt 
-git pull origin master
-git push origin master
-git status
-ls
-cd ..
-ls
-git status
-cd static/handles/Tony_Parker/
-ls
-git pull origin master
-cd ..
-ls
-cd ..
-lsw
-cd ..
-ls
-git --checkout templates/Handle.html
-git reset HEAD -- .
-git pull origin master
-git status
-git checkout -- templates/Handle.html
-git pull origin master
-git push origin master
-git add *
-git add --all .
-git status
-git add --all .
-git commit -m "added descriptions for hashtags"
-git push
-git add --all .
-git commit -m "changed the pagenotfound to display properly"
-git push
-ls
-cd myapp/
-ls
-pydoc -w models.py
-pydoc -w Twistory.models.py
-git pull origin master
-git status
-git add --all .
-git push origin master
-git commit -m "readded settings, website up"
-git push
-ls
-git status
-git add --all .
-git commit -m "added settings again"
-cd ..
-ls
-git add --all .
-git commit -m "added settings again"
-git push
-git pull origin master
-ls
-cd Twistory/
-ls
-python3 manage.py sql myapp
-python3
-pip freeze
-python3 manage.py sql myapp
-python manage.py sql myapp
-python manage.py sql
-python manage.py sql myapp
-python manage.py syncdb
-python manage.py shell
-python3 manage.py shell
-cd ..
-ls
-cd ..
-ls
-cd Twistory/
-ls
-git status
-git add --all .
-git commit -m "got database to work"
-git push origin master
-git pull
-git pull origin master
-ls
-cd ..
-ls
-cd Twistory/
-git add --all .
-git commit -m "changed views"
-git push origin master
-git add --all .
-git commit -m "changed views"
-git push origin master
-git pull origin master
-cd Twistory/
-ls
-rm db.sqlite3 
-git pull origin master
-ls
 cd ..
 ls
 cd ..
@@ -498,3 +184,317 @@ ls
 cd ..
 ls
 git pull origin master
+pip install django-haystack
+pseudo install django-haystack
+sudo install django-haystack
+pip install django-haystack
+ls
+pwd
+cd Twistory/
+ls
+cd ..
+cd src
+ls
+cd ..
+rm -r src
+ls
+mkdir -p ~/bin ~/src ~/lib/python2.7
+ls
+cd src
+ls
+cd ..
+ls
+cd src
+ls
+cd lib
+cd ..
+cd lib
+ls
+cd python2.7/
+ls
+cd
+ls
+pip install django-haystack
+sudo install django-haystack
+sudo apt-get install django-haystack
+sudo pip install django-haystack
+pkexec visudo 
+ls 
+cd bin/
+ls
+cd ..
+ls -a
+cd bin/
+ls -a
+cd ..
+cd .pip/
+ls -a
+less pip.log 
+cd sr
+ls
+ccd ..
+cd ..
+ls
+cd src
+ls
+ls -a
+wget https://pypi.python.org/simple/django-haystack/django-haystack-2.2.0.tar.gz
+wget https://pypi.python.org/packages/source/d/django-haystack/django-haystack-2.2.0.tar.gz
+tar zfx django-haystack-2.2.0.tar.gz 
+ls
+cd django-haystack-2.2.0/
+ls
+make
+./configure --prefix=$HOME
+cd haystack/
+ls
+make 
+make install
+cd ..
+less PKG-INFO 
+ls
+pwd
+cd haystack/
+ls
+run
+cd ..
+less README.rst 
+cd ..
+ls
+cd ..
+ls
+cd src/
+ls
+cd django-haystack-2.2.0/
+lls
+ls
+cd 
+pip install -e git+https://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
+chmod 777 lib/python2.7
+pip install -e git+https://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
+pip install --user django-haystack
+ls
+cd src/
+ls
+cd ..
+rm -r src/
+ls
+cd lib/
+ls
+cd ..
+ls
+rm -r lib/
+cd bin/
+ls
+llss 
+ls -a
+cd ..
+ls
+rm -r bin/
+ls
+pip install --user django-haystack
+pip install -e git+https://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
+ls
+cd -r src/
+rm -r src/
+ls
+cd ..
+ls
+cd ..
+ls
+find -name django
+ls
+cd lib
+ls
+cd ..
+ls
+cd usr
+ls
+cd local/
+al
+ls
+cd packages/
+ls
+cd ..
+ls
+ls -a
+cd lib
+ls
+cd python3.4/
+ls
+cd dist-packages/
+ls
+cd django/
+ls
+cd ../../../..
+ls
+pip3.4 install --user django-haystack
+pip3.4 install --user Whoosh
+cd ../../
+ls
+cd home/
+ls
+cd Twistory/
+ls
+git status
+git add --all .
+git commit -m "installed haystack"
+git push origin master
+ls
+git status
+git pull
+git pull origin master
+git add -A .
+git commit -m "started search function, redid django templates and css"
+git push
+git status
+ls
+python manage.py rebuild_index
+pip3.4 install --user haystack
+pip3.4 install --user django-haystack
+pip uninstall --user haystack
+pip uninstall haystack
+pip3.4 uninstall haystack
+ls
+cd Ywi
+cd Twistory/
+ls
+python manage.py rebuild_index
+manage.py helo
+manage.py help
+python manage.py rebuild_index
+python3 manage.py rebuild_index
+python manage.py rebuild_index
+ls
+cd ..
+ls
+python manage.py rebuild_index
+django
+pip3.4 uninstall Whoosh
+pip3.4 install Whoosh
+pip3.4 install --user Whoosh
+ls
+python manage.py rebuild_index
+pip3.4 install --user six
+python manage.py rebuild_index
+pip install --user six
+python manage.py rebuild_index
+./manage.py rebuild_index
+python3 manage.py rebuild_index
+pip install --user six
+pip3.4 install --user six
+python3 manage.py rebuild_index
+python manage.py rebuild_index
+pip install --user six
+pip3.4 install --user six
+pip3.4 list
+pip list
+ls
+./manage.py update_index
+ls
+python3 manage.py update_index
+python manage.py update_index
+pip3.4 install --user django-six
+pip show haystack
+pip3.4 show haystack
+pip3.3 show haystack
+pip show django-haystack
+pip3.4 show haystack
+pip3.4 show django-haystack
+pip uninstall django-haystack
+python manage.py update_index
+python3 manage.py update_index
+ls
+
+python manage.py update_index
+pip3.4 uninstall django-haystack
+pip install --user django-haystack
+python manage.py update_index
+./manage.py 
+ls -l
+chmod 777 manage.py
+./manage.py 
+./manage.py rebuild_index
+pip3.4 install --user django-haystack
+./manage.py rebuild_index
+ls
+pwd
+cd Twistory/
+ls
+./manage.py rebuild_index
+git status
+git add -A .
+git commit -m "haystack & new page layouts"
+git push
+git pull
+git pull origin master
+git push origin master
+pip3.4 show nose
+./manage.py shell
+ls
+cd Twistory/
+ls
+./manage.py shell
+ls
+./manage.py tests.out 
+./manage.py tests
+./manage.py test
+ls
+./manage.py test
+ls
+cd myapp
+ls
+git status
+git checkout -- tests.py
+git status
+cd ..
+ls
+./manage.py test
+ls
+pwd
+ls
+mv __init__.py /home/i.py
+mv __init__.py i.py
+ls
+./manage.py test
+ls
+rm i.py 
+ls
+./manage.py test
+ls
+pwd
+cd ..
+ls
+cd Twistory/
+ls
+git status
+cd ..
+ls
+./manage.py test
+echo $PYTHONPATH
+./manage.py help --commands
+ls
+cd Twistory
+ls
+./manage.py test
+git status
+git checkout -- __init__.py
+ls
+cd myapp
+ls
+cd ..
+./manage.py test
+ls
+printenv
+./manage.py test
+ls
+cd ..
+ls
+./manage.py test
+./manage.py --settings
+ls
+git status
+ls
+git add -A
+git checkout -b BOOMERS-BRANCH
+git status

@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'haystack',
     'myapp',
 
@@ -74,7 +75,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '/home/Twistory/Twistory/db.sqlite3',
-    }
+    },
+    'slave': {
+        'ENGINE' : 'django.db.backends.sqlite3',
+   'TEST_MIRROR' :  'default',
+
+        },
 }
 
 # Internationalization
