@@ -11,8 +11,8 @@
 $
 
 # Command Line History (newest to oldest):
-:q
 :wq
+:q
 :q!
 
 # Search String History (newest to oldest):
@@ -47,18 +47,20 @@ $
 	 
 
 # File marks:
-'0  1  0  ~/.gitconfig
-'1  1  0  ~/.git/MERGE_MSG
-'2  2  10  ~/Twistory/testAPI.py
-'3  3  30  ~/Twistory/testAPI.py
-'4  1  0  ~/Twistory/tests.out
-'5  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
-'6  1  0  ~/Twistory/myapp/models.py
-'7  1  0  ~/Twistory/manage.py
-'8  1  0  ~/myapp
-'9  53  0  ~/Twistory/settings.py
+'0  1  0  ~/.viminfo
+'1  1  0  ~/.git/COMMIT_EDITMSG
+'2  1  0  ~/.gitconfig
+'3  1  0  ~/.git/MERGE_MSG
+'4  2  10  ~/Twistory/testAPI.py
+'5  3  30  ~/Twistory/testAPI.py
+'6  1  0  ~/Twistory/tests.out
+'7  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
+'8  1  0  ~/Twistory/myapp/models.py
+'9  1  0  ~/Twistory/manage.py
 
 # Jumplist (newest first):
+-'  1  0  ~/.viminfo
+-'  1  0  ~/.git/COMMIT_EDITMSG
 -'  1  0  ~/.gitconfig
 -'  1  0  ~/.git/MERGE_MSG
 -'  2  10  ~/Twistory/testAPI.py
@@ -155,10 +157,14 @@ $
 -'  1  0  ~/Twistory/Twistory/templates/currentdatetime.html
 -'  7  37  ~/Twistory/Twistory/views.py
 -'  3  34  ~/Twistory/Twistory/myapp/views.py
--'  59  9  ~/Twistory/Twistory/settings.py
--'  11  37  ~/Twistory/Twistory/myapp/views.py
 
 # History of marks within files (newest to oldest):
+
+> ~/.viminfo
+	"	1	0
+
+> ~/.git/COMMIT_EDITMSG
+	"	1	0
 
 > ~/.gitconfig
 	"	1	0
