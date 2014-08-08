@@ -1,1 +1,5 @@
 {{ object.name }}
+{{ object.state.name }}
+{{ object.date_founded }}
+{{ object.size }}
+{{ object.max_elevation }}
