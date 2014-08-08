@@ -10,56 +10,12 @@
             <div class="singles">
             <h3>Search results for "{{query}}"</h3>
             <h3>Results using AND operator:</h3>
+            <div class="row">
             {% for result in and_results %}
-                {% ifequal result.model_name 'state' %}
-                <p>
-                    <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
-                </p>
-                <p>
-                    <img src='{{ result.flag }}' height=100 width=175>
-                </p>
-                <p>
-                    Date Founded: {{ result.object.date_founded }}
-                </p>
-                <p>
-                    Population: {{ result.object.population|intcomma }}
-                </p>
-                <p>
-                    Size: {{ result.object.size|intcomma }} Sq. Mi.
-                </p>
-                {% endifequal %}
-                {% ifequal result.model_name 'park' %}
-                <p>
-                    <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
-                </p>
-                <p>
-                    <img src='{{ result.park_image }}' height=100 width=175>
-                </p>
-                <p>
-                    Date Founded: {{ result.object.date_founded }}
-                </p>
-                <p>
-                    Number of annual visitors: {{ result.object.num_visitors|intcomma }}
-                </p>
-                <p>
-                    Max Elevation: {{ result.object.max_elevation|intcomma }} Feet
-                </p>
-                {% endifequal %}
-                {% ifequal result.model_name 'hike' %}
-                <p>
-                    <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
-                </p>
-                {% endifequal %}
-
-            {% empty %}
-                <p>No results found.</p>
-            {% endfor %}
-            <h3>Results using OR operator </h3>
-            <h3>(won't show results already listed in previous section):</h3>
-            {% for result in or_results %}
                 {% if result.model_name == 'state' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
                 <p>
-                    <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
+                    State: <a href="/states/{{ result.object.name }}">{{ result.object.name }}</a>
                 </p>
                 <p>
                     <img src='{{ result.flag }}' height=100 width=175>
@@ -73,10 +29,13 @@
                 <p>
                     Size: {{ result.object.size|intcomma }} Sq. Mi.
                 </p>
+                <br>
+                </div>
                 {% endif %}
                 {% ifequal result.model_name 'park' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
                 <p>
-                    <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
+                    Park: <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
                 </p>
                 <p>
                     <img src='{{ result.park_image }}' height=100 width=175>
@@ -90,16 +49,107 @@
                 <p>
                     Max Elevation: {{ result.object.max_elevation|intcomma }} Feet
                 </p>
+                <br>
+                </div>
                 {% endifequal %}
                 {% ifequal result.model_name 'hike' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
                 <p>
-                    <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
+                    Hike: <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
                 </p>
+                <p>
+                    <img src='{{ result.hike_image }}' height=100 width=175>
+                </p>
+                <p>
+                    Distance: {{ result.object.distance }} miles
+                </p>
+                <p>
+                    Estimated time: {{ result.object.est_time|intcomma }} minutes
+                </p>
+                <p>
+                    Difficulty: {{ result.object.difficulty }}
+                </p>
+                <br>
+                </div>
                 {% endifequal %}
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
+            </div>
+            <hr class="featurette-divider">
+            <div class="row">
+            <h3>Results using OR operator</h3>
+            <h3>(won't show results already listed in previous section):</h3>
 
+            {% for result in or_results %}
+                {% if result.model_name != 'state' and result.model_name != 'park' and result.model_name != 'hike' %}
+                    {{ result.name }}
+                {% endif %}
+                {% if result.model_name == 'state' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
+                <p>
+                    State: <a href="/states/{{ result.name }}">{{ result.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.flag }}' height=100 width=175>
+                </p>
+                <p>
+                    Date Founded: {{ result.date_founded }}
+                </p>
+                <p>
+                    Population: {{ result.object.population|intcomma }}
+                </p>
+                <p>
+                    Size: {{ result.object.size|intcomma }} Sq. Mi.
+                </p>
+                <br>
+                </div>
+                {% endif %}
+                {% ifequal result.model_name 'park' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
+                <p>
+                    Park: <a href="/parks/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.park_image }}' height=100 width=175>
+                </p>
+                <p>
+                    Date Founded: {{ result.object.date_founded }}
+                </p>
+                <p>
+                    Number of annual visitors: {{ result.object.num_visitors|intcomma }}
+                </p>
+                <p>
+                    Max Elevation: {{ result.object.max_elevation|intcomma }} Feet
+                </p>
+                <br>
+                </div>
+                {% endifequal %}
+                {% ifequal result.model_name 'hike' %}
+                <div class='col-lg-2 col-sm-6 col-xs-12'>
+                <p>
+                    Hike: <a href="/hikes/{{ result.object.name }}">{{ result.object.name }}</a>
+                </p>
+                <p>
+                    <img src='{{ result.hike_image }}' height=100 width=175>
+                </p>
+                <p>
+                    Distance: {{ result.object.distance }} miles
+                </p>
+                <p>
+                    Estimated time: {{ result.object.est_time|intcomma }} minutes
+                </p>
+                <p>
+                    Difficulty: {{ result.object.difficulty }}
+                </p>
+                <br>
+                </div>
+                {% endifequal %}
+            {% empty %}
+                <p>No results found.</p>
+
+            {% endfor %}
+            </div>
             {% if page.has_previous or page.has_next %}
                 <div>
                     {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}

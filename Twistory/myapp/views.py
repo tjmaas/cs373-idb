@@ -337,25 +337,61 @@ def Hike_ID (request, Pagename):
 def Search (request) :
     query_string = ''
     sqs_list = []
+
     sqs_or = set()
+    sqs_and = set()
+
     same_results = set()
+
     and_names = set()
     or_names = set()
     final_sqs_or = set()
+    final_sqs_and = set()
+
 
 
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
         new_query = query_string.split(' ')
         for word in new_query :
+            word = word.lower()
             sqs_list.append((SearchQuerySet().filter(content=word)))
+            if (word == u'state' or word ==u'states') :
+                sqs_list.append(State.objects.all())
+            elif (word == u'park' or word == u'parks') :
+                sqs_list.append(Park.objects.all())
+            elif (word == u'hike' or word ==u'hikes') :
+                sqs_list.append(Hike.objects.all())
         for curSet in sqs_list :
             sqs_or.update(set((q for q in curSet)))
 
-        sqs_and = set(SearchQuerySet().filter(content=query_string))
+        if('state' in new_query) :
+            real_query = query_string.replace('state', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(State))
+        elif('states' in new_query) :
+            real_query = query_string.replace('states', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(State))
+        elif('park' in new_query) :
+            real_query = query_string.replace('park', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(Park))
+        elif('parks' in new_query) :
+            real_query = query_string.replace('parks', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(Park))
+        elif('hike' in new_query) :
+            real_query = query_string.replace('hike', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(Hike))
+        elif('hikes' in new_query) :
+            real_query = query_string.replace('hikes', '')
+            sqs_and = set(SearchQuerySet().filter(content=real_query).models(Hike))
+        else :
+            sqs_and = set(SearchQuerySet().filter(content=query_string))
 
+        # fixed duplicate bug
         for item in sqs_and :
-            and_names.add(item.name)
+            if item.name not in and_names :
+                and_names.add(item.name)
+                final_sqs_and.add(item)
+
         for item in sqs_or :
             or_names.add(item.name)
 
@@ -366,4 +402,6 @@ def Search (request) :
                 final_sqs_or.add(item)
 
 
-    return render_to_response('search/search.html', {'and_results': sqs_and, 'or_results' : final_sqs_or, 'query' : query_string, 'same_results' : same_results})
+        return render_to_response('search/search.html', {'and_results': final_sqs_and, 'or_results' : final_sqs_or, 'query' : query_string})
+    else:
+        return render_to_response('search/search.html')

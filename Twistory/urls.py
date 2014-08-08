@@ -1,14 +1,19 @@
 from django.conf.urls import patterns, url, include
 from Twistory.myapp.views import *
-from haystack.views import SearchView
-from haystack.forms import SearchForm
+# from haystack.views import SearchView
+# from haystack.forms import SearchForm
 from haystack.query import SearchQuerySet
 
 
 sqs = SearchQuerySet()
 
 from django.contrib import admin
+from Twistory.myapp.models import State,Hike,Park
 admin.autodiscover()
+admin.site.register(State)
+admin.site.register(Hike)
+admin.site.register(Park)
+
 
 urlpatterns = patterns('',
     # Examples:
