@@ -47,18 +47,19 @@ $
 	 
 
 # File marks:
-'0  1  0  ~/.git/MERGE_MSG
-'1  2  10  ~/Twistory/testAPI.py
-'2  3  30  ~/Twistory/testAPI.py
-'3  1  0  ~/Twistory/tests.out
-'4  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
-'5  1  0  ~/Twistory/myapp/models.py
-'6  1  0  ~/Twistory/manage.py
-'7  1  0  ~/myapp
-'8  53  0  ~/Twistory/settings.py
-'9  22  55  ~/Twistory/Twistory/myapp/tests.py
+'0  1  0  ~/.gitconfig
+'1  1  0  ~/.git/MERGE_MSG
+'2  2  10  ~/Twistory/testAPI.py
+'3  3  30  ~/Twistory/testAPI.py
+'4  1  0  ~/Twistory/tests.out
+'5  271  0  /usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py
+'6  1  0  ~/Twistory/myapp/models.py
+'7  1  0  ~/Twistory/manage.py
+'8  1  0  ~/myapp
+'9  53  0  ~/Twistory/settings.py
 
 # Jumplist (newest first):
+-'  1  0  ~/.gitconfig
 -'  1  0  ~/.git/MERGE_MSG
 -'  2  10  ~/Twistory/testAPI.py
 -'  3  30  ~/Twistory/testAPI.py
@@ -158,6 +159,9 @@ $
 -'  11  37  ~/Twistory/Twistory/myapp/views.py
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitconfig
+	"	1	0
 
 > ~/.git/MERGE_MSG
 	"	1	0
