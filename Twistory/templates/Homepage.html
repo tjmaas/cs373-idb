@@ -1,15 +1,72 @@
 {% extends "HTML_BEGIN.html" %}
 {% block head %}
 <link href="../../static/CSS/homepage.css" rel="stylesheet">
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 {% endblock%}
 
 
 {% block body %}
-    <div class="homepage">
-        <div class = "title-wrapper">
-            <div class = "title">
-                <h1>National Parks</h1>
+
+
+
+
+    <div class="row">
+        <h2>Come outside!</h2>
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="list-group">
+              <a href="/states" class="list-group-item active">
+                Some States
+              </a>
+              <a href="{{state1_link}}" class="list-group-item">{{state1}}</a>
+              <a href="{{state2_link}}" class="list-group-item">{{state2}}</a>
+              <a href="{{state3_link}}" class="list-group-item">{{state3}}</a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="list-group">
+              <a href="/parks" class="list-group-item active">
+                Some Parks
+              </a>
+              <a href="{{park1_link}}" class="list-group-item">{{park1}}</a>
+              <a href="{{park2_link}}" class="list-group-item">{{park2}}</a>
+              <a href="{{park3_link}}" class="list-group-item">{{park3}}</a></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="list-group">
+              <a href="/hikes" class="list-group-item active">
+                Some Hikes
+              </a>
+              <a href="{{hike1_link}}" class="list-group-item">{{hike1}}</a>
+              <a href="{{hike2_link}}" class="list-group-item">{{hike2}}</a>
+              <a href="{{hike3_link}}" class="list-group-item">{{hike3}}</a></a>
             </div>
         </div>
     </div>
+
+
+
+
+    <!--<div class="homepage">-->
+    <!--    <div class = "title-wrapper">-->
+    <!--        <div class = "title">-->
+    <!--            <h1>National Parks</h1>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--<div class="jumbotron">-->
+    <!--    <h1>Sup?</h1>-->
+    <!--    <p>I heard you like hiking....</p>-->
+    <!--    <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>-->
+    <!--</div>-->
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

@@ -3,9 +3,9 @@
     width: 100%;
 }
 
-/*body {*/
-/*    background-color: #68AEDC;*/
-/*}*/
+body{
+    padding-top:70px
+}
 
 
 .panel-warning .panel-heading {

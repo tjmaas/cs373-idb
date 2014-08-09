@@ -1,4 +1,34 @@
+body{
+    padding-top:70px;
+}
+
 .row {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.about-container{
+    max-width:100%;
+    overflow:hidden;
+    padding:40px 0;
+    text-align:center;
+}
+
+
+.col-md-5 .featurette-image{
+    overflow:hidden;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+
+@media(max-width: 480px) {
+    .about-container{
+        max-width:100%;
+    }
 }

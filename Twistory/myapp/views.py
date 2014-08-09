@@ -5,7 +5,7 @@ import urllib.request
 import json
 import os
 import locale
-from haystack.query import SearchQuerySet,SQ
+from haystack.query import SearchQuerySet
 
 # used for getting random background image
 import random
@@ -22,7 +22,25 @@ def Homepage(request):
     Renders and returns the homepage for publishing. Uses a dictionary for all
     the variable values marked for django in Homepage.html.
     """
-    return render(request, 'Homepage.html')
+
+    StateObject = State.objects.all()
+    ParkObject = Park.objects.all()
+    HikeObject = Hike.objects.all()
+    Dict = {}
+    i = 1
+    for state, park, hike in zip(StateObject, ParkObject, HikeObject) :
+        if ( i > 3 ):
+            break
+        Dict["state"+str(i)+"_link"] = "/states/"+state.name
+        Dict["state"+str(i)] = state.name
+        Dict["park"+str(i)+"_link"] = "/parks/"+park.name
+        Dict["park"+str(i)] = park.name
+        Dict["hike"+str(i)+"_link"] = "/hikes/"+hike.name
+        Dict["hike"+str(i)] = hike.name
+        i += 1
+
+
+    return render(request, 'Homepage.html', Dict)
 
 def About(request):
     """
@@ -44,15 +62,9 @@ def Hungry(request):
         inRow = 0
         for item in recipes_json:
             d = item["fields"]
-            # if (inRow == 3) :
-            #     HtmlToReturn += "</div> <div class=\"row\">"
-            #     inRow = 0
-            """
-            HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "https://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"starter-template\"><h2>" + d["name"] +  "</h2></a></div></div>"
-            """
-            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h4></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "https://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
-            #<a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">d["name"]</a>
-            #"<div class=\"modal fade\" id=\"basicModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"basicModal\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h4 class=\"modal-title\" id=\"myModalLabel\">Modal title</h4></div><div class=\"modal-body\"><h3>Modal Body</h3></div></div></div></div>"
+
+            HtmlToReturn += "<div class=\"modal fade\" id=\"basicModal" + str(item["pk"]) + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"" + d["name"] + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h3 class=\"modal-title\" id=\"myModalLabel\">Cooking Instructions:</h3></div><div class=\"modal-body\"><h3>" + d["instructions"] + "</h3></div></div></div></div>" + "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><img src=\"" + "https://regionalfoods.pythonanywhere.com" + d["image"] + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + "<a href=\"#\" class=\"tn btn-lg  btn-info\" data-toggle=\"modal\" data-target=\"#basicModal" + str(item["pk"]) + "\">" + d["name"] + "</a>" + "</h2></a></div></div>"
+
             inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html')
@@ -179,13 +191,8 @@ def State_List (request):
     try:
         StateObjects = State.objects.all()
         statesByAlpha = sorted([state.name for state in StateObjects])
-        inRow = 0
         for state in statesByAlpha :
-            # if (inRow == 3) :
-            #     HtmlToReturn += "</div> <div class=\"row\">"
-            #     inRow = 0
             HtmlToReturn += "<div class=\"col-lg-4 col-sm-6 col-xs-12\"><a href=/states/" + state.replace(" ", "%20") + "><img src=\"" + State.objects.get(name=state).flag + "\" class=\"thumbnail img-responsive\"><div class=\"homepage\"><h2>" + state +  "</h2></a></div></div>"
-            inRow += 1
     except Exception:
         return render(request, 'PageNotFound.html')
     else :
@@ -400,7 +407,6 @@ def Search (request) :
         for item in sqs_or :
             if item.name not in same_results :
                 final_sqs_or.add(item)
-
 
         return render_to_response('search/search.html', {'and_results': final_sqs_and, 'or_results' : final_sqs_or, 'query' : query_string})
     else:

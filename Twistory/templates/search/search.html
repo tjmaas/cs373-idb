@@ -82,9 +82,9 @@
             <h3>(won't show results already listed in previous section):</h3>
 
             {% for result in or_results %}
-                {% if result.model_name != 'state' and result.model_name != 'park' and result.model_name != 'hike' %}
-                    {{ result.name }}
-                {% endif %}
+                <!--{% if result.model_name != 'state' and result.model_name != 'park' and result.model_name != 'hike' %}-->
+                <!--    {{ result.name }}-->
+                <!--{% endif %}-->
                 {% if result.model_name == 'state' %}
                 <div class='col-lg-2 col-sm-6 col-xs-12'>
                 <p>

@@ -4,11 +4,11 @@ html {
 }
 
 body {
-  padding-bottom: 40px;
+  padding-bottom: 50px;
+  padding-top:60px;
   color: #5a5a5a;
   width:100%;
-  padding-top:70px;
-  margin-bottom:50px;
+  /*margin-bottom:50px;*/
 }
 
 

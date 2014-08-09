@@ -65,7 +65,6 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-        'INCLUDE_SPELLING': True,
     },
 
 }
@@ -78,11 +77,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '/home/Twistory/Twistory/db.sqlite3',
     },
-    'default': {
+    'slave': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/home/Twistory/Twistory/db.sqlite3',
-        'TEST_MIRROR': 'default',
-    },
+        'NAME': '/home/Twistory/Tester/Test/db.sqlite3',
+        'TEST_MIRROR': 'default'
+        }
 
 
 

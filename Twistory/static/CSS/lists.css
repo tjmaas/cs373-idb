@@ -1,3 +1,16 @@
+.homepage {
+  width: 100%;
+  overflow:hidden;
+  margin-left:auto;
+  margin-right:auto;
+  /*padding: 20px 0;*/
+  padding-right:25px;
+  padding-top:0;
+  text-align: center;
+  opacity: 1;
+}
+
+
 img {
     z-index: 0;
     position: absolute;
@@ -11,8 +24,6 @@ img {
     margin-left:auto;
     margin-right:auto;
     position: relative;
-    /*margin-top: 100px;*/
-    /*margin-bottom: 100px;*/
     height: 200px;
 }
 
@@ -20,21 +31,25 @@ img {
     height: 200px;
     margin-top: 100px;
 }
+.col-lg-4:hover {
+    opacity: .6;
+}
 
 .col-sm-6 {
     height: 200px;
     margin-top: 100px;
+}
+.col-sm-6:hover {
+    opacity: .6;
 }
 
 .col-xs-12 {
     height:200px;
     margin-top: 100px;
 }
-
-/*center {*/
-/*    margin-top: 50px;*/
-/*    margin-bottom: 50px;*/
-/*}*/
+.col-xs-12:hover {
+    opacity: .6;
+}
 
 .row img{
     margin: 0 0 0 0;
@@ -48,55 +63,37 @@ img {
 }
 
 
-.homepage {
-  width: 100%;
-  padding: 40px 0px;
-  text-align: center;
-  opacity: 1;
-}
-
-.title-wrapper > h3 {
-    min-width:100%;
-    position: absolute;
-}
 
 
-.title-wrapper{
-    width: 100%;
-    text-align: center;
-}
+/*center img:hover {*/
+/*    opacity: .6;*/
+/*}*/
 
-.title{
-    width:800px;
-    max-width:100%;
-    margin-left:auto;
-    margin-right:auto;
-    height: auto;
-}
 
 .homepage h2 {
     font-size: 40px;
     text-align: center;
     color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
+    text-shadow: -1px 1px #5a5a5a, 1px -1px #5a5a5a;
+    font-variant: normal;
     font-weight: 900;
     position: relative;
     margin-top: 0;
 }
 
-.homepage h1 {
-    font-size: 100px;
-    text-align: center;
-    color:white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-variant: small-caps;
-    font-weight: 900;
-    opacity: 1;
-}
+/*.homepage h1 {*/
+/*    font-size: 100px;*/
+/*    text-align: center;*/
+/*    color:black;*/
+    /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+/*    font-variant: small-caps;*/
+/*    font-weight: 900;*/
+/*    opacity: 1;*/
+/*}*/
 
 .homepage h2 {
     width: 350px;
+    height:200px;
 }
 
 /*.homepage p {*/
@@ -108,7 +105,11 @@ img {
 
 /*}*/
 
+.container{
+    margin-left:auto;
+    margin-right:auto;
 
+}
 
 @media(max-width: 480px) {
   .homepage h1 {
@@ -119,7 +120,7 @@ img {
       font-size: 60px;
   }
 
-  .singles h2 {
-      font-size: 40px;
+  .homepage h2 {
+      font-size: 30px;
   }
 }
