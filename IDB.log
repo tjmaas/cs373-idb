@@ -1,3 +1,104 @@
+commit 63333c0f7121ec5b73987ebecbb6248f7d8031f1
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Sat Aug 9 01:05:25 2014 +0000
+
+    Final commit for last project with Report and last touch ups
+
+commit e07e76d06bd8eca7d9fa8e529f6420a7a45973aa
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Aug 8 19:54:30 2014 +0000
+
+    changes to view search and url for the admin
+
+commit 0d7df9f558594d72fa0b00afd471d3af35a8ce10
+Merge: f904417 9c3bbec
+Author: Boomer Truong <boomuuh@users.noreply.github.com>
+Date:   Fri Aug 8 12:07:37 2014 -0500
+
+    Merge pull request #49 from tjmaas/hotfix
+    
+    Hotfix: fixed all the urls and django multiple file directory
+
+commit 9c3bbecf072153449fb32efa30db90d94815688a
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Aug 8 16:56:43 2014 +0000
+
+    temp branch changes css
+
+commit f32047d147c8b039313fd1999f7a89442e9876d1
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Aug 8 16:22:57 2014 +0000
+
+    CSS home PAGE
+
+commit 480fcccd19ed0e46d624caeb23e08e4deec5c4ee
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Aug 8 16:21:15 2014 +0000
+
+    Changes to CSS homepage.css file
+
+commit f9044179ce05641464cb9fd8628db53fa55fc4b0
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Fri Aug 8 01:53:45 2014 +0000
+
+    search now uses or and and operators
+
+commit 7260ccc3d482f30ff51fea73a79289e59a2e7d5d
+Merge: a4a8589 c4eb6fb
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Aug 6 02:07:05 2014 +0000
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit a4a8589d06a2836594b99c50987e36ce19f00cc4
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Wed Aug 6 02:06:27 2014 +0000
+
+    haystack & new page layouts
+
+commit c4eb6fbe0252fe5c7b391315db7bfe75392c31b5
+Merge: b3ea3ac 58bc90f
+Author: taow <taow@utexas.edu>
+Date:   Tue Aug 5 09:34:12 2014 -0500
+
+    Merge branch 'master' of https://github.com/tjmaas/cs373-idb
+
+commit b3ea3aca6406f9dad78229e34d1979dea777a22c
+Author: taow <taow@utexas.edu>
+Date:   Tue Aug 5 09:31:34 2014 -0500
+
+    test if one can change apiary
+
+commit 58bc90f0b5735657093e39a90ca0b7b1913c867b
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Tue Aug 5 02:58:07 2014 +0000
+
+    started search function, redid django templates and css
+
+commit 14ac3d02ea473a0f3757c2a2557453b0d431aef5
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Mon Aug 4 18:15:44 2014 +0000
+
+    installed haystack
+
+commit e03ce335a16297ca9204323331d14ed89f09c0c9
+Author: Nick <nick.dechant@utexas.edu>
+Date:   Mon Aug 4 06:47:40 2014 +0000
+
+    added searchbar to navbar, closes #42
+
+commit a4f38444a8b80d30a939d2c74562c7d3090374f2
+Author: taow <taow@utexas.edu>
+Date:   Sun Aug 3 14:34:51 2014 -0500
+
+    testing
+
+commit d81f251692091c172a13f06116dd36b9267a5c7f
+Author: Nick DeChant <nick.dechant@utexas.edu>
+Date:   Fri Jul 25 18:46:50 2014 -0500
+
+    Adding commit log to repo
+
 commit 0a49f9169381731e44e80e66d3cd3a12d9ef1494
 Merge: 9ae2b08 8fd9704
 Author: Nick DeChant <nick.dechant@utexas.edu>
